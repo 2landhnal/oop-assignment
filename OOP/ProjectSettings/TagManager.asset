@@ -51,11 +51,11 @@ TagManager:
   - name: Ground
     uniqueID: 936687061
     locked: 0
-  - name: Player
-    uniqueID: 1306553491
-    locked: 0
   - name: Upper Ground
     uniqueID: 1518393155
+    locked: 0
+  - name: Player
+    uniqueID: 1306553491
     locked: 0
   - name: Upper Player
     uniqueID: 2367376995
