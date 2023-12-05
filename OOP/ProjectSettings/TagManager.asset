@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -41,24 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< Updated upstream
-=======
   - name: Background
-    uniqueID: 2252184347
+    uniqueID: 806620105
     locked: 0
   - name: Behind Ground
-    uniqueID: 2224061355
+    uniqueID: 2660205763
     locked: 0
   - name: Ground
-    uniqueID: 2143207751
-    locked: 0
-  - name: Upper Ground
-    uniqueID: 4066777973
+    uniqueID: 936687061
     locked: 0
   - name: Player
-    uniqueID: 3328411713
+    uniqueID: 1306553491
+    locked: 0
+  - name: Upper Ground
+    uniqueID: 1518393155
     locked: 0
   - name: Upper Player
-    uniqueID: 490755735
+    uniqueID: 2367376995
     locked: 0
->>>>>>> Stashed changes
