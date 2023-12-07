@@ -3,12 +3,14 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     [SerializeField] protected int maxHP;
+    [SerializeField]protected Transform groundPoint;
     protected int currentHP;
     [SerializeField] protected float speed, jumpForce;
     protected Rigidbody2D rb;
     protected Animator animator;
     protected Vector2 tmpV2;
-    protected bool grouding, canDoubleJump;
+    protected bool canDoubleJump, grouding;
+    protected float horizontal;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,34 +21,46 @@ public class Creature : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(rb.velocity.x != 0)
-        {
-            tmpV2.x = rb.velocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x);
-            tmpV2.y = transform.localScale.y;
-            transform.localScale = tmpV2;
-        }
+        CheckFlip();
+        CheckGrounding();
 
         animator.SetBool("grouding", grouding);
         animator.SetFloat("xSpeed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVel", rb.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void CheckFlip()
     {
-        if(collision.gameObject.tag == "Ground")
+        horizontal = Input.GetAxisRaw("Horizontal");
+        if(horizontal != 0f)
         {
-            grouding = true;
-            canDoubleJump = true;
+            tmpV2.x = rb.velocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x);
+            tmpV2.y = transform.localScale.y;
+            transform.localScale = tmpV2;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public bool CheckGrounding()
     {
-        if (collision.gameObject.tag == "Ground")
+        grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, EnviromentProps.Instance.groundLayers);
+        if (grouding)
         {
-            grouding = false;
+            canDoubleJump = true;
         }
+        return grouding;
     }
 
     protected virtual void LateStart() { }
+
+    public bool FaceRight()
+    {
+        return transform.localScale.x > 0;
+    }
+
+    public void Flip(bool flipRight)
+    {
+        tmpV2.x = flipRight ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x);
+        tmpV2.y = transform.localScale.y;
+        transform.localScale = tmpV2;
+    }
 }
