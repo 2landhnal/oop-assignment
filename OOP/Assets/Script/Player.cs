@@ -41,7 +41,7 @@ public class Player : Creature
         {
             animator.SetBool("wallSlide", false);
         }
-        if (!TouchingWall())
+        if (!animator.GetBool("wallSlide"))
         {
             //move
             tmpV2.x = horizontal * speed;
