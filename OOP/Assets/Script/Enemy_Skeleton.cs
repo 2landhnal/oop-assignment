@@ -18,7 +18,10 @@ public class Enemy_Skeleton : Creature
     }
     private void Update()
     {
-        Move();
+        if(CanControl())
+        {
+            Move();
+        }
     }
 
     private void Move()

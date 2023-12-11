@@ -28,69 +28,72 @@ public class Player : Creature
     // Update is called once per frame
     void Update()
     {
-        //wallslide
-        if (TouchingWall() && !grouding)
+        if (CanControl())
         {
-            if (horizontal != 0)
+            //wallslide
+            if (TouchingWall() && !grouding)
             {
-                tmpV2.x = horizontal * speed;
-                tmpV2.y = -wallSlideSpeed;
-                rb.velocity = tmpV2;
-                animator.SetBool("wallSlide", true);
+                if (horizontal != 0)
+                {
+                    tmpV2.x = horizontal * speed;
+                    tmpV2.y = -wallSlideSpeed;
+                    rb.velocity = tmpV2;
+                    animator.SetBool("wallSlide", true);
+                }
+                else
+                {
+                    if (Input.GetKeyDown(KeyCode.W) && wallJumpCounter <= 0)
+                    {
+                        tmpV2.x = jumpForce * horizontal;
+                        tmpV2.y = canDoubleJump ? jumpForce : jumpForce / 1.2f;
+                        rb.velocity = tmpV2;
+
+                        wallJumpCounter = wallJumpCooldown;
+                    }
+                    animator.SetBool("wallSlide", false);
+                }
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.W) && wallJumpCounter <= 0)
-                {
-                    tmpV2.x = jumpForce * horizontal;
-                    tmpV2.y = canDoubleJump ? jumpForce : jumpForce / 1.2f;
-                    rb.velocity = tmpV2;
-
-                    wallJumpCounter = wallJumpCooldown;
-                    Debug.Log("Here");
-                }
                 animator.SetBool("wallSlide", false);
             }
-        }
-        else
-        {
-            animator.SetBool("wallSlide", false);
-        }
 
-        if (!animator.GetBool("wallSlide") && animator.GetBool("canControl"))
-        {
-            //move
-            tmpV2.x = horizontal * speed;
-            tmpV2.y = rb.velocity.y;
-            rb.velocity = tmpV2;
-
-            //jump
-            if (grouding || canDoubleJump)
+            if (!animator.GetBool("wallSlide") && animator.GetBool("canControl"))
             {
-                if(Input.GetKeyDown(KeyCode.W)){
-                    if (canDoubleJump && !grouding)
-                    {
-                        canDoubleJump = false;
-                    }
-                    tmpV2.x = rb.velocity.x;
-                    tmpV2.y = canDoubleJump ? jumpForce : jumpForce / 1.2f;
-                    rb.velocity = tmpV2;
-                }
-                if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
-                {
-                    tmpV2.x = rb.velocity.x;
-                    tmpV2.y = rb.velocity.y*.5f;
-                    rb.velocity = tmpV2;
-                }
-            }
+                //move
+                tmpV2.x = horizontal * speed;
+                tmpV2.y = rb.velocity.y;
+                rb.velocity = tmpV2;
 
-            //attack
-            if(Input.GetKeyDown(KeyCode.J)) {
-                animator.SetBool("attack", true);
-                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
+                //jump
+                if (grouding || canDoubleJump)
+                {
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        if (canDoubleJump && !grouding)
+                        {
+                            canDoubleJump = false;
+                        }
+                        tmpV2.x = rb.velocity.x;
+                        tmpV2.y = canDoubleJump ? jumpForce : jumpForce / 1.2f;
+                        rb.velocity = tmpV2;
+                    }
+                    if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
+                    {
+                        tmpV2.x = rb.velocity.x;
+                        tmpV2.y = rb.velocity.y * .5f;
+                        rb.velocity = tmpV2;
+                    }
+                }
+
+                //attack
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    animator.SetBool("attack", true);
+                    rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
+                }
             }
         }
-
     }
 
     public bool TouchingWall()

@@ -10,9 +10,12 @@ public class Creature : MonoBehaviour
     protected bool canDoubleJump, grouding;
     protected float horizontal;
     protected Collider2D col;
+    protected CombatProps cbProps;
+    protected float hurtDirect, hurtCounter;
     // Start is called before the first frame update
     void Start()
     {
+        cbProps = CombatProps.instance;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
@@ -26,6 +29,11 @@ public class Creature : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (hurtCounter > cbProps.hurtTime - cbProps.hurtPart)
+        {
+            //rb.velocity = cbProps.CreateVector2(rb.velocity, cbProps.hurtFoce * hurtDirect);
+            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * (hurtCounter + cbProps.hurtPart - cbProps.hurtTime) / cbProps.hurtPart * hurtDirect);
+        }
         CheckFlip();
         CheckGrounding();
 
@@ -33,6 +41,24 @@ public class Creature : MonoBehaviour
         animator.SetFloat("xSpeed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVel", rb.velocity.y);
         InsideLateUpdate();
+        CounterFunc();
+    }
+
+    void CounterFunc()
+    {
+        if (hurtCounter > 0)
+        {
+            hurtCounter -= Time.deltaTime;
+            if(hurtCounter <= 0)
+            {
+                //rb.velocity
+            }
+        }
+    }
+
+    public bool CanControl()
+    {
+        return animator.GetBool("canControl");
     }
 
     protected virtual void InsideLateUpdate() { }
@@ -48,6 +74,19 @@ public class Creature : MonoBehaviour
         {
             transform.Rot(180);
         }
+    }
+
+    public void SetHurtMove(Vector2 pos)
+    {
+        Debug.Log("This");
+        transform.FlipToObj(pos.x);
+
+        hurtDirect = (transform.CheckFlip() ? 1 : -1) * (-1);
+        rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * hurtDirect, yToSet: CombatProps.instance.hurtForce / 2 * Mathf.Sin(transform.GetRotZFollowTargetByVector3(pos, true)));
+
+        hurtCounter = cbProps.hurtTime;
+
+        animator.SetBool("hurt", hurtCounter > 0);
     }
 
     public bool CheckGrounding()

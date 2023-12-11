@@ -35,6 +35,28 @@ public static class TransformExtension
         }
         return (rot_z < 90 || rot_z > 270) ? 1 : -1;
     }
+
+    public static void FlipToObj(this Transform t, float xObj)
+    {
+        /*if (xObj >= transform.position.x)
+        {
+            //Debug.Log(1);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (xObj < transform.position.x)
+        {
+            //Debug.Log(2);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }*/
+        if (xObj >= t.position.x)
+        {
+            t.Rot(0);
+        }
+        else if (xObj < t.position.x)
+        {
+            t.Rot(180);
+        }
+    }
     public static int CheckFaceUp(this Transform t)
     {
         rot_z = t.rotation.eulerAngles.z;
