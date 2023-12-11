@@ -21,7 +21,7 @@ public class Enemy_Skeleton : Creature
     {
         player = Player.instance.gameObject.transform;
         float dist = Vector2.Distance(player.position, transform.position);
-        if (dist <= 2) animator.SetBool("AttackEnemy", true);
+        if (dist <= 3) animator.SetBool("AttackEnemy", true);
         else
         {
             animator.SetBool("AttackEnemy", false);
