@@ -6386,12 +6386,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0809c31fd6a3a6c488d0432781523a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000
   groundPoint: {fileID: 1705765543}
   speed: 10
   jumpForce: 15
   sidePoint: {fileID: 1739162173}
+  wallJumpCooldown: 1
   wallSlideSpeed: 4
+--- !u!114 &468564686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318222870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130bf48f59afe8f44a3a6dc93dac3116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 0
 --- !u!1 &518057583
 GameObject:
   m_ObjectHideFlags: 0
@@ -8240,7 +8253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_LocalScale.x
@@ -9494,7 +9507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1286714198
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10313,11 +10326,11 @@ RectTransform:
   m_Children:
   - {fileID: 2023375330}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12.26, y: 1.64}
+  m_AnchoredPosition: {x: 12.32, y: 4.56}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1559277038
