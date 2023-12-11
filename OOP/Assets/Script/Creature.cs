@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
@@ -17,6 +17,10 @@ public class Creature : MonoBehaviour
         animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         LateStart();
+    }
+    private void Update()
+    {
+        
     }
 
     public Vector2 GetCenterPos()
