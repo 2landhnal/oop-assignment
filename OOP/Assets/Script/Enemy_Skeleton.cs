@@ -5,18 +5,17 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class Enemy_Skeleton : Creature
 {
-    public float walkRaidus;
-    private List<float> points;
-    private float currentPoint;
-    int index;
+    Vector2 initialPosition;
+    int direction;
+    float maxDist = 0;
+    float minDist = 0;
 
-    protected override void LateStart()
+    private void Start()
     {
-        base.LateStart();
-        points.Insert(0, transform.position.x - walkRaidus);
-        points.Insert(1, transform.position.x + walkRaidus);
-        index = 0;
-        currentPoint = points[0];
+        initialPosition = transform.position;
+        direction = -1;
+        maxDist += transform.position.x;
+        minDist -= transform.position.x;
     }
     private void Update()
     {
@@ -25,23 +24,30 @@ public class Enemy_Skeleton : Creature
 
     private void Move()
     {
-        if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
+        switch (direction)
         {
-            index++;
-            if (index == points.Count)
-            {
-                index = 0;
-            }
-            currentPoint = points[index];
-        }
-        if (transform.position.x < currentPoint)
-        {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
-            //transform.position.x = currentPoint;
-        }
-        else
-        {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+            case -1:
+                // Moving Left
+                if (transform.position.x > minDist)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                {
+                    direction = 1;
+                }
+                break;
+            case 1:
+                //Moving Right
+                if (transform.position.x < maxDist)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                {
+                    direction = -1;
+                }
+                break;
         }
     }
 }
