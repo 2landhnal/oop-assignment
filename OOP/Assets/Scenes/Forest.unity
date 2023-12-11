@@ -23722,8 +23722,8 @@ Transform:
   m_GameObject: {fileID: 7386107287945201265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.05, y: -4.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.5767, y: -4.2, z: 0}
+  m_LocalScale: {x: 1.7661, y: 1.4881, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3299353645307930908}
@@ -23803,7 +23803,6 @@ MonoBehaviour:
   speed: 2
   jumpForce: 10
   walkRaidus: 10
-  Player: {fileID: 0}
 --- !u!114 &7386107287945201281
 MonoBehaviour:
   m_ObjectHideFlags: 0
