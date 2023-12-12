@@ -7,6 +7,7 @@ public class Enemy_Skeleton : Creature
     private List<float> points = new List<float>();
     private float currentPoint;
     int index;
+    private Transform player;
 
     protected override void LateStart()
     {
@@ -18,14 +19,44 @@ public class Enemy_Skeleton : Creature
     }
     private void Update()
     {
-        if(CanControl())
+        player = Player.instance.gameObject.transform;
+        float dist = Vector2.Distance(player.position, transform.position);
+        if (dist <= 3) animator.SetBool("AttackEnemy", true);
+        else
         {
-            Move();
+            animator.SetBool("AttackEnemy", false);
         }
+        if (animator.GetBool("AttackEnemy") == true)
+        {
+            if(transform.position.x < player.position.x && transform.rotation.z == -1)
+            {
+                currentPoint = transform.position.x;
+            }
+            else if (transform.position.x > player.position.x && transform.rotation.z == 0)
+            {
+                currentPoint = transform.position.x;
+            }
+        }
+        Move();
     }
 
     private void Move()
     {
+        player = Player.instance.gameObject.transform;
+        float dist = Vector2.Distance(player.position, transform.position);
+        if (dist > 3 && dist <= 7)
+        {
+            if (transform.position.x < player.position.x && transform.rotation.z == -1)
+            {
+                currentPoint = player.position.x;
+            }
+            else if (transform.position.x > player.position.x && transform.rotation.z == 0)
+            {
+                currentPoint = player.position.x;
+            }
+        }
+        else currentPoint = points[1 + (int)transform.rotation.z];
+
         if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
         {
             index++;
@@ -38,7 +69,6 @@ public class Enemy_Skeleton : Creature
         if (transform.position.x < currentPoint)
         {
             rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
-            //transform.position.x = currentPoint;
         }
         else
         {
