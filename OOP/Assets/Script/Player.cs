@@ -58,7 +58,7 @@ public class Player : Creature
                 animator.SetBool("wallSlide", false);
             }
 
-            if (!animator.GetBool("wallSlide") && animator.GetBool("canControl"))
+            if (!animator.GetBool("wallSlide"))
             {
                 //move
                 tmpV2.x = horizontal * speed;

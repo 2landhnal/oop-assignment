@@ -33,17 +33,21 @@ public class Creature : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (CanControl())
+        {
+            CheckFlip();
+        }
         if (hurtCounter > cbProps.hurtTime - cbProps.hurtPart)
         {
             //rb.velocity = cbProps.CreateVector2(rb.velocity, cbProps.hurtFoce * hurtDirect);
             rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * (hurtCounter + cbProps.hurtPart - cbProps.hurtTime) / cbProps.hurtPart * hurtDirect);
         }
-        CheckFlip();
         CheckGrounding();
 
         animator.SetBool("grouding", grouding);
         animator.SetFloat("xSpeed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVel", rb.velocity.y);
+        animator.SetFloat("hurtCounter", hurtCounter);
         InsideLateUpdate();
         CounterFunc();
     }
@@ -82,7 +86,6 @@ public class Creature : MonoBehaviour
 
     public void SetHurtMove(Vector2 pos)
     {
-        Debug.Log("This");
         transform.FlipToObj(pos.x);
 
         hurtDirect = (transform.CheckFlip() ? 1 : -1) * (-1);

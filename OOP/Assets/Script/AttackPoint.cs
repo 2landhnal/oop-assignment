@@ -12,13 +12,15 @@ public class AttackPoint : MonoBehaviour
     {
         cbProps = CombatProps.instance;
         col = GetComponent<Collider2D>();
-        if(((1 << transform.parent.gameObject.layer) & cbProps.playerLayer) != 0)
+        if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             enemyLayer = CombatProps.instance.enemyLayer;
+            gameObject.layer = LayerMask.NameToLayer("PlayerAtk");
         }
-        else if (((1 << transform.parent.gameObject.layer) & cbProps.enemyLayer) != 0)
+        else if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             enemyLayer = CombatProps.instance.playerLayer;
+            gameObject.layer = LayerMask.NameToLayer("EnemyAtk");
         }
     }
 

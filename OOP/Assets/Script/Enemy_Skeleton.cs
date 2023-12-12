@@ -16,28 +16,22 @@ public class Enemy_Skeleton : Creature
         points.Insert(1, transform.position.x + walkRaidus);
         index = 0;
         currentPoint = points[0];
+        player = Player.instance.gameObject.transform;
     }
     private void Update()
     {
-        player = Player.instance.gameObject.transform;
-        float dist = Vector2.Distance(player.position, transform.position);
-        if (dist <= 3) animator.SetBool("AttackEnemy", true);
-        else
+        if (CanControl())
         {
-            animator.SetBool("AttackEnemy", false);
+            float dist = Vector2.Distance(player.position, transform.position);
+            if (dist <= 3) Attack();
+            Move();
         }
-        if (animator.GetBool("AttackEnemy") == true)
-        {
-            if(transform.position.x < player.position.x && transform.rotation.z == -1)
-            {
-                currentPoint = transform.position.x;
-            }
-            else if (transform.position.x > player.position.x && transform.rotation.z == 0)
-            {
-                currentPoint = transform.position.x;
-            }
-        }
-        Move();
+    }
+
+    void Attack()
+    {
+        transform.FlipToObj(player.position.x);
+        animator.SetBool("attack", true);
     }
 
     private void Move()
