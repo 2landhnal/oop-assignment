@@ -12,6 +12,7 @@ public class Creature : MonoBehaviour
     protected Collider2D col;
     protected CombatProps cbProps;
     protected float hurtDirect, hurtCounter;
+    [SerializeField]protected bool reverseSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,11 +77,11 @@ public class Creature : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         if(rb.velocity.x > 0.1f)
         {
-            transform.Rot(0);
+            transform.Rot(180*(reverseSprite?1:0)-0);
         }
         else if (rb.velocity.x < -0.1f)
         {
-            transform.Rot(180);
+            transform.Rot(180 * (reverseSprite ? 1 : 0)-180);
         }
     }
 
