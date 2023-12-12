@@ -42,21 +42,6 @@ public class Enemy_Skeleton : Creature
 
     private void Move()
     {
-        player = Player.instance.gameObject.transform;
-        float dist = Vector2.Distance(player.position, transform.position);
-        if (dist > 3 && dist <= 7)
-        {
-            if (transform.position.x < player.position.x && transform.rotation.z == -1)
-            {
-                currentPoint = player.position.x;
-            }
-            else if (transform.position.x > player.position.x && transform.rotation.z == 0)
-            {
-                currentPoint = player.position.x;
-            }
-        }
-        else currentPoint = points[1 + (int)transform.rotation.z];
-
         if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
         {
             index++;
