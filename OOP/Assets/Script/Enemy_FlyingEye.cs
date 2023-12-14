@@ -1,7 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Skeleton : Creature
+public class Enemy_FlyingEye : Creature
 {
     public float walkRaidus, attackRadius;
     private List<float> points = new List<float>();

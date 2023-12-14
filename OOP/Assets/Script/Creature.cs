@@ -34,6 +34,10 @@ public class Creature : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Animator_GetDead())
+        {
+            return;
+        }
         if (CanControl())
         {
             CheckFlip();
@@ -51,6 +55,15 @@ public class Creature : MonoBehaviour
         animator.SetFloat("hurtCounter", hurtCounter);
         InsideLateUpdate();
         CounterFunc();
+    }
+
+    public void Animator_SetDead()
+    {
+        animator.SetBool("dead", true);
+    }
+    public bool Animator_GetDead()
+    {
+        return animator.GetBool("dead");
     }
 
     void CounterFunc()
