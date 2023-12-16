@@ -8,6 +8,7 @@ public class Enemy_Skeleton : Creature
     private float currentPoint;
     int index;
     private Transform player;
+    bool attacked;
 
     protected override void LateStart()
     {
@@ -24,17 +25,31 @@ public class Enemy_Skeleton : Creature
         {
             float dist = Vector2.Distance(player.position, transform.position);
             if (dist <= attackRadius) Attack();
-            Move();
+            if(!attacked)
+            {
+                CheckNextPoint();
+            }
+
+            //move
+            if (transform.position.x < player.position.x)
+            {
+                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
+            }
+            else
+            {
+                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+            }
         }
     }
 
     void Attack()
     {
+        attacked = true;
         transform.FlipToObj(player.position.x);
         animator.SetBool("attack", true);
     }
 
-    private void Move()
+    private void CheckNextPoint()
     {
         if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
         {
@@ -44,14 +59,6 @@ public class Enemy_Skeleton : Creature
                 index = 0;
             }
             currentPoint = points[index];
-        }
-        if (transform.position.x < currentPoint)
-        {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
-        }
-        else
-        {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
         }
     }
 }
