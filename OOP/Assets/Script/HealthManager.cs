@@ -1,7 +1,11 @@
 using UnityEngine;
-
 public class HealthManager : MonoBehaviour, IDamageable
 {
+
+    protected CombatProps cbProps;
+    protected float hurtDirect, hurtCounter;
+    private LayerMask enemyLayer;
+    protected Collider2D col;
     [SerializeField] private float maxHP;
     public float currentHP { get; private set; }
     private Creature creature;
@@ -26,10 +30,10 @@ public class HealthManager : MonoBehaviour, IDamageable
     public void TakeDamage(float damage, Vector2 pos)
     {
         currentHP -= damage;
-        creature.SetHurtMove(pos);
-        if(currentHP < 0)
+        if (currentHP <= 0)
         {
             creature.Animator_SetDead();
         }
+        else creature.SetHurtMove(pos);
     }
 }

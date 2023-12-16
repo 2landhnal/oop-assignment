@@ -357,7 +357,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 9.953778
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5959,8 +5959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.5691986, y: 0.00002861023}
+  m_SizeDelta: {x: 4.3384, y: -0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &575050041
 GameObject:
@@ -5989,7 +5989,7 @@ RectTransform:
   m_GameObject: {fileID: 575050041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 942598495}
@@ -5998,8 +5998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 379, y: -150}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 131.1, y: -29.4}
+  m_SizeDelta: {x: 198.8642, y: 22.8941}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575050043
 MonoBehaviour:
@@ -6892,10 +6892,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 575050042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMin: {x: 0, y: 0.75}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.15000916, y: -5.7235}
+  m_SizeDelta: {x: -2.9, y: 11.447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942598496
 MonoBehaviour:
@@ -7829,7 +7829,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -5.9169, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312117109
 MonoBehaviour:
@@ -15129,7 +15129,7 @@ Transform:
   m_GameObject: {fileID: 1786284733}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.13, y: -1.57, z: 0}
+  m_LocalPosition: {x: -7.21, y: 2.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20180,7 +20180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0

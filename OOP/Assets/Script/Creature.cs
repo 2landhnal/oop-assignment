@@ -14,6 +14,7 @@ public class Creature : MonoBehaviour
     protected CombatProps cbProps;
     protected float hurtDirect, hurtCounter;
     [SerializeField]protected bool reverseSprite;
+    private LayerMask enemyLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -106,6 +107,7 @@ public class Creature : MonoBehaviour
 
         hurtDirect = (transform.CheckFlip() ? 1 : -1) * (-1);
         rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * hurtDirect, yToSet: CombatProps.instance.hurtForce / 2 * Mathf.Sin(transform.GetRotZFollowTargetByVector3(pos, true)));
+
 
         hurtCounter = cbProps.hurtTime;
 

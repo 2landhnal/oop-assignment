@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     {
         tmpv3 = Vector2.Lerp(transform.position, player.position, speed);
         tmpv3.z = transform.position.z;
+        tmpv3.y = tmpv3.y + 2;
         transform.position = tmpv3;
     }
 }
