@@ -9,7 +9,6 @@ public class Creature : MonoBehaviour
     protected Animator animator;
     protected Vector2 tmpV2;
     protected bool canDoubleJump, grouding;
-    protected float horizontal;
     protected Collider2D col;
     protected CombatProps cbProps;
     protected float hurtDirect, hurtCounter;
@@ -90,7 +89,6 @@ public class Creature : MonoBehaviour
 
     void CheckFlip()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
         if(rb.velocity.x > 0.1f)
         {
             transform.Rot(180*(reverseSprite?1:0)-0);

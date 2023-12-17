@@ -3,10 +3,7 @@ using UnityEngine;
 public class Player : Creature
 {
     public static Player instance;
-    public Transform sidePoint;
-    [SerializeField]private float wallJumpCooldown;
-    private float wallJumpCounter;
-    [SerializeField] private float wallSlideSpeed;
+    protected float horizontalInput;
     private void Awake()
     {
         instance = this;
@@ -18,20 +15,17 @@ public class Player : Creature
 
     protected override void InsideLateUpdate()
     {
-        if(wallJumpCounter > 0)
-        {
-            wallJumpCounter -= Time.deltaTime;
-        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         if (CanControl())
         {
             //move
-            tmpV2.x = horizontal * speed;
+            tmpV2.x = horizontalInput * speed;
             tmpV2.y = rb.velocity.y;
             rb.velocity = tmpV2;
 
