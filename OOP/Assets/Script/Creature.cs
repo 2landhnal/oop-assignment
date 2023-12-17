@@ -14,6 +14,7 @@ public class Creature : MonoBehaviour
     protected float hurtDirect, hurtCounter;
     [SerializeField]protected bool reverseSprite;
     private LayerMask enemyLayer;
+    protected float tempFloat;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class Creature : MonoBehaviour
         {
             CheckFlip();
         }
-        if (hurtCounter > cbProps.hurtTime - cbProps.hurtPart)
+        if (hurtCounter >= cbProps.hurtTime - cbProps.hurtPart)
         {
             //rb.velocity = cbProps.CreateVector2(rb.velocity, cbProps.hurtFoce * hurtDirect);
             rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * (hurtCounter + cbProps.hurtPart - cbProps.hurtTime) / cbProps.hurtPart * hurtDirect);
@@ -75,7 +76,7 @@ public class Creature : MonoBehaviour
             hurtCounter -= Time.deltaTime;
             if(hurtCounter <= 0)
             {
-                //rb.velocity
+                rb.velocity = Vector2.zero;
             }
         }
     }
@@ -123,13 +124,6 @@ public class Creature : MonoBehaviour
     }
 
     protected virtual void LateStart() { }
-
-    public void Flip(bool flipRight)
-    {
-        tmpV2.x = flipRight ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x);
-        tmpV2.y = transform.localScale.y;
-        transform.localScale = tmpV2;
-    }
     public virtual void Death()
     {
         SpriteRenderer v = Instantiate(CombatProps.instance.bodyPrefab, transform.position, Quaternion.identity);

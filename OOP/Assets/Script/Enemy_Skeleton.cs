@@ -5,7 +5,7 @@ public class Enemy_Skeleton : Creature
 {
     public float walkRaidus, attackRadius;
     private List<float> points = new List<float>();
-    private float currentPoint;
+    private float currentTarget;
     int index;
     private Transform player;
     bool attacked;
@@ -16,28 +16,46 @@ public class Enemy_Skeleton : Creature
         points.Insert(0, transform.position.x - walkRaidus);
         points.Insert(1, transform.position.x + walkRaidus);
         index = 0;
-        currentPoint = points[0];
+        currentTarget = points[0];
         player = Player.instance.gameObject.transform;
     }
     private void Update()
     {
         if (CanControl())
         {
-            float dist = Vector2.Distance(player.position, transform.position);
-            if (dist <= attackRadius) Attack();
+            tempFloat = Vector2.Distance(player.position, transform.position);
+            if (tempFloat <= attackRadius) Attack();
             if(!attacked)
             {
                 CheckNextPoint();
             }
 
             //move
-            if (transform.position.x < player.position.x)
+            if (attacked)
             {
-                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
+                if(Mathf.Abs(transform.position.x - player.position.x) <= 2)
+                {
+
+                }
+                else if (transform.position.x < player.position.x)
+                {
+                    rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
+                }
+                else
+                {
+                    rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+                }
             }
             else
             {
-                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+                if (transform.position.x < currentTarget)
+                {
+                    rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
+                }
+                else
+                {
+                    rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+                }
             }
         }
     }
@@ -51,14 +69,14 @@ public class Enemy_Skeleton : Creature
 
     private void CheckNextPoint()
     {
-        if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
+        if (Mathf.Abs(transform.position.x - currentTarget) < .1f)
         {
             index++;
             if (index == points.Count)
             {
                 index = 0;
             }
-            currentPoint = points[index];
+            currentTarget = points[index];
         }
     }
 }
