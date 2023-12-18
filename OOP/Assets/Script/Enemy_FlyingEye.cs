@@ -1,43 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class Enemy_FlyingEye : Creature
 {
     public float walkRaidus, attackRadius;
-    private List<float> points = new List<float>();
-    private float currentPoint;
+    [SerializeField]private List<Transform> points = new List<Transform>();
+    private Transform currentPoint;
     int index;
     private Transform player;
+    bool chase;
+    [SerializeField] protected Bullet bulletPrefab;
 
     protected override void LateStart()
     {
         base.LateStart();
-        points.Insert(0, transform.position.x - walkRaidus);
-        points.Insert(1, transform.position.x + walkRaidus);
+        chase = false;
         index = 0;
         currentPoint = points[0];
         player = Player.instance.gameObject.transform;
+        foreach (Transform t in points)
+        {
+            t.parent = null;
+        }
     }
     private void Update()
     {
         if (CanControl())
         {
-            float dist = Vector2.Distance(player.position, transform.position);
-            if (dist <= attackRadius) Attack();
-            Move();
+            tempFloat = Vector2.Distance(player.position, transform.position);
+            if (tempFloat <= attackRadius) Attack();
+            if(!chase) CheckNextPoint();
+            if(chase)
+            {
+                currentPoint = player.transform;
+            }
+            if(chase && tempFloat <= attackRadius)
+            {
+
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, Time.deltaTime * speed);
+            }
+            transform.FollowEnemyRotZ(currentPoint);
         }
     }
-
+    public void ReleaseBullet()
+    {
+        Instantiate(bulletPrefab, transform.position, Quaternion.identity).SetTarget(player.gameObject);
+    }
     void Attack()
     {
+        chase = true;
         transform.FlipToObj(player.position.x);
         animator.SetBool("attack", true);
     }
 
-    private void Move()
+    private void CheckNextPoint()
     {
-        if (Mathf.Abs(transform.position.x - currentPoint) < .1f)
+        tempFloat = Vector2.Distance(transform.position, currentPoint.position);
+        if (tempFloat < .1f)
         {
             index++;
             if (index == points.Count)
@@ -46,13 +70,13 @@ public class Enemy_FlyingEye : Creature
             }
             currentPoint = points[index];
         }
-        if (transform.position.x < currentPoint)
+    }
+
+    private void OnDestroy()
+    {
+        foreach(Transform t in points)
         {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: speed);
-        }
-        else
-        {
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: -speed);
+            Destroy(t);
         }
     }
 }

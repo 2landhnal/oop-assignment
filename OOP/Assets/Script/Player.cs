@@ -39,15 +39,15 @@ public class Player : Creature
                         canDoubleJump = false;
                     }
                     tmpV2.x = rb.velocity.x;
-                    tmpV2.y = canDoubleJump ? jumpForce : jumpForce / 1.2f;
+                    tmpV2.y = canDoubleJump ? jumpForce : jumpForce;
                     rb.velocity = tmpV2;
                 }
-                if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
-                {
-                    tmpV2.x = rb.velocity.x;
-                    tmpV2.y = rb.velocity.y * .5f;
-                    rb.velocity = tmpV2;
-                }
+            }
+            if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
+            {
+                tmpV2.x = rb.velocity.x;
+                tmpV2.y = rb.velocity.y * .5f;
+                rb.velocity = tmpV2;
             }
 
             //attack

@@ -5,34 +5,62 @@ public class AttackPoint : MonoBehaviour
 {
     [SerializeField] public float damage;
     private Collider2D col;
-    private LayerMask enemyLayer;
     private IDamageable tempIDamageable;
     private CombatProps cbProps;
     void Start()
     {
         cbProps = CombatProps.instance;
         col = GetComponent<Collider2D>();
-        if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if(transform.parent != null) SetLayer(transform.parent.gameObject);
+        LateStart();
+    }
+
+    public void SetLayer(GameObject parentObj)
+    {
+        if (parentObj == null) return;
+        if (parentObj.layer == LayerMask.NameToLayer("Player"))
         {
-            enemyLayer = CombatProps.instance.enemyLayer;
             gameObject.layer = LayerMask.NameToLayer("PlayerAtk");
         }
-        else if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        else if (parentObj.layer == LayerMask.NameToLayer("Enemy"))
         {
-            enemyLayer = CombatProps.instance.playerLayer;
             gameObject.layer = LayerMask.NameToLayer("EnemyAtk");
         }
     }
+
+    public void SetLayerToEnemy(GameObject enemyObj)
+    {
+        if (enemyObj == null) return;
+        if (enemyObj.layer == LayerMask.NameToLayer("Player"))
+        {
+            gameObject.layer = LayerMask.NameToLayer("EnemyAtk");
+        }
+        else if (enemyObj.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            gameObject.layer = LayerMask.NameToLayer("PlayerAtk");
+        }
+    }
+
+    protected virtual void LateStart() { }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out tempIDamageable))
         {
-            tempIDamageable.TakeDamage(damage, transform.parent.position);
+            tempIDamageable.TakeDamage(damage, transform.position);
+        }
+        else if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            ColWithWall();
         }
         else
         {
             Debug.Log("no damageable");
         }
+    }
+
+    protected virtual void ColWithWall()
+    {
+
     }
 }
