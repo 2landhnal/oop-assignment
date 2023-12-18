@@ -11,6 +11,11 @@ public class Bullet : AttackPoint
         base.ColWithWall();
         DestroyFunc();
     }
+    protected override void ColWithTarget(IDamageable idm)
+    {
+        base.ColWithTarget(idm);
+        DestroyFunc();
+    }
     void DestroyFunc()
     {
         Destroy(gameObject);
@@ -18,7 +23,7 @@ public class Bullet : AttackPoint
 
     public void SetTarget(GameObject target)
     {
-        transform.FollowEnemyRotZ(target.transform);
+        transform.FollowEnemyRotZV2(target.transform.GetCenterPos());
         GetComponent<Rigidbody2D>().velocity = transform.right*speed;
         SetLayerToEnemy(target);
     }

@@ -80,6 +80,23 @@ public static class TransformExtension
         t.rotation = Quaternion.AngleAxis(-angle, Vector3.forward);
         t.FixLocalScale(angle);
     }
+    public static Vector2 GetCenterPos(this Transform t)
+    {
+        return t.GetComponent<Collider2D>().offset + (Vector2)t.position;
+    }
+    public static void FollowEnemyRotZV2(this Transform trans, Vector2 target)
+    {
+        diff = target - (Vector2)trans.position;
+        diff.Normalize();
+
+        rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        while (rot_z < 0)
+        {
+            rot_z += 360;
+        }
+        trans.rotation = Quaternion.Euler(0f, 0f, rot_z);
+        trans.FixLocalScale(rot_z);
+    }
     public static void FollowEnemyRotZ(this Transform trans, Transform target)
     {
         diff = target.position - trans.position;

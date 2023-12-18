@@ -29,11 +29,11 @@ public class HealthManager : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, Vector2 pos)
     {
+        if (currentHP > 0) creature.SetHurtMove(pos);
         currentHP -= damage;
         if (currentHP <= 0)
         {
             creature.Animator_SetDead();
         }
-        else creature.SetHurtMove(pos);
     }
 }

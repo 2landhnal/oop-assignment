@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class Enemy_FlyingEye : Creature
 {
     public float walkRaidus, attackRadius;
+    [SerializeField]private Transform attackPoint;
     [SerializeField]private List<Transform> points = new List<Transform>();
     private Transform currentPoint;
     int index;
@@ -49,7 +49,7 @@ public class Enemy_FlyingEye : Creature
     }
     public void ReleaseBullet()
     {
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity).SetTarget(player.gameObject);
+        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).SetTarget(player.gameObject);
     }
     void Attack()
     {
