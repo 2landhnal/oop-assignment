@@ -4,9 +4,9 @@ public class Creature : MonoBehaviour
 {
     [SerializeField]protected Transform groundPoint;
     [SerializeField] protected float speed, jumpForce;
-    protected Rigidbody2D rb;
-    protected SpriteRenderer sr;
-    protected Animator animator;
+    public Rigidbody2D rb { protected set; get; }
+    public SpriteRenderer sr { protected set; get; }
+    public Animator animator { private set; get; }
     protected Vector2 tmpV2;
     protected bool canDoubleJump, grouding;
     protected Collider2D col;
