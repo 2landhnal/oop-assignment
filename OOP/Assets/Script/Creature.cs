@@ -107,7 +107,6 @@ public class Creature : MonoBehaviour
         hurtDirect = (transform.CheckFlip() ? 1 : -1) * (-1);
         rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * hurtDirect, yToSet: CombatProps.instance.hurtForce / 2 * Mathf.Sin(transform.GetRotZFollowTargetByVector3(pos, true)));
 
-
         hurtCounter = cbProps.hurtTime;
 
         animator.SetBool("hurt", hurtCounter > 0);
