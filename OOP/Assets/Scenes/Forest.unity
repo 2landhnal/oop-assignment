@@ -698,6 +698,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1250402446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &248004925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248004926}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248004926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248004925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.9, y: 8.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1161127419}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268204407
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad47a79a46254f43a97f82c6b1599dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillBtnDrawers: {fileID: 21251914389237501}
 --- !u!4 &268204409
 Transform:
   m_ObjectHideFlags: 0
@@ -928,6 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Forest
+  delayTime: 3
 --- !u!1 &307607299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6449,6 +6480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  immortal: 0
 --- !u!70 &528275620
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6668,6 +6700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 400
+  immortal: 0
 --- !u!70 &577448377
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8127,10 +8160,11 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 192
-  slideableLayers:
+  platformLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   jumpOutWallSpeed: 5
+  spawnPoint: {fileID: 248004926}
 --- !u!4 &1161127419
 Transform:
   m_ObjectHideFlags: 0
@@ -8143,7 +8177,8 @@ Transform:
   m_LocalPosition: {x: -6.2183366, y: -3.5132372, z: 0.04171318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 248004926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1161127420
@@ -8268,8 +8303,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1189816201}
+  - component: {fileID: 1189816203}
+  - component: {fileID: 1189816202}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8294,6 +8331,63 @@ Transform:
   - {fileID: 1786284739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1189816202
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189816200}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
+--- !u!114 &1189816203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189816200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e35b4dfbe7bde4f91feed7077389c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1202311171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8320,11 +8414,11 @@ PrefabInstance:
       objectReference: {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.6
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15971,6 +16065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  immortal: 0
 --- !u!70 &1786284736
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -16032,7 +16127,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!212 &1786284738
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21757,7 +21852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3acaf0af4ddba48b9fc1d9e2ea36c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
   contentGrid: {fileID: 1988989167623019553}
   skillBtnPrefab: {fileID: 6168451873155649841, guid: 8b9a910fe4bcb964ebe3b0c08b884827, type: 3}
   skillManager: {fileID: 1794501407}
@@ -21928,7 +22022,7 @@ GameObject:
   - component: {fileID: 2293315636597097768}
   - component: {fileID: 1851124654121792806}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22858,6 +22952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  immortal: 0
 --- !u!114 &7552029201081641654
 MonoBehaviour:
   m_ObjectHideFlags: 0

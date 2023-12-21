@@ -9,7 +9,7 @@ public class AttackPoint : MonoBehaviour
     private CombatProps cbProps;
     void Start()
     {
-        cbProps = CombatProps.instance;
+        cbProps = CombatProps.Ins;
         col = GetComponent<Collider2D>();
         if(transform.parent != null) SetLayer(transform.parent.gameObject);
         LateStart();

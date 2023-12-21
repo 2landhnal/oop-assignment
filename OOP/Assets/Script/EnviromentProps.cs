@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class EnviromentProps : MonoBehaviour
+public class EnviromentProps : Singleton<EnviromentProps> 
 {
-    public static EnviromentProps Instance { get; private set; }
-    public LayerMask groundLayers, slideableLayers;
+    public LayerMask groundLayers, platformLayers;
     public float jumpOutWallSpeed;
+    public Transform spawnPoint;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        MakeSingleton(false);
+    }
+    private void Start()
+    {
+        Player.instance.transform.position = spawnPoint.position;
     }
 }

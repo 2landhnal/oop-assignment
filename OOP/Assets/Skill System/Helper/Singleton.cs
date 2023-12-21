@@ -2,8 +2,8 @@
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public string sceneName;
-    protected int numOfEnterScene;
+    //public string sceneName;
+    //protected int numOfEnterScene;
 
     // private static instance
     static T m_ins;

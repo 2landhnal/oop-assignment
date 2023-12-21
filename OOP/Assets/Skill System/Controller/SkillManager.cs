@@ -8,16 +8,18 @@ public class SkillManager : MonoBehaviour
     public List<SkillController> skillControllersCanCollect;
     public List<SkillType> skillCollected;
     SkillController tempSkillController;
+    public Creature creature { private set; get; }
 
     private void Awake()
     {
         foreach(SkillController skillController in skillControllersCanCollectPrefab)
         {
             tempSkillController = Instantiate(skillController);
-            tempSkillController.obj = GetComponent<Creature>();
+            tempSkillController.skillManager = this;
             Helper.AssignToRoot(transform, tempSkillController.transform, Vector3.zero, Vector3.one);
             skillControllersCanCollect.Add(tempSkillController);
         }
+        creature = GetComponent<Creature>();
         Initialize();
     }
 

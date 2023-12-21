@@ -25,12 +25,14 @@ public class DashController : SkillController
     {
         tempV2.x = dashSpeed * transform.CheckFaceRight();
         tempV2.y = 0;
-        obj.animator.SetBool(animatorParam, true);
+        skillManager.creature.animator.SetBool(animatorParam, true);
+        skillManager.GetComponent<HealthManager>().immortal = true;
     }
     public void TriggerStop()
     {
-        obj.animator.SetBool(animatorParam, false);
-        obj.rb.velocity = Vector2.zero;
+        skillManager.creature.animator.SetBool(animatorParam, false);
+        skillManager.creature.rb.velocity = Vector2.zero;
+        skillManager.GetComponent<HealthManager>().immortal = false;
     }
 
     public void SkillUpdate()
@@ -44,13 +46,13 @@ public class DashController : SkillController
             afterImageCounter = afterImageDeltaTime;
             ReleaseAfterImage();
         }
-        obj.rb.velocity = tempV2;
-        if(obj.animator.GetBool("hurt")) ForceStop();
+        skillManager.creature.rb.velocity = tempV2;
+        if(skillManager.creature.animator.GetBool("hurt")) ForceStop();
     }
 
     void ReleaseAfterImage()
     {
-        tempSR = Instantiate(CombatProps.instance.afterImagePrefab, transform.position, Quaternion.identity);
-        tempSR.sprite = obj.sr.sprite;
+        tempSR = Instantiate(CombatProps.Ins.afterImagePrefab, transform.position, Quaternion.identity);
+        tempSR.sprite = skillManager.creature.sr.sprite;
     }
 }

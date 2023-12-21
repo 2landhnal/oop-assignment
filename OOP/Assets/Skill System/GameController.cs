@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private SkillButtonDrawer skillBtnDrawers;
+    private SkillButtonDrawer skillBtnDrawers;
     void Start()
     {
+        skillBtnDrawers = SkillButtonDrawer.Ins;
         if (skillBtnDrawers == null) return;
         skillBtnDrawers.DrawButtons();
     }

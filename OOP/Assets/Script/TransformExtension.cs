@@ -97,7 +97,7 @@ public static class TransformExtension
         trans.rotation = Quaternion.Euler(0f, 0f, rot_z);
         trans.FixLocalScale(rot_z);
     }
-    public static void FollowEnemyRotZ(this Transform trans, Transform target)
+    public static void FollowTransformRotZ(this Transform trans, Transform target)
     {
         diff = target.position - trans.position;
         diff.Normalize();

@@ -9,7 +9,7 @@ public class Creature : MonoBehaviour
     public Animator animator { private set; get; }
     protected Vector2 tmpV2;
     protected bool canDoubleJump, grouding;
-    protected Collider2D col;
+    public Collider2D col { private set; get; }
     protected CombatProps cbProps;
     protected float hurtDirect, hurtCounter;
     [SerializeField]protected bool reverseSprite;
@@ -18,7 +18,7 @@ public class Creature : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cbProps = CombatProps.instance;
+        cbProps = CombatProps.Ins;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -88,7 +88,7 @@ public class Creature : MonoBehaviour
 
     protected virtual void InsideLateUpdate() { }
 
-    void CheckFlip()
+    protected virtual void CheckFlip()
     {
         if(rb.velocity.x > 0.1f)
         {
@@ -105,7 +105,7 @@ public class Creature : MonoBehaviour
         transform.FlipToObj(pos.x);
 
         hurtDirect = (transform.CheckFlip() ? 1 : -1) * (-1);
-        rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * hurtDirect, yToSet: CombatProps.instance.hurtForce / 2 * Mathf.Sin(transform.GetRotZFollowTargetByVector3(pos, true)));
+        rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * hurtDirect, yToSet: CombatProps.Ins.hurtForce / 2 * Mathf.Sin(transform.GetRotZFollowTargetByVector3(pos, true)));
 
         hurtCounter = cbProps.hurtTime;
 
@@ -114,7 +114,7 @@ public class Creature : MonoBehaviour
 
     public bool CheckGrounding()
     {
-        grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, EnviromentProps.Instance.groundLayers);
+        grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, EnviromentProps.Ins.groundLayers);
         if (grouding)
         {
             canDoubleJump = true;
@@ -125,7 +125,7 @@ public class Creature : MonoBehaviour
     protected virtual void LateStart() { }
     public virtual void Death()
     {
-        SpriteRenderer v = Instantiate(CombatProps.instance.bodyPrefab, transform.position, Quaternion.identity);
+        SpriteRenderer v = Instantiate(CombatProps.Ins.bodyPrefab, transform.position, Quaternion.identity);
         v.sprite = sr.sprite;
         Destroy(gameObject);
     }

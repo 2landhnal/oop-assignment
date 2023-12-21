@@ -6,7 +6,15 @@ public class Player : Creature
     protected float horizontalInput;
     private void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     protected override void LateStart()
     {

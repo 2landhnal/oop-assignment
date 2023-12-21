@@ -42,10 +42,14 @@ public class Enemy_FlyingEye : Creature
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, Time.deltaTime * speed);
+                rb.velocity = transform.right * speed;
             }
-            transform.FollowEnemyRotZ(currentPoint);
+            transform.FollowTransformRotZ(currentPoint);
         }
+    }
+    protected override void CheckFlip()
+    {
+        return;
     }
     public void ReleaseBullet()
     {
@@ -54,6 +58,7 @@ public class Enemy_FlyingEye : Creature
     void Attack()
     {
         chase = true;
+        rb.velocity = Vector2.zero;
         transform.FlipToObj(player.position.x);
         animator.SetBool("attack", true);
     }
@@ -76,7 +81,8 @@ public class Enemy_FlyingEye : Creature
     {
         foreach(Transform t in points)
         {
-            Destroy(t);
+            if (t == null) continue;
+            Destroy(t.gameObject);
         }
     }
 }

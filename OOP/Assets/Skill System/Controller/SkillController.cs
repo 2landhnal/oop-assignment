@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class SkillController : MonoBehaviour
 {
-    [HideInInspector]public Creature obj;
+    [HideInInspector]public SkillManager skillManager;
     public SkillType type;
     public SkillData skillData;
     public string animatorParam;

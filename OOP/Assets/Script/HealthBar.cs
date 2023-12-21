@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthManager = Player.instance.GetComponent<HealthManager>();
     }
 
     // Update is called once per frame

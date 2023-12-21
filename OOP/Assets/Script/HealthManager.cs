@@ -9,11 +9,13 @@ public class HealthManager : MonoBehaviour, IDamageable
     [SerializeField] private float maxHP;
     public float currentHP { get; private set; }
     private Creature creature;
+    public bool immortal;
     // Start is called before the first frame update
     void Start()
     {
         creature = GetComponent<Creature>();
         currentHP = maxHP;
+        immortal = false;
     }
 
     public float GetMaxHP()
@@ -29,6 +31,7 @@ public class HealthManager : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, Vector2 pos)
     {
+        if (immortal) return;
         if (currentHP > 0) creature.SetHurtMove(pos);
         currentHP -= damage;
         if (currentHP <= 0)
