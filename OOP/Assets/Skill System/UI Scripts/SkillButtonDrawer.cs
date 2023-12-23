@@ -8,6 +8,10 @@ public class SkillButtonDrawer : Singleton<SkillButtonDrawer>
     public SkillButton skillBtnPrefab;
     private List<SkillType> skillCollecteds;
     public SkillManager skillManager;
+    protected override void Awake()
+    {
+        MakeSingleton(false);
+    }
 
     public void DrawButtons()
     {

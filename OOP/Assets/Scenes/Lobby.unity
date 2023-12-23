@@ -5954,6 +5954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Forest
+  delayTime: 0
 --- !u!212 &1037818666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6110,7 +6111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1161127418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6126,10 +6127,11 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 192
-  slideableLayers:
+  platformLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   jumpOutWallSpeed: 5
+  spawnPoint: {fileID: 0}
 --- !u!4 &1161127419
 Transform:
   m_ObjectHideFlags: 0
@@ -6173,6 +6175,7 @@ MonoBehaviour:
   hurtTime: 0.5
   hurtPart: 0.2
   bodyPrefab: {fileID: 0}
+  afterImagePrefab: {fileID: 0}
 --- !u!1 &1250402445
 GameObject:
   m_ObjectHideFlags: 0

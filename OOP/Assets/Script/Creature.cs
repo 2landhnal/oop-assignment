@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Creature : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class Creature : MonoBehaviour
     [SerializeField]protected bool reverseSprite;
     private LayerMask enemyLayer;
     protected float tempFloat;
+    public UnityEvent OnDeath;
     // Start is called before the first frame update
     void Start()
     {
+        OnDeath.AddListener(Death);
         cbProps = CombatProps.Ins;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();

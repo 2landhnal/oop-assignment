@@ -12,6 +12,8 @@ public class EnviromentProps : Singleton<EnviromentProps>
     }
     private void Start()
     {
+        if (Player.instance == null) return;
+        if (spawnPoint == null) return;
         Player.instance.transform.position = spawnPoint.position;
     }
 }

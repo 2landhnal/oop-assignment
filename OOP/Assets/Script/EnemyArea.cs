@@ -13,6 +13,8 @@ public class EnemyArea : MonoBehaviour
             if (t == null) continue;
             t.gameObject.SetActive(false);
             childs.Add(t);
+            GameController.Ins.AddEnemyCounter();
+            t.GetComponent<Creature>().OnDeath.AddListener(GameController.Ins.AddEnemyDefeatCounter);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

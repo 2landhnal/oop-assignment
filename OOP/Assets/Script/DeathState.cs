@@ -8,6 +8,6 @@ public class DeathState : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         creature = animator.GetComponent<Creature>();
-        creature.Death();
+        creature.OnDeath?.Invoke();
     }
 }

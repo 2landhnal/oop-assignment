@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad47a79a46254f43a97f82c6b1599dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 278849114}
 --- !u!4 &268204409
 Transform:
   m_ObjectHideFlags: 0
@@ -6465,6 +6466,9 @@ MonoBehaviour:
   speed: 2
   jumpForce: 10
   reverseSprite: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   walkRaidus: 10
   attackRadius: 2.1
 --- !u!114 &528275619
@@ -6685,6 +6689,9 @@ MonoBehaviour:
   speed: 2
   jumpForce: 10
   reverseSprite: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   walkRaidus: 10
   attackRadius: 2.1
 --- !u!114 &577448376
@@ -16216,6 +16223,9 @@ MonoBehaviour:
   speed: 6
   jumpForce: 0
   reverseSprite: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   walkRaidus: 10
   attackRadius: 5
   attackPoint: {fileID: 307607300}
@@ -22937,6 +22947,9 @@ MonoBehaviour:
   speed: 2
   jumpForce: 10
   reverseSprite: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   walkRaidus: 10
   attackRadius: 2.1
 --- !u!114 &7386107287945201281
