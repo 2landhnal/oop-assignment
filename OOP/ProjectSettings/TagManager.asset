@@ -18,7 +18,7 @@ TagManager:
   - Enemy
   - PlayerAtk
   - EnemyAtk
-  - 
+  - NoCol
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Under Player
+    uniqueID: 3091649993
     locked: 0
   - name: Player
     uniqueID: 1306553491

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e081c8df20d987843967c1b206c1c27e, type: 3}
+  m_Name: Laser
+  m_EditorClassIdentifier: 
+  skillIcon: {fileID: 21300000, guid: 68e15a957aed9dc4fa9e481d781b1269, type: 3}
+  backGroundCard: {fileID: 21300000, guid: aeb13b0c85e7f5e4d9209ffcdaed9089, type: 3}
+  damage: 0
+  coolDownTime: 15
+  triggerTime: 3
+  skillName: Laser
+  description: Release a laser beam
+  price: 200

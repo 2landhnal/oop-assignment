@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class SkillData : ScriptableObject
 {
-    public Sprite skillIcon;
+    public Sprite skillIcon, backGroundCard;
     public float damage;
     public float coolDownTime;
     public float triggerTime;
+    public string skillName, description;
+    public int price;
 }

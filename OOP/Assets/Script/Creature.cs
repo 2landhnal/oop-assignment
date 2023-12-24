@@ -48,10 +48,13 @@ public class Creature : MonoBehaviour
         {
             CheckFlip();
         }
-        if (hurtCounter >= cbProps.hurtTime - cbProps.hurtPart)
+        if (cbProps != null)
         {
-            //rb.velocity = cbProps.CreateVector2(rb.velocity, cbProps.hurtFoce * hurtDirect);
-            rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * (hurtCounter + cbProps.hurtPart - cbProps.hurtTime) / cbProps.hurtPart * hurtDirect);
+            if (hurtCounter >= cbProps.hurtTime - cbProps.hurtPart)
+            {
+                //rb.velocity = cbProps.CreateVector2(rb.velocity, cbProps.hurtFoce * hurtDirect);
+                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: cbProps.hurtForce * (hurtCounter + cbProps.hurtPart - cbProps.hurtTime) / cbProps.hurtPart * hurtDirect);
+            }
         }
         CheckGrounding();
 
@@ -117,7 +120,11 @@ public class Creature : MonoBehaviour
 
     public bool CheckGrounding()
     {
-        grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, EnviromentProps.Ins.groundLayers);
+        if(EnviromentProps.Ins == null)
+        {
+            grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, LayerMask.NameToLayer("Ground"));
+        }
+        else grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, EnviromentProps.Ins.groundLayers);
         if (grouding)
         {
             canDoubleJump = true;

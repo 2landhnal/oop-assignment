@@ -30,7 +30,7 @@ public class SkillButton : MonoBehaviour
 
     public void Initialize(SkillType type)
     {
-        skillController = SkillButtonDrawer.Ins.skillManager.GetSkillControllerCanCollect(type);
+        skillController = SkillButtonDrawer.Ins.playerSkillManager.GetSkillControllerCanCollect(type);
         UpdateUI();
         btnComponent.onClick.RemoveAllListeners();
         btnComponent.onClick.AddListener(TriggerSkill);

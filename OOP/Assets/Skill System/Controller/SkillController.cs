@@ -79,6 +79,7 @@ public class SkillController : MonoBehaviour
 
         OnStopWithType?.Invoke(type);
         OnTriggeringStop?.Invoke();
+        Debug.Log("skill stoped");
     }
 
     public void Trigger()
@@ -89,6 +90,7 @@ public class SkillController : MonoBehaviour
         isCoolDowning = true;
         isTriggered = true;
         OnTriggerEnter?.Invoke();
+        Debug.Log("skill triggered");
     }
 
     public void ReduceCoolDownCounter()

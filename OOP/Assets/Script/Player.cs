@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Creature
 {
     public static Player instance;
     protected float horizontalInput;
+    public UnityEvent EnterEvent;
     private void Awake()
     {
         if(instance == null)
@@ -64,6 +66,13 @@ public class Player : Creature
                 animator.SetBool("attack", true);
                 rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
             }
+            //enter
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Debug.Log("enter");
+                EnterEvent?.Invoke();
+            }
+
         }
     }
 }
