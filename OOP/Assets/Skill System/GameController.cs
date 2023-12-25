@@ -4,7 +4,7 @@ public class GameController : Singleton<GameController>
 {
     private SkillButtonDrawer skillBtnDrawers;
     private int enemyCounter, enemyDefeatCounter;
-    [SerializeField]GameObject portal;
+    [SerializeField]GameObject portal, treasure;
     public void AddEnemyCounter()
     {
         enemyCounter++;
@@ -29,12 +29,15 @@ public class GameController : Singleton<GameController>
         enemyCounter = 0;
         enemyDefeatCounter = 0;
         portal.SetActive(false) ;
+        treasure.SetActive(false);
     }
 
     void AllDefeated()
     {
         if (portal == null) return;
         portal.SetActive(true);
+        if (treasure == null) return;
+        treasure.SetActive(true);
     }
 
 }

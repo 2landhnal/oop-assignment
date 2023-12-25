@@ -14,15 +14,15 @@ public class SkillManager : MonoBehaviour
     {
         foreach(SkillController skillController in skillControllersCanCollectPrefab)
         {
-            AddSkillControllerPrefab(skillController);
+            AddSkillControllerCanCollect(skillController);
         }
         creature = GetComponent<Creature>();
         Initialize();
     }
 
-    void AddSkillControllerPrefab(SkillController skillController)
+    void AddSkillControllerCanCollect(SkillController skillControllerPrefab)
     {
-        tempSkillController = Instantiate(skillController);
+        tempSkillController = Instantiate(skillControllerPrefab);
         tempSkillController.skillManager = this;
         Helper.AssignToRoot(transform, tempSkillController.transform, Vector3.zero, Vector3.one);
         skillControllersCanCollect.Add(tempSkillController);
@@ -62,11 +62,11 @@ public class SkillManager : MonoBehaviour
         if (!skillCollected.Contains(type)) skillCollected.Add(type);
     }
 
-    public void AddSkill(SkillController controller)
+    public void AddSkill(SkillController controllerPrefab)
     {
-        if (GetSkillControllerCanCollect(controller.type) != null) return;
-        AddSkillControllerPrefab(controller);
-        if (!skillCollected.Contains(controller.type)) skillCollected.Add(controller.type);
+        if (GetSkillControllerCanCollect(controllerPrefab.type) != null) return;
+        AddSkillControllerCanCollect(controllerPrefab);
+        if (!skillCollected.Contains(controllerPrefab.type)) skillCollected.Add(controllerPrefab.type);
         SkillButtonDrawer.Ins?.DrawButtons();
     }
 
