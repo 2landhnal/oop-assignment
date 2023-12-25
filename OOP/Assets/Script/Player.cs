@@ -6,6 +6,7 @@ public class Player : Creature
     public static Player instance;
     protected float horizontalInput;
     public UnityEvent EnterEvent;
+    protected SkillManager skillManager;
     private void Awake()
     {
         if(instance == null)
@@ -21,6 +22,7 @@ public class Player : Creature
     protected override void LateStart()
     {
         base.LateStart();
+        skillManager = GetComponent<SkillManager>();
     }
 
     protected override void InsideLateUpdate()
@@ -28,10 +30,32 @@ public class Player : Creature
 
     }
 
+    public void DisableControlAndIdle()
+    {
+        DisableControl();
+        skillManager.StopAllSkill();
+        rb.velocity = Vector3.zero;
+    }
+
+    public void DisableControl()
+    {
+        animator.SetBool("canControl", false);
+    }
+    public void EnableControl()
+    {
+        animator.SetBool("canControl", true);
+    }
+
     // Update is called once per frame
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
+        //enter
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("enter");
+            EnterEvent?.Invoke();
+        }
         if (CanControl())
         {
             //move
@@ -66,13 +90,6 @@ public class Player : Creature
                 animator.SetBool("attack", true);
                 rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
             }
-            //enter
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Debug.Log("enter");
-                EnterEvent?.Invoke();
-            }
-
         }
     }
 }

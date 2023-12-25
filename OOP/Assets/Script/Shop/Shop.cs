@@ -8,7 +8,11 @@ public class Shop : MonoBehaviour
     public Transform shopPanel;
     public Transform contentGrid;
     public ShopItemCard itemCardPrefab;
-
+    public GameObject triangle;
+    private void Start()
+    {
+        if(triangle) triangle.SetActive(false);
+    }
     public void DrawShop()
     {
         shopPanel.gameObject.SetActive(true);
@@ -27,10 +31,12 @@ public class Shop : MonoBehaviour
         Debug.Log("clicked");
         if(shopPanel.gameObject.activeSelf)
         {
+            Player.instance.EnableControl();
             shopPanel.gameObject.SetActive(false);
         }
         else
         {
+            Player.instance.DisableControlAndIdle();
             shopPanel.gameObject.SetActive(true);
             DrawShop();
         }
@@ -40,6 +46,7 @@ public class Shop : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("add");
+            triangle.SetActive(true);
             Player.instance.EnterEvent.RemoveAllListeners();
             Player.instance.EnterEvent.AddListener(OnClick);
         }
@@ -50,6 +57,7 @@ public class Shop : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("remove");
+            triangle.SetActive(false);
             Player.instance.EnterEvent.RemoveListener(OnClick);
         }
     }

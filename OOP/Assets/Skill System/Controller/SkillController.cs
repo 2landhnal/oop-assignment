@@ -68,7 +68,6 @@ public class SkillController : MonoBehaviour
     public void ForceStop()
     {
         isTriggered = false;
-        isCoolDowning = false;
         LoadData();
         OnTriggeringStop?.Invoke();
     }

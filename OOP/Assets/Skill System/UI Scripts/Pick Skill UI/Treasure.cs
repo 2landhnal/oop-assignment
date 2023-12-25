@@ -6,7 +6,7 @@ public class Treasure : MonoBehaviour
 {
     [SerializeField]private List<SkillController> controllerList;
     public bool claimed;
-
+    public GameObject triangle;
     public List<SkillController> ControllerList { get => controllerList; }
 
     private void Start()
@@ -17,6 +17,7 @@ public class Treasure : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("clicked");
+        Player.instance.DisableControlAndIdle();
         SkillCardDrawer.Ins.DrawCard(this);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +27,7 @@ public class Treasure : MonoBehaviour
             if (!claimed)
             {
                 Debug.Log("add");
+                triangle.SetActive(true);
                 Player.instance.EnterEvent.RemoveAllListeners();
                 Player.instance.EnterEvent.AddListener(OnClick);
             }
@@ -39,6 +41,7 @@ public class Treasure : MonoBehaviour
             if (!claimed)
             {
                 Debug.Log("remove");
+                triangle.SetActive(false);
                 Player.instance.EnterEvent.RemoveListener(OnClick);
             }
         }
@@ -46,7 +49,9 @@ public class Treasure : MonoBehaviour
 
     public void Picked()
     {
+        Player.instance.EnableControl();
         Player.instance.EnterEvent.RemoveAllListeners();
         claimed = true;
+        triangle.SetActive(false);
     }
 }
