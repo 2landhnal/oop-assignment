@@ -31,6 +31,6 @@ public class SkillCard : MonoBehaviour
     protected virtual void Trigger()
     {
         if(skillControllerPrefab == null) return;
-        Player.instance.GetComponent<SkillManager>()?.AddSkill(skillControllerPrefab);
+        Player.instance.GetComponent<SkillManager>()?.AddSkill(skillControllerPrefab.type);
     }
 }

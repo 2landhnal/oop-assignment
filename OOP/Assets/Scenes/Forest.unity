@@ -950,6 +950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portal: {fileID: 278849114}
   treasure: {fileID: 993248690}
+  skillControllerList:
+  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
+  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
+  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
 --- !u!4 &268204409
 Transform:
   m_ObjectHideFlags: 0
@@ -10006,12 +10010,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3697597393164901771, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: skillControllersCanCollectPrefab.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3697597393164901771, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: skillControllersCanCollectPrefab.Array.data[0]
       value: 
       objectReference: {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
+    - target: {fileID: 3697597393164901771, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
+      propertyPath: skillControllersCanCollectPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
+    - target: {fileID: 3697597393164901771, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
+      propertyPath: skillControllersCanCollectPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
     - target: {fileID: 5424886850190084242, guid: ffc52bdb8c2236e458eb5e952483e590, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5

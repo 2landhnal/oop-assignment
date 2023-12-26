@@ -1,49 +1,72 @@
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    [SerializeField]private List<SkillController> skillControllersCanCollectPrefab;
-    public List<SkillController> skillControllersCanCollect;
+    public List<SkillController> skillControllersCollected;
     public List<SkillType> skillCollected;
     SkillController tempSkillController;
     public Creature creature { private set; get; }
 
-    private void Awake()
+    private void Start()
     {
-        foreach(SkillController skillController in skillControllersCanCollectPrefab)
+        skillControllersCollected = new List<SkillController>();
+        foreach (SkillType type in skillCollected)
         {
-            AddSkillControllerCanCollect(skillController);
+            tempSkillController = GetSkillControllerPrefabByType(type);
+            if (tempSkillController != null)
+            {
+                skillControllersCollected.Add(ClonePrefabToAssignRoot(tempSkillController));
+            }
+            else
+            {
+                Debug.Log($"Skill with type: {type.ToString()} doesn't exist!");
+                continue;
+            }
         }
         creature = GetComponent<Creature>();
         Initialize();
     }
 
-    void AddSkillControllerCanCollect(SkillController skillControllerPrefab)
+    SkillController ClonePrefabToAssignRoot(SkillController skillControllerPrefab)
     {
         tempSkillController = Instantiate(skillControllerPrefab);
         tempSkillController.skillManager = this;
         Helper.AssignToRoot(transform, tempSkillController.transform, Vector3.zero, Vector3.one);
-        skillControllersCanCollect.Add(tempSkillController);
+        skillControllersCollected.Add(tempSkillController);
+        return tempSkillController;
     }
 
     private void Initialize()
     {
-        for (int i = 0; i < skillControllersCanCollect.Count; i++)
+        for (int i = 0; i < skillControllersCollected.Count; i++)
         {
-            var skillController = skillControllersCanCollect[i];
+            var skillController = skillControllersCollected[i];
             if (skillController == null) continue;
             skillController.LoadData();
-            //skillController.OnStopWithType.AddListener(RemoveSkill);
         }
     }
 
-    public SkillController GetSkillControllerCanCollect(SkillType type)
+    public SkillController GetSkillControllerPrefabByType(SkillType type)
     {
-        var findeds = skillControllersCanCollect.Where(s=>s.type == type).ToArray();
+        var findeds = GameController.Ins.skillControllerList.Where(s=>s.type == type).ToArray();
         if(findeds == null || findeds.Length == 0 ) return null;
         return findeds[0];
+    }
+
+    public SkillController GetSkillControllerCloneByType(SkillType type)
+    {
+        var findeds = skillControllersCollected.Where(s => s.type == type).ToArray();
+        if (findeds == null || findeds.Length == 0) return null;
+        return findeds[0];
+    }
+
+    public bool IsSkillExist(SkillType type)
+    {
+        var findeds = skillControllersCollected.Where(s => s.type == type).ToArray();
+        return !(findeds == null || findeds.Length == 0);
     }
 
     public bool IsSkillCollected(SkillType type)
@@ -51,22 +74,14 @@ public class SkillManager : MonoBehaviour
         return skillCollected.Contains(type);
     }
 
-    public bool HasSkill(SkillType type)
-    {
-        return skillCollected.Contains(type) && GetSkillControllerCanCollect(type) != null;
-    }
-
     public void AddSkill(SkillType type)
     {
-        if(GetSkillControllerCanCollect(type) == null) return;
-        if (!skillCollected.Contains(type)) skillCollected.Add(type);
-    }
-
-    public void AddSkill(SkillController controllerPrefab)
-    {
-        if (GetSkillControllerCanCollect(controllerPrefab.type) != null) return;
-        AddSkillControllerCanCollect(controllerPrefab);
-        if (!skillCollected.Contains(controllerPrefab.type)) skillCollected.Add(controllerPrefab.type);
+        if (skillCollected.Contains(type)) return;
+        tempSkillController = GetSkillControllerPrefabByType(type);
+        if (tempSkillController == null) return;
+        tempSkillController = ClonePrefabToAssignRoot(tempSkillController);
+        tempSkillController.LoadData();
+        skillCollected.Add(type);
         SkillButtonDrawer.Ins?.DrawButtons();
     }
 
@@ -78,17 +93,17 @@ public class SkillManager : MonoBehaviour
 
     public void StopSkill(SkillType type)
     {
-        var skillController = GetSkillControllerCanCollect(type);
+        var skillController = GetSkillControllerPrefabByType(type);
         if(skillController == null) return;
         skillController.Stop();
     }
 
     public void StopAllSkill()
     {
-        if(skillControllersCanCollect.Count == 0 || skillControllersCanCollect == null) return;
-        for (int i = 0; i < skillControllersCanCollect.Count; i++)
+        if(skillControllersCollected.Count == 0 || skillControllersCollected == null) return;
+        for (int i = 0; i < skillControllersCollected.Count; i++)
         {
-            var skillController = skillControllersCanCollect[i];
+            var skillController = skillControllersCollected[i];
             if (skillController == null) continue;
             skillController.ForceStop();
         }

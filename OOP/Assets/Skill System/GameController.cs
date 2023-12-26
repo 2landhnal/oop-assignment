@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : Singleton<GameController>
@@ -5,6 +6,7 @@ public class GameController : Singleton<GameController>
     private SkillButtonDrawer skillBtnDrawers;
     private int enemyCounter, enemyDefeatCounter;
     [SerializeField]GameObject portal, treasure;
+    public List<SkillController> skillControllerList;
     public void AddEnemyCounter()
     {
         enemyCounter++;

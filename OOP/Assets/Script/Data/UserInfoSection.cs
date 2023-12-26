@@ -8,6 +8,27 @@ public class UserInfoSection : MonoBehaviour
     public Image avt;
     public InputField name, age;
     public GameObject detailSection;
+    public GameObject selectAvtPanel;
+    public List<Sprite> avtSprites;
+    public Transform grid;
+    public AvatarToPick prefabAvt;
+
+    private void Start()
+    {
+        foreach(Sprite s in avtSprites)
+        {
+            AvatarToPick tempImage = Instantiate(prefabAvt);
+            Helper.AssignToRoot(grid, tempImage.transform, Vector3.zero, Vector3.one);
+            tempImage.avatar.sprite = s;
+            tempImage.GetComponent<Button>().onClick.RemoveAllListeners();
+            tempImage.GetComponent<Button>().onClick.AddListener(delegate { ChangeAvt(s); }) ;
+        }
+    }
+    public void ChangeAvt(Sprite sprite)
+    {
+        avt.sprite = sprite;
+        selectAvtPanel.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -35,6 +56,11 @@ public class UserInfoSection : MonoBehaviour
         userInfoList.Single(s => s.username == AccountManager.currentUsername).name = name.text;
         userInfoList.Single(s => s.username == AccountManager.currentUsername).age = int.Parse(age.text);
         FileHandler.SaveToJSON(userInfoList, AccountManager.fileName_userInfo);
+    }
+
+    public void OpenAvtSelectSection()
+    {
+        selectAvtPanel.SetActive(true);
     }
 
     public void Detail()

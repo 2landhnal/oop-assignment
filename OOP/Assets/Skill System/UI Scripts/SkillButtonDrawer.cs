@@ -22,7 +22,8 @@ public class SkillButtonDrawer : Singleton<SkillButtonDrawer>
         foreach(var skill in skillCollecteds)
         {
             //Debug.Log(skill.Key + " " + skill.Value + " " + SkillManager.Ins.HasSkill(skill.Key) + " " + (SkillManager.Ins.GetSkillController(skill.Key) == null ? "Null" : SkillManager.Ins.GetSkillController(skill.Key)));
-            if (!playerSkillManager.HasSkill(skill)) return;
+            if (!playerSkillManager.IsSkillExist(skill)) return;
+            if (!playerSkillManager.IsSkillCollected(skill)) return;
             var skillButtonClone = Instantiate(skillBtnPrefab);
             Helper.AssignToRoot(contentGrid, skillButtonClone.transform, Vector3.zero, Vector3.one);
             skillButtonClone.Initialize(skill);
