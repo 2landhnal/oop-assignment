@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class GameController : Singleton<GameController>
 {
-    private SkillButtonDrawer skillBtnDrawers;
     private int enemyCounter, enemyDefeatCounter;
     [SerializeField]GameObject portal, treasure;
-    public List<SkillController> skillControllerList;
     public void AddEnemyCounter()
     {
         enemyCounter++;
@@ -25,13 +23,10 @@ public class GameController : Singleton<GameController>
     }
     void Start()
     {
-        skillBtnDrawers = SkillButtonDrawer.Ins;
-        if (skillBtnDrawers == null) return;
-        skillBtnDrawers.DrawButtons();
         enemyCounter = 0;
         enemyDefeatCounter = 0;
-        portal.SetActive(false) ;
-        treasure.SetActive(false);
+        if(portal != null)portal.SetActive(false) ;
+        if(treasure != null)treasure.SetActive(false);
     }
 
     void AllDefeated()

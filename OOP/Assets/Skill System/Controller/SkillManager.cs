@@ -51,7 +51,7 @@ public class SkillManager : MonoBehaviour
 
     public SkillController GetSkillControllerPrefabByType(SkillType type)
     {
-        var findeds = GameController.Ins.skillControllerList.Where(s=>s.type == type).ToArray();
+        var findeds = CombatProps.Ins.skillControllerList.Where(s=>s.type == type).ToArray();
         if(findeds == null || findeds.Length == 0 ) return null;
         return findeds[0];
     }

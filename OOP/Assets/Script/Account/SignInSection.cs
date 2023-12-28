@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SignInSection : MonoBehaviour
@@ -43,7 +44,6 @@ public class SignInSection : MonoBehaviour
     public void SignInSuccess()
     {
         AccountManager.SetCurrentUsername(username.text);
-        playerInfoSection.SetActive(true);
-        gameObject.SetActive(false);
+        SceneManager.LoadSceneAsync("Lobby v2");
     }
 }

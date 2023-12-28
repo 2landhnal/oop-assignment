@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class UserInfoSection : MonoBehaviour
 {
-    public Image avt;
+    public Image avt, miniAvt;
     public InputField name, age;
     public GameObject detailSection;
     public GameObject selectAvtPanel;
@@ -27,6 +28,7 @@ public class UserInfoSection : MonoBehaviour
     public void ChangeAvt(Sprite sprite)
     {
         avt.sprite = sprite;
+        miniAvt.sprite = sprite;   
         selectAvtPanel.SetActive(false);
     }
 
@@ -41,6 +43,7 @@ public class UserInfoSection : MonoBehaviour
         if(accInfo != null)
         {
             if(accInfo.avtSprite != null) avt.sprite = accInfo.avtSprite;
+            miniAvt.sprite = avt.sprite;
             name.text = accInfo.name;
             age.text = accInfo.age.ToString();
         }

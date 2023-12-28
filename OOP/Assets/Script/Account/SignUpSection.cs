@@ -47,7 +47,7 @@ public class SignUpSection : MonoBehaviour
 
     void SignUpSuccess()
     {
-        GenerateUserInfo();
+        GenerateInitInfo();
 
         email.text = "";
         password.text = "";
@@ -60,10 +60,21 @@ public class SignUpSection : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void GenerateUserInfo()
+    void GenerateInitInfo()
     {
+        // userInfo
         List<AccountManager.UserInfo> userInfoList = FileHandler.ReadListFromJSON<AccountManager.UserInfo>(AccountManager.fileName_userInfo);
         userInfoList.Add(new AccountManager.UserInfo(username.text));
         FileHandler.SaveToJSON(userInfoList, AccountManager.fileName_userInfo);
+
+        // accountGameData
+        List<AccountManager.AccountGameData> accountGameDataList = FileHandler.ReadListFromJSON<AccountManager.AccountGameData>(AccountManager.fileName_accountGameData);
+        accountGameDataList.Add(new AccountManager.AccountGameData(username.text, new List<SkillController>()));
+        FileHandler.SaveToJSON(accountGameDataList, AccountManager.fileName_accountGameData);
+
+        // playingGameData
+        List<AccountManager.PlayingGameData> playingGameDataList = FileHandler.ReadListFromJSON<AccountManager.PlayingGameData>(AccountManager.fileName_playingGameData);
+        playingGameDataList.Add(new AccountManager.PlayingGameData(username.text, new List<SkillController>()));
+        FileHandler.SaveToJSON(playingGameDataList, AccountManager.fileName_playingGameData);
     }
 }
