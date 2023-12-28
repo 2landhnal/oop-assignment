@@ -30,7 +30,12 @@ public class Lobby : MonoBehaviour
     private void Start()
     {
         Debug.Log(currentUsername);
-        accountGameDataList = FileHandler.ReadListFromJSON<AccountGameData>(fileName_accountGameData);
+        if(currentUsername == null)
+        {
+            SceneManager.LoadScene("Sign In");
+            return;
+        }
+        accountGameDataList = AccountManager.accountGameDataList;
         if (!accountGameDataList.Any(s => s.username == currentUsername))
         {
             accountGameData = new AccountGameData(currentUsername, new List<SkillController>());
@@ -39,7 +44,7 @@ public class Lobby : MonoBehaviour
         }
         accountGameData = accountGameDataList.Single(s => s.username == currentUsername);
 
-        playingGameDataList = FileHandler.ReadListFromJSON<PlayingGameData>(fileName_playingGameData);
+        playingGameDataList = AccountManager.playingGameDataList;
         if (!playingGameDataList.Any(s => s.username == currentUsername))
         {
             playingGameData = new PlayingGameData(currentUsername, new List<SkillController>());
@@ -48,7 +53,7 @@ public class Lobby : MonoBehaviour
         }
         playingGameData = playingGameDataList.Single(s => s.username == currentUsername);
 
-        userInfo = FileHandler.ReadListFromJSON<UserInfo>(fileName_userInfo).Single(s=>s.username == currentUsername);
+        userInfo = AccountManager.userInfoList.Single(s=>s.username == currentUsername);
         if (userInfo == null) return;
 
 
@@ -65,12 +70,20 @@ public class Lobby : MonoBehaviour
         {
             selectingCharacterAnimator.runtimeAnimatorController = accountGameData.selectingCharacterInfo.animatorController;
         }
-        avatarImg.sprite = userInfo.avtSprite;
+        Debug.Log(userInfo.avtSprite == null);
+        Debug.Log(avatarImg.sprite == null);
+        if (userInfo.avtSprite != null && avatarImg.sprite != null) avatarImg.sprite = userInfo.avtSprite;
         userNameTxt.text = userInfo.name;
     }
     public void NewGame()
     {
         SceneManager.LoadScene(startScene);
+    }
+
+    public void SignOut()
+    {
+        SetCurrentUsername(null);
+        SceneManager.LoadScene("Sign In");
     }
     public void OpenSelectCharacterSection()
     {

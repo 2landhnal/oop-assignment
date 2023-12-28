@@ -5,11 +5,16 @@ using UnityEngine;
 public static class AccountManager
 {
     public static string currentUsername { get; private set; }
-    public static string fileName_accountFile = "AccountFile.json";
+    public static string fileName_accountInfo = "AccountFile.json";
     public static string fileName_userInfo = "UserInfo.json";
     public static string fileName_accountGameData = "AccountGameData.json";
     public static string fileName_playingGameData = "PlayingGameData.json";
     static List<SkillController> tempListSkill = new List<SkillController>();
+
+    public static List<AccountGameData> accountGameDataList { get=>FileHandler.ReadListFromJSON<AccountGameData>(fileName_accountGameData); private set { }}
+    public static List<PlayingGameData> playingGameDataList { get => FileHandler.ReadListFromJSON<PlayingGameData>(fileName_playingGameData); private set { } }
+    public static List<UserInfo> userInfoList { get => FileHandler.ReadListFromJSON<UserInfo>(fileName_userInfo); private set { } }
+    public static List<AccountInfor> accountInfoList { get => FileHandler.ReadListFromJSON<AccountInfor>(fileName_accountInfo); private set { } }
     [Serializable]
     public class AccountInfor
     {

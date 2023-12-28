@@ -18,7 +18,7 @@ public class SignInSection : MonoBehaviour
     }
     public void SignIn()
     {
-        accountList = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountFile);
+        accountList = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountInfo);
         if (!accountList.Any(s => s.username == username.text))
         {
             Warn("Username doesn't exist");

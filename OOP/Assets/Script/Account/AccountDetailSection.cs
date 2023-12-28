@@ -15,7 +15,7 @@ public class AccountDetailSection : MonoBehaviour
 
     void LoadData()
     {
-        AccountManager.AccountInfor accountData = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountFile).Single(s => s.username == AccountManager.currentUsername);
+        AccountManager.AccountInfor accountData = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountInfo).Single(s => s.username == AccountManager.currentUsername);
         email.text = accountData.email;
         username.text = accountData.username;
     }

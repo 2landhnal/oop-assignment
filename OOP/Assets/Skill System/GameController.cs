@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController : Singleton<GameController>
@@ -35,6 +36,9 @@ public class GameController : Singleton<GameController>
         portal.SetActive(true);
         if (treasure == null) return;
         treasure.SetActive(true);
+        List<AccountManager.AccountGameData> tmpList = AccountManager.accountGameDataList;
+        tmpList.Single(s => s.username == AccountManager.currentUsername).enemyKilledAmount += enemyDefeatCounter;
+        FileHandler.SaveToJSON<AccountManager.AccountGameData>(tmpList, AccountManager.fileName_accountGameData);
     }
 
 }

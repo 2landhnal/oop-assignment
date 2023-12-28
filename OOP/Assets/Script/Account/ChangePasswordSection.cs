@@ -3,13 +3,14 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static AccountManager;
 
 public class ChangePasswordSection : MonoBehaviour
 {
     public TextMeshProUGUI warningTxt;
     public MessagePanel messagePanel;
     public InputField currentPassword, password, passwordConfirm;
-    List<AccountManager.AccountInfor> accountList = new List<AccountManager.AccountInfor>();
+    List<AccountInfor> accountList = new List<AccountInfor>();
     public GameObject accountDetailSection;
     private void OnEnable()
     {
@@ -17,8 +18,8 @@ public class ChangePasswordSection : MonoBehaviour
     }
     public void ChangePassword()
     {
-        accountList = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountFile);
-        AccountManager.AccountInfor tempAcc = accountList.Single(s => s.username == AccountManager.currentUsername);
+        accountList = AccountManager.accountInfoList;
+        AccountInfor tempAcc = accountList.Single(s => s.username == currentUsername);
         if (tempAcc.password != currentPassword.text)
         {
             Warn("Invalid current password");
@@ -30,8 +31,8 @@ public class ChangePasswordSection : MonoBehaviour
             return;
         }
         warningTxt.gameObject.SetActive(false);
-        accountList.Single(s => s.username == AccountManager.currentUsername).password = password.text;
-        FileHandler.SaveToJSON(accountList, AccountManager.fileName_accountFile);
+        accountList.Single(s => s.username == currentUsername).password = password.text;
+        FileHandler.SaveToJSON(accountList, fileName_accountInfo);
         ChangePassSucceded();
     }
     void ChangePassSucceded()

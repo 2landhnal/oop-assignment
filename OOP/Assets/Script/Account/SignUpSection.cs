@@ -16,7 +16,7 @@ public class SignUpSection : MonoBehaviour
     }
     public void SignUp()
     {
-        accountList = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountFile);
+        accountList = FileHandler.ReadListFromJSON<AccountManager.AccountInfor>(AccountManager.fileName_accountInfo);
         if (password.text != passwordConfirm.text)
         {
             Warn("Password and confirm password doesn't match");
@@ -34,7 +34,7 @@ public class SignUpSection : MonoBehaviour
         }
         warningTxt.gameObject.SetActive(false);
         accountList.Add(new AccountManager.AccountInfor(username.text, password.text, email.text));
-        FileHandler.SaveToJSON(accountList, AccountManager.fileName_accountFile);
+        FileHandler.SaveToJSON(accountList, AccountManager.fileName_accountInfo);
 
         SignUpSuccess();
     }

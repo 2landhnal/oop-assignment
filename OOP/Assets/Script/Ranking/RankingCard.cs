@@ -22,7 +22,7 @@ public class RankingCard : MonoBehaviour
         if (accountGameData == null) return;
         if (!FileHandler.ReadListFromJSON<UserInfo>(fileName_userInfo).Any(s => s.username == accountGameData.username)) return;
         UserInfo userInfo = FileHandler.ReadListFromJSON<UserInfo>(fileName_userInfo).Single(s => s.username == accountGameData.username);
-        avtIcon.sprite = userInfo.avtSprite;
+        if(userInfo.avtSprite != null) avtIcon.sprite = userInfo.avtSprite;
         nameLabel.text = userInfo.name;
         dataLabel.text = accountGameData.enemyKilledAmount.ToString();
     }
