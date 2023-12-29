@@ -49,6 +49,7 @@ public class Player : Creature
         animator.SetBool("canControl", true);
     }
 
+    // Archery
     public void ReleaseBullet()
     {
         Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).Attack(rb.rotation);
