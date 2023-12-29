@@ -27,4 +27,13 @@ public class Bullet : AttackPoint
         GetComponent<Rigidbody2D>().velocity = transform.right*speed;
         SetLayerToEnemy(target);
     }
+    public void Attack(float x)
+    {
+        if (x == 0) GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        else
+        {
+            GetComponent<Rigidbody2D>().rotation = 180;
+            GetComponent<Rigidbody2D>().velocity = transform.right * -speed;
+        }
+    }
 }

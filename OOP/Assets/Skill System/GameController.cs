@@ -26,8 +26,8 @@ public class GameController : Singleton<GameController>
     {
         enemyCounter = 0;
         enemyDefeatCounter = 0;
-        if(portal != null)portal.SetActive(false) ;
-        if(treasure != null)treasure.SetActive(false);
+        if(portal != null) portal.SetActive(false) ;
+        if(treasure != null) treasure.SetActive(false);
     }
 
     void AllDefeated()

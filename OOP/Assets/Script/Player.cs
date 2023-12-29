@@ -7,6 +7,9 @@ public class Player : Creature
     protected float horizontalInput;
     public UnityEvent EnterEvent;
     protected SkillManager skillManager;
+    [SerializeField] protected Bullet bulletPrefab;
+    [SerializeField] private Transform attackPoint;
+
     private void Awake()
     {
         if(instance == null)
@@ -44,6 +47,11 @@ public class Player : Creature
     public void EnableControl()
     {
         animator.SetBool("canControl", true);
+    }
+
+    public void ReleaseBullet()
+    {
+        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).Attack(rb.rotation);
     }
 
     // Update is called once per frame
@@ -88,6 +96,11 @@ public class Player : Creature
             if (Input.GetKeyDown(KeyCode.J))
             {
                 animator.SetBool("attack", true);
+                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                animator.SetBool("arche", true);
                 rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
             }
         }
