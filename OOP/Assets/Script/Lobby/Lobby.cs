@@ -22,7 +22,7 @@ public class Lobby : MonoBehaviour
     public List<CharacterInfo> characterInfoList;
     public Animator selectingCharacterAnimator;
     public Image avatarImg;
-    public TextMeshProUGUI userNameTxt;
+    public TextMeshProUGUI userNameTxt, gemAmountTxt;
     public CharacterCard selectCharacterPrefab;
     public Transform grid, selectCharacterSection;
 
@@ -74,6 +74,7 @@ public class Lobby : MonoBehaviour
         Debug.Log(avatarImg.sprite == null);
         if (userInfo.avtSprite != null && avatarImg.sprite != null) avatarImg.sprite = userInfo.avtSprite;
         userNameTxt.text = userInfo.name;
+        gemAmountTxt.text = accountGameData.gemAmount.ToString();
     }
     public void NewGame()
     {

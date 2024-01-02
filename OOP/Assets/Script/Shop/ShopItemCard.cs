@@ -8,7 +8,7 @@ public class ShopItemCard : MonoBehaviour
     [SerializeField] protected Image skillIcon;
     [SerializeField] protected Button btnComponent;
 
-    protected SkillController skillControllerPrefab;
+    public SkillController skillControllerPrefab { private set; get; }
 
     public Button BtnComponent { get => btnComponent; }
 
@@ -18,6 +18,7 @@ public class ShopItemCard : MonoBehaviour
         UpdateUI();
         BtnComponent.onClick.RemoveAllListeners();
         BtnComponent.onClick.AddListener(Trigger);
+        btnComponent.onClick.AddListener(delegate { SkillInfoPanel.Ins.OnShowUp(skillControllerPrefab); });
     }
 
     protected virtual void UpdateUI()

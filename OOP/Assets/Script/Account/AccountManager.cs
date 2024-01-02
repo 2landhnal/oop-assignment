@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class AccountManager
@@ -45,6 +46,27 @@ public static class AccountManager
     public static void SetCurrentUsername(string s)
     {
         currentUsername = s;
+    }
+
+    public static bool PurchaseGem(int amount)
+    {
+        AccountGameData currentAccountGameData = accountGameDataList.Single(s => s.username == currentUsername);
+        if (currentAccountGameData.gemAmount >= amount)
+        {
+            List<AccountGameData> tmpList = accountGameDataList;
+            tmpList.Single(s => s.username == currentUsername).gemAmount -= amount;
+            FileHandler.SaveToJSON(tmpList, fileName_accountGameData);
+            return true;
+        }
+        return false;
+    }
+
+    public static void UnlockSkill(SkillController skillControllerPrefabToAdd)
+    {
+        AccountGameData currentAccountGameData = accountGameDataList.Single(s => s.username == currentUsername);
+        List<AccountGameData> tmpList = accountGameDataList;
+        tmpList.Single(s => s.username == currentUsername).skillGainedList.Add(skillControllerPrefabToAdd);
+        FileHandler.SaveToJSON(tmpList, fileName_accountGameData);
     }
 
     [Serializable]
