@@ -7131,6 +7131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   immortal: 0
+  Items: {fileID: 0}
+  Quantity: 0
 --- !u!70 &528275620
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7579,6 +7581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 400
   immortal: 0
+  Items: {fileID: 0}
+  Quantity: 0
 --- !u!70 &577448377
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18955,6 +18959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   immortal: 0
+  Items: {fileID: 4071839898493801705, guid: deda42a5a2e7369418dfc8fe3112ca63, type: 3}
+  Quantity: 2
 --- !u!70 &1786284736
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -21659,6 +21665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   immortal: 0
+  Items: {fileID: 4071839898493801705, guid: deda42a5a2e7369418dfc8fe3112ca63, type: 3}
+  Quantity: 2
 --- !u!114 &7552029201081641654
 MonoBehaviour:
   m_ObjectHideFlags: 0

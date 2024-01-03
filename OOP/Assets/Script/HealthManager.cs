@@ -1,4 +1,7 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 public class HealthManager : MonoBehaviour, IDamageable
 {
 
@@ -10,6 +13,8 @@ public class HealthManager : MonoBehaviour, IDamageable
     public float currentHP { get; private set; }
     private Creature creature;
     public bool immortal;
+    public GameObject Items;
+    public int Quantity;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,14 @@ public class HealthManager : MonoBehaviour, IDamageable
         
     }
 
+    private void DropItems()
+    {
+         for (int i = 0; i < Quantity; i++)
+         {
+            Instantiate (Items, (GetComponent<Rigidbody2D>().position) + new Vector2(0,1), quaternion.identity );
+         }
+    }
+
     public void TakeDamage(float damage, Vector2 pos)
     {
         if (immortal) return;
@@ -36,6 +49,7 @@ public class HealthManager : MonoBehaviour, IDamageable
         currentHP -= damage;
         if (currentHP <= 0)
         {
+            DropItems();
             creature.Animator_SetDead();
         }
     }
