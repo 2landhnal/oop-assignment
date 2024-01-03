@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UI;
+using static AccountManager;
 
 public class UserInfoSection : MonoBehaviour
 {
@@ -10,13 +11,12 @@ public class UserInfoSection : MonoBehaviour
     public InputField name, age;
     public GameObject detailSection;
     public GameObject selectAvtPanel;
-    public List<Sprite> avtSprites;
     public Transform grid;
     public AvatarToPick prefabAvt;
 
     private void Start()
     {
-        foreach(Sprite s in avtSprites)
+        foreach(Sprite s in RuntimeData.Ins.avtSprites)
         {
             AvatarToPick tempImage = Instantiate(prefabAvt);
             Helper.AssignToRoot(grid, tempImage.transform, Vector3.zero, Vector3.one);
@@ -42,7 +42,7 @@ public class UserInfoSection : MonoBehaviour
         AccountManager.UserInfo accInfo = FileHandler.ReadListFromJSON<AccountManager.UserInfo>(AccountManager.fileName_userInfo).Single(s=>s.username == AccountManager.currentUsername);
         if(accInfo != null)
         {
-            if(accInfo.avtSprite != null) avt.sprite = accInfo.avtSprite;
+            avt.sprite = RuntimeData.Ins.avtSprites[accInfo.avtSpriteId];
             miniAvt.sprite = avt.sprite;
             name.text = accInfo.name;
             age.text = accInfo.age.ToString();
@@ -55,7 +55,7 @@ public class UserInfoSection : MonoBehaviour
     public void Save()
     {
         List<AccountManager.UserInfo> userInfoList = FileHandler.ReadListFromJSON<AccountManager.UserInfo>(AccountManager.fileName_userInfo);
-        userInfoList.Single(s => s.username == AccountManager.currentUsername).avtSprite = avt.sprite;
+        userInfoList.Single(s => s.username == AccountManager.currentUsername).avtSpriteId = RuntimeData.Ins.avtSprites.GetIndex(avt.sprite);
         userInfoList.Single(s => s.username == AccountManager.currentUsername).name = name.text;
         userInfoList.Single(s => s.username == AccountManager.currentUsername).age = int.Parse(age.text);
         FileHandler.SaveToJSON(userInfoList, AccountManager.fileName_userInfo);

@@ -69,12 +69,12 @@ public class SignUpSection : MonoBehaviour
 
         // accountGameData
         List<AccountManager.AccountGameData> accountGameDataList = FileHandler.ReadListFromJSON<AccountManager.AccountGameData>(AccountManager.fileName_accountGameData);
-        accountGameDataList.Add(new AccountManager.AccountGameData(username.text, new List<SkillController>()));
+        accountGameDataList.Add(new AccountManager.AccountGameData(username.text, new List<int>()));
         FileHandler.SaveToJSON(accountGameDataList, AccountManager.fileName_accountGameData);
 
         // playingGameData
         List<AccountManager.PlayingGameData> playingGameDataList = FileHandler.ReadListFromJSON<AccountManager.PlayingGameData>(AccountManager.fileName_playingGameData);
-        playingGameDataList.Add(new AccountManager.PlayingGameData(username.text, new List<SkillController>()));
+        playingGameDataList.Add(new AccountManager.PlayingGameData(username.text, new List<int>()));
         FileHandler.SaveToJSON(playingGameDataList, AccountManager.fileName_playingGameData);
     }
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,10 @@ public class ShopItemCard : MonoBehaviour
     protected virtual void UpdateUI()
     {
         if (skillControllerPrefab == null) return;
+        if(AccountManager.accountGameDataList.Single(s=>s.username == AccountManager.currentUsername).skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)))
+        {
+            blackPanel.gameObject.SetActive(false);
+        }
         skillIcon.sprite = skillControllerPrefab.skillData.skillIcon;
         priceTxt.text = skillControllerPrefab.skillData.price.ToString();
     }

@@ -22,6 +22,10 @@ public static class Helper
             }
         }
     }
+    public static int GetIndex<T>(this List<T> t, T item)
+    {
+        return t.IndexOf(item);
+    }
 
     public static void AssignToRoot(Transform root, Transform obj, Vector3 pos, Vector3 scale, bool isChange = false)
     {

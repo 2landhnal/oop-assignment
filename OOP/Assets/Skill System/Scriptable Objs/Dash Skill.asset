@@ -19,4 +19,4 @@ MonoBehaviour:
   triggerTime: 0.2
   skillName: Dash
   description: Increase speed suddenly for .2s
-  price: 60
+  price: 0

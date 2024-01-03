@@ -11578,47 +11578,6 @@ MonoBehaviour:
   age: {fileID: 1683826986}
   detailSection: {fileID: 471917327}
   selectAvtPanel: {fileID: 2078671151}
-  avtSprites:
-  - {fileID: 21300000, guid: a937a939833e61d4ab573dd2ea71c29b, type: 3}
-  - {fileID: 21300000, guid: c065901c110bddc4f8415230a46253b8, type: 3}
-  - {fileID: 21300000, guid: 8d763085ea3c7df4a92989c61cc39e7c, type: 3}
-  - {fileID: 21300000, guid: 4c032b76949296940b57f95ec19e8af1, type: 3}
-  - {fileID: 21300000, guid: 2b8edfc8f2f8aee48a5edb0feb1c0e48, type: 3}
-  - {fileID: 21300000, guid: 4d5450af43f2e004ab9745816c374d67, type: 3}
-  - {fileID: 21300000, guid: ba9a9f917d9e4c54a9ed000215c98f1e, type: 3}
-  - {fileID: 21300000, guid: e86aab7487026894cbbed968857f82b4, type: 3}
-  - {fileID: 21300000, guid: a41ab49668ebbef449859ddb839f9a53, type: 3}
-  - {fileID: 21300000, guid: 0dcac5b64e8e1794eb1d8e2878163903, type: 3}
-  - {fileID: 21300000, guid: 0c4ec02cf381608449897be86a1df906, type: 3}
-  - {fileID: 21300000, guid: c6cc9f0923f3b344c911947e818012c1, type: 3}
-  - {fileID: 21300000, guid: 12c6ee3e115060f44a997d4759832373, type: 3}
-  - {fileID: 21300000, guid: 022632829aba21d438590aa12776b43d, type: 3}
-  - {fileID: 21300000, guid: 4349bd2d659a647419fd070508db2af2, type: 3}
-  - {fileID: 21300000, guid: ef80386c8bca2ba4595f84baa2fb23c1, type: 3}
-  - {fileID: 21300000, guid: 25c2b94f0568c524fac2e204d8c684fb, type: 3}
-  - {fileID: 21300000, guid: 683275ec3aeb6b9458bb1f9942a34c7a, type: 3}
-  - {fileID: 21300000, guid: 79908b067c29e8940b5b80c0535e41d5, type: 3}
-  - {fileID: 21300000, guid: 1772f32c05457324abf6200ba7b90a98, type: 3}
-  - {fileID: 21300000, guid: 60dd505234ac02e4cbe47c5dfe888189, type: 3}
-  - {fileID: 21300000, guid: c86878f52bed29c43a3778fc58c67364, type: 3}
-  - {fileID: 21300000, guid: 98105a2cebb4d2d40a575657762c3f74, type: 3}
-  - {fileID: 21300000, guid: 63f5a2c57ed9c2d41b171d8aa99d3fff, type: 3}
-  - {fileID: 21300000, guid: 0d86d7cccec315f43ae898fec2f4a412, type: 3}
-  - {fileID: 21300000, guid: 6e33edf40b4a7c545b0b78d24e2d26b3, type: 3}
-  - {fileID: 21300000, guid: 9e5361276453d38459608526ba709540, type: 3}
-  - {fileID: 21300000, guid: 943205c29c8fce04ca6ee68e51ac3930, type: 3}
-  - {fileID: 21300000, guid: 07f5b528ba1c07442b384439e4d4f96e, type: 3}
-  - {fileID: 21300000, guid: fdf3802cfba930e48bb9fe569e12bea1, type: 3}
-  - {fileID: 21300000, guid: e0431f0b832bbc64eb735cbc8ae426c4, type: 3}
-  - {fileID: 21300000, guid: b3aefd28736ff224d9978bc3f88eaae5, type: 3}
-  - {fileID: 21300000, guid: d0810dd64e34f45419b11a9cda06d649, type: 3}
-  - {fileID: 21300000, guid: 9b4b3221a7c66eb44aa183816b064500, type: 3}
-  - {fileID: 21300000, guid: 551f00678e7d6bb4aaaf55cb5bc266a8, type: 3}
-  - {fileID: 21300000, guid: c1e0bc11cbf8ee440aa48c7d7432ce8e, type: 3}
-  - {fileID: 21300000, guid: cc30c79b345e9f641b7a5cbea418c1b5, type: 3}
-  - {fileID: 21300000, guid: 267093d5aa4e876429e0511a394c40af, type: 3}
-  - {fileID: 21300000, guid: 53623688b0aac084383873d9ca8c24d5, type: 3}
-  - {fileID: 21300000, guid: 2937747ef53e37c4495bea0460da44ff, type: 3}
   grid: {fileID: 1404974317}
   prefabAvt: {fileID: 7869452539586248934, guid: 1138426938744b54a8dcda69a577878d, type: 3}
 --- !u!1 &973034091
@@ -11759,10 +11718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueBtn: {fileID: 1578974343}
   startScene: Forest
-  characterInfoList:
-  - animatorController: {fileID: 9100000, guid: 7d74ce86b90eea744b1055ef1c2f15b5, type: 2}
-    characterPrefab: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
-    name: Tunes
   selectingCharacterAnimator: {fileID: 1234717079}
   avatarImg: {fileID: 1382537804}
   userNameTxt: {fileID: 572370633}
@@ -13102,19 +13057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d61c8d8044aeb042926deef25ac7abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillControllerList:
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
   shopPanel: {fileID: 708104561}
   contentGrid: {fileID: 521223196}
   itemCardPrefab: {fileID: 629797908379515158, guid: f1596ee50c6957d4bb103f6670b5f705, type: 3}
@@ -13308,28 +13250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d61c8d8044aeb042926deef25ac7abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillControllerList:
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
   shopPanel: {fileID: 0}
   contentGrid: {fileID: 0}
   itemCardPrefab: {fileID: 0}
@@ -15611,6 +15531,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496366887}
   m_CullTransparentMesh: 1
+--- !u!1 &1542413944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542413946}
+  - component: {fileID: 1542413945}
+  m_Layer: 0
+  m_Name: RuntimeData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1542413945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542413944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5f65962ed260e4d934a2bd579118ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avtSprites:
+  - {fileID: 21300000, guid: a937a939833e61d4ab573dd2ea71c29b, type: 3}
+  - {fileID: 21300000, guid: c065901c110bddc4f8415230a46253b8, type: 3}
+  - {fileID: 21300000, guid: 8d763085ea3c7df4a92989c61cc39e7c, type: 3}
+  - {fileID: 21300000, guid: 4c032b76949296940b57f95ec19e8af1, type: 3}
+  - {fileID: 21300000, guid: 2b8edfc8f2f8aee48a5edb0feb1c0e48, type: 3}
+  - {fileID: 21300000, guid: 4d5450af43f2e004ab9745816c374d67, type: 3}
+  - {fileID: 21300000, guid: ba9a9f917d9e4c54a9ed000215c98f1e, type: 3}
+  - {fileID: 21300000, guid: e86aab7487026894cbbed968857f82b4, type: 3}
+  - {fileID: 21300000, guid: a41ab49668ebbef449859ddb839f9a53, type: 3}
+  - {fileID: 21300000, guid: 0dcac5b64e8e1794eb1d8e2878163903, type: 3}
+  - {fileID: 21300000, guid: 0c4ec02cf381608449897be86a1df906, type: 3}
+  - {fileID: 21300000, guid: c6cc9f0923f3b344c911947e818012c1, type: 3}
+  - {fileID: 21300000, guid: 12c6ee3e115060f44a997d4759832373, type: 3}
+  - {fileID: 21300000, guid: 022632829aba21d438590aa12776b43d, type: 3}
+  - {fileID: 21300000, guid: 4349bd2d659a647419fd070508db2af2, type: 3}
+  - {fileID: 21300000, guid: ef80386c8bca2ba4595f84baa2fb23c1, type: 3}
+  - {fileID: 21300000, guid: 25c2b94f0568c524fac2e204d8c684fb, type: 3}
+  - {fileID: 21300000, guid: 683275ec3aeb6b9458bb1f9942a34c7a, type: 3}
+  - {fileID: 21300000, guid: 79908b067c29e8940b5b80c0535e41d5, type: 3}
+  - {fileID: 21300000, guid: 1772f32c05457324abf6200ba7b90a98, type: 3}
+  - {fileID: 21300000, guid: 60dd505234ac02e4cbe47c5dfe888189, type: 3}
+  - {fileID: 21300000, guid: c86878f52bed29c43a3778fc58c67364, type: 3}
+  - {fileID: 21300000, guid: 98105a2cebb4d2d40a575657762c3f74, type: 3}
+  - {fileID: 21300000, guid: 63f5a2c57ed9c2d41b171d8aa99d3fff, type: 3}
+  - {fileID: 21300000, guid: 0d86d7cccec315f43ae898fec2f4a412, type: 3}
+  - {fileID: 21300000, guid: 6e33edf40b4a7c545b0b78d24e2d26b3, type: 3}
+  - {fileID: 21300000, guid: 9e5361276453d38459608526ba709540, type: 3}
+  - {fileID: 21300000, guid: 943205c29c8fce04ca6ee68e51ac3930, type: 3}
+  - {fileID: 21300000, guid: 07f5b528ba1c07442b384439e4d4f96e, type: 3}
+  - {fileID: 21300000, guid: fdf3802cfba930e48bb9fe569e12bea1, type: 3}
+  - {fileID: 21300000, guid: e0431f0b832bbc64eb735cbc8ae426c4, type: 3}
+  - {fileID: 21300000, guid: b3aefd28736ff224d9978bc3f88eaae5, type: 3}
+  - {fileID: 21300000, guid: d0810dd64e34f45419b11a9cda06d649, type: 3}
+  - {fileID: 21300000, guid: 9b4b3221a7c66eb44aa183816b064500, type: 3}
+  - {fileID: 21300000, guid: 551f00678e7d6bb4aaaf55cb5bc266a8, type: 3}
+  - {fileID: 21300000, guid: c1e0bc11cbf8ee440aa48c7d7432ce8e, type: 3}
+  - {fileID: 21300000, guid: cc30c79b345e9f641b7a5cbea418c1b5, type: 3}
+  - {fileID: 21300000, guid: 267093d5aa4e876429e0511a394c40af, type: 3}
+  - {fileID: 21300000, guid: 53623688b0aac084383873d9ca8c24d5, type: 3}
+  - {fileID: 21300000, guid: 2937747ef53e37c4495bea0460da44ff, type: 3}
+  skillControllerList:
+  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
+  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
+  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
+  characterInfoList:
+  - animatorController: {fileID: 9100000, guid: 7d74ce86b90eea744b1055ef1c2f15b5, type: 2}
+    characterPrefab: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
+    name: Tunes
+  - animatorController: {fileID: 9100000, guid: 7d74ce86b90eea744b1055ef1c2f15b5, type: 2}
+    characterPrefab: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
+    name: Tunes 2
+--- !u!4 &1542413946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542413944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1668.6869, y: 691.63983, z: -8.123571}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547953784
 GameObject:
   m_ObjectHideFlags: 0
@@ -18812,7 +18828,7 @@ GameObject:
   - component: {fileID: 1990197718}
   - component: {fileID: 1990197717}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18882,9 +18898,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 708104563}
-        m_TargetAssemblyTypeName: ButtonAndTable, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 24867006}
+        m_TargetAssemblyTypeName: SkillInfoPanel, Assembly-CSharp
+        m_MethodName: Purchase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20440,3 +20456,4 @@ SceneRoots:
   - {fileID: 454204062}
   - {fileID: 133809553}
   - {fileID: 1162636025}
+  - {fileID: 1542413946}

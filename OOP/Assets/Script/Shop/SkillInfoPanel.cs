@@ -22,9 +22,10 @@ public class SkillInfoPanel : Singleton<SkillInfoPanel>
 
     public void OnShowUp(SkillController controller)
     {
+        Debug.Log("Show");
         skillControllerPrefab = controller;
         currentAccountGameData = AccountManager.accountGameDataList.Single(s => s.username == AccountManager.currentUsername);
-        buySection.SetActive(!currentAccountGameData.skillGainedList.Contains(skillControllerPrefab));
+        buySection.SetActive(!currentAccountGameData.skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)));
         buyBtn.interactable = currentAccountGameData.gemAmount >= skillControllerPrefab.skillData.price;
         avtImg.sprite = skillControllerPrefab.skillData.skillIcon;
         nameTxt.text = skillControllerPrefab.skillData.name;
