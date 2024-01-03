@@ -36,10 +36,10 @@ public class HealthManager : MonoBehaviour, IDamageable
 
     private void DropItems()
     {
-         for (int i = 0; i < Quantity; i++)
-         {
-            Instantiate (Items, (GetComponent<Rigidbody2D>().position) + new Vector2(0,1), quaternion.identity );
-         }
+        for (int i = 0; i < Quantity; i++)
+        {
+            Instantiate (Items, (GetComponent<Rigidbody2D>().position) , quaternion.identity );
+        }
     }
 
     public void TakeDamage(float damage, Vector2 pos)

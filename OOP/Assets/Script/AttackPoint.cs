@@ -47,7 +47,7 @@ public class AttackPoint : MonoBehaviour
     {
         if (collision.TryGetComponent(out tempIDamageable))
         {
-            ColWithTarget(tempIDamageable);
+            ColWithTarget(tempIDamageable); 
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
