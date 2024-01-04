@@ -59,6 +59,7 @@ public class UserInfoSection : MonoBehaviour
         userInfoList.Single(s => s.username == AccountManager.currentUsername).name = name.text;
         userInfoList.Single(s => s.username == AccountManager.currentUsername).age = int.Parse(age.text);
         FileHandler.SaveToJSON(userInfoList, AccountManager.fileName_userInfo);
+        Lobby.Ins.UpdateUI();
     }
 
     public void OpenAvtSelectSection()

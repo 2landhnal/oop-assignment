@@ -9,8 +9,12 @@ using UnityEngine.UI;
 using static AccountManager;
 using CharacterInfo = AccountManager.CharacterInfo;
 
-public class Lobby : MonoBehaviour
+public class Lobby : Singleton<Lobby>
 {
+    protected override void Awake()
+    {
+        MakeSingleton(false);
+    }
     public Button continueBtn;
     public string startScene;
 
@@ -58,19 +62,24 @@ public class Lobby : MonoBehaviour
 
 
         continueBtn.interactable = accountGameData.hasPlayingData;
-        if(playingGameData.characterID == 0 && accountGameData.selectingCharacterInfoID == null)
+        if(playingGameData.characterID == 0 && accountGameData.selectingCharacterInfoID < 0)
         {
             selectingCharacterAnimator.runtimeAnimatorController = RuntimeData.Ins.characterInfoList[0].animatorController;
         }
-        if (accountGameData.selectingCharacterInfoID == null)
+        if (accountGameData.selectingCharacterInfoID < 0)
         {
-            selectingCharacterAnimator.runtimeAnimatorController = RuntimeData.Ins.characterInfoList[playingGameData.characterID].animatorController;
+            selectingCharacterAnimator.runtimeAnimatorController = RuntimeData.Ins.characterInfoList[0].animatorController;
         }
-        else if (accountGameData.selectingCharacterInfoID == null)
+        else
         {
             selectingCharacterAnimator.runtimeAnimatorController = RuntimeData.Ins.characterInfoList[accountGameData.selectingCharacterInfoID].animatorController;
         }
-        Debug.Log(avatarImg.sprite == null);
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        userInfo = AccountManager.userInfoList.Single(s => s.username == currentUsername);
         if (avatarImg.sprite != null) avatarImg.sprite = RuntimeData.Ins.avtSprites[userInfo.avtSpriteId];
         userNameTxt.text = userInfo.name;
         gemAmountTxt.text = accountGameData.gemAmount.ToString();
@@ -104,6 +113,7 @@ public class Lobby : MonoBehaviour
         accountGameData.selectingCharacterInfoID = RuntimeData.Ins.characterInfoList.GetIndex(character);
         accountGameDataList.Single(s=>s.username == currentUsername).selectingCharacterInfoID = RuntimeData.Ins.characterInfoList.GetIndex(character);
         FileHandler.SaveToJSON(accountGameDataList, fileName_accountGameData);
+        selectingCharacterAnimator.runtimeAnimatorController = character.animatorController;
 
         selectCharacterSection.gameObject.SetActive(false);
     }

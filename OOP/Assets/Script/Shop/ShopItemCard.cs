@@ -17,15 +17,15 @@ public class ShopItemCard : MonoBehaviour
     {
         skillControllerPrefab = controller;
         UpdateUI();
-        BtnComponent.onClick.RemoveAllListeners();
-        BtnComponent.onClick.AddListener(Trigger);
+        btnComponent.onClick.RemoveAllListeners();
+        btnComponent.onClick.AddListener(Trigger);
         btnComponent.onClick.AddListener(delegate { SkillInfoPanel.Ins.OnShowUp(skillControllerPrefab); });
     }
 
     protected virtual void UpdateUI()
     {
         if (skillControllerPrefab == null) return;
-        if(AccountManager.accountGameDataList.Single(s=>s.username == AccountManager.currentUsername).skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)))
+        if(skillControllerPrefab.openAtStart || AccountManager.accountGameDataList.Single(s=>s.username == AccountManager.currentUsername).skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)))
         {
             blackPanel.gameObject.SetActive(false);
         }

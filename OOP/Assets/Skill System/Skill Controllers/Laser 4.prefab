@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6467849415621824233}
-  - component: {fileID: -3832140069507066388}
+  - component: {fileID: 8972909939493523882}
   m_Layer: 0
-  m_Name: Dash Skill
+  m_Name: Laser 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3832140069507066388
+--- !u!114 &8972909939493523882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985894111344713054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8448cd08191e740b31dcb38241e340, type: 3}
+  m_Script: {fileID: 11500000, guid: 6470cc90ebda8424cab8b9651e407cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
-  type: 0
-  skillData: {fileID: 11400000, guid: dfc11960defd03d4294642d561b449b9, type: 2}
-  animatorParam: dash
-  activeKey: 107
+  type: 2
+  skillData: {fileID: 11400000, guid: 3e35ac97fb179274a86e8e9385ab7e94, type: 2}
+  animatorParam: 
+  activeKey: 117
   OnCoolDowning:
     m_PersistentCalls:
       m_Calls: []
@@ -70,6 +70,3 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
-  openAtStart: 1
-  dashSpeed: 20
-  afterImageDeltaTime: 0.05

@@ -206,6 +206,10 @@ MonoBehaviour:
   nameLabel: {fileID: 7925875712645609148}
   dataLabel: {fileID: 4591534600010202246}
   avtIcon: {fileID: 2763335147456227351}
+  iconImg: {fileID: 3531319010968583472}
+  gemIcon: {fileID: 21300000, guid: 94c8f5700ba857a479b520908fde349e, type: 3}
+  coinIcon: {fileID: -1023277305, guid: e128a66d85a1b9b43946e71cf682d858, type: 3}
+  enemyIcon: {fileID: 533961914, guid: a3759dbdbafbe21478278227f4c10dab, type: 3}
 --- !u!1 &5318829885887282663
 GameObject:
   m_ObjectHideFlags: 0
