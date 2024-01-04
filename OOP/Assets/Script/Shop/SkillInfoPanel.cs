@@ -25,7 +25,7 @@ public class SkillInfoPanel : Singleton<SkillInfoPanel>
         Debug.Log("Show");
         skillControllerPrefab = controller;
         currentAccountGameData = AccountManager.accountGameDataList.Single(s => s.username == AccountManager.currentUsername);
-        buySection.SetActive(!currentAccountGameData.skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)));
+        buySection.SetActive(! (skillControllerPrefab.openAtStart || currentAccountGameData.skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab))));
         buyBtn.interactable = currentAccountGameData.gemAmount >= skillControllerPrefab.skillData.price;
         avtImg.sprite = skillControllerPrefab.skillData.skillIcon;
         nameTxt.text = skillControllerPrefab.skillData.name;

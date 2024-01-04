@@ -18,7 +18,7 @@ public class SkillManager : MonoBehaviour
             tempSkillController = GetSkillControllerPrefabByType(type);
             if (tempSkillController != null)
             {
-                skillControllersCollected.Add(ClonePrefabToAssignRoot(tempSkillController));
+                ClonePrefabToAssignRoot(tempSkillController);
             }
             else
             {

@@ -23,6 +23,8 @@ public class SkillController : MonoBehaviour
     public UnityEvent OnTriggerEnter;
     public UnityEvent<SkillType> OnStopWithType;
 
+    public bool openAtStart = false;
+
     public float coolDownProgress
     {
         get => coolDownCounter / skillData.coolDownTime;

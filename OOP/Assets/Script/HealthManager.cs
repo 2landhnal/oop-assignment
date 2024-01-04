@@ -11,6 +11,7 @@ public class HealthManager : MonoBehaviour, IDamageable
     protected Collider2D col;
     [SerializeField] private float maxHP;
     public float currentHP { get; private set; }
+    public float currentHPRate { get => currentHP / maxHP; }
     private Creature creature;
     public bool immortal;
     public GameObject Items;

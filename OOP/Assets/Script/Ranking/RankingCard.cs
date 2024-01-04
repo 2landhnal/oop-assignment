@@ -7,9 +7,11 @@ using TMPro;
 public class RankingCard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameLabel, dataLabel;
-    [SerializeField] protected Image avtIcon;
+    [SerializeField] protected Image avtIcon, iconImg;
 
     protected AccountGameData accountGameData;
+
+    public Sprite gemIcon, coinIcon, enemyIcon;
 
     public void Initialize(AccountGameData accountGameData)
     {
@@ -25,6 +27,13 @@ public class RankingCard : MonoBehaviour
         avtIcon.sprite = RuntimeData.Ins.avtSprites[userInfo.avtSpriteId];
         nameLabel.text = userInfo.name;
         dataLabel.text = accountGameData.enemyKilledAmount.ToString();
+    }
+
+    public void ShowGem()
+    {
+        iconImg.sprite = gemIcon;
+        iconImg.SetNativeSize();
+        dataLabel.text = accountGameData.gemAmount.ToString();
     }
 
     protected virtual void Trigger()
