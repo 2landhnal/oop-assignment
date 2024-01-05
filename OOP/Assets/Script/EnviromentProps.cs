@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnviromentProps : Singleton<EnviromentProps> 
+public class EnviromentProps : Singleton<EnviromentProps>, IObserve
 {
     public LayerMask groundLayers, platformLayers;
     public float jumpOutWallSpeed;
@@ -10,7 +10,8 @@ public class EnviromentProps : Singleton<EnviromentProps>
     {
         MakeSingleton(false);
     }
-    private void Start()
+
+    public void SubjectCalled()
     {
         if (Player.instance == null) return;
         if (spawnPoint == null) return;

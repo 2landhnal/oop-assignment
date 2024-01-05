@@ -67,9 +67,9 @@ public static class AccountManager
         public string username;
         public int characterID;
         public int coinAmount, gemCollectedAmount, sceneIndex;
-        public float currentHPRate;
+        public float currentHPRate, maxHP;
         public List<int> skillCollectedList;
-        public PlayingGameData(string username, List<int> skillCollectedList, int coinAmount = 0, int gemCollectedAmount = 0, float currentHPRate = 1, int sceneIndex = 0, int character = 0)
+        public PlayingGameData(string username, List<int> skillCollectedList, int coinAmount = 0, int gemCollectedAmount = 0, float currentHPRate = 1, int sceneIndex = 0, int character = 0, float maxHP = 0)
         {
             this.username = username;
             this.coinAmount = coinAmount;
@@ -78,6 +78,7 @@ public static class AccountManager
             this.sceneIndex = sceneIndex;
             this.skillCollectedList = skillCollectedList;
             this.characterID = character;
+            this.maxHP = maxHP;
         }
     }
 

@@ -430,6 +430,8 @@ MonoBehaviour:
   EnterEvent:
     m_PersistentCalls:
       m_Calls: []
+  bulletPrefab: {fileID: 0}
+  attackPoint: {fileID: 0}
 --- !u!114 &5977167517685211208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   immortal: 0
+  Items: {fileID: 0}
+  Quantity: 0
 --- !u!114 &5829600061046566359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,4 +461,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillControllersCollected: []
-  skillCollected: 00000000
+  skillTypeCollected: 00000000

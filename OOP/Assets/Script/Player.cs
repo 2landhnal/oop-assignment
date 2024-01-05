@@ -9,6 +9,8 @@ public class Player : Creature
     protected SkillManager skillManager;
     [SerializeField] protected Bullet bulletPrefab;
     [SerializeField] private Transform attackPoint;
+    [HideInInspector]public float gemCollected = 0;
+    [HideInInspector] public float coinCollected = 0;
 
     private void Awake()
     {

@@ -16,17 +16,24 @@ public class HealthManager : MonoBehaviour, IDamageable
     public bool immortal;
     public GameObject Items;
     public int Quantity;
+    bool loaded = false;
     // Start is called before the first frame update
     void Start()
     {
         creature = GetComponent<Creature>();
-        currentHP = maxHP;
+        if(!loaded) currentHP = maxHP;
         immortal = false;
     }
 
     public float GetMaxHP()
     {
         return maxHP;
+    }
+    public void LoadHP(float maxHP, float rate)
+    {
+        loaded = true;
+        this.maxHP = maxHP;
+        currentHP = maxHP * rate;
     }
 
     // Update is called once per frame

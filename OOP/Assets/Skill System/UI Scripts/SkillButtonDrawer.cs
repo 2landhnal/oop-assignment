@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SkillButtonDrawer : Singleton<SkillButtonDrawer>
 {
@@ -17,7 +18,8 @@ public class SkillButtonDrawer : Singleton<SkillButtonDrawer>
     {
         playerSkillManager = Player.instance.GetComponent<SkillManager>();
         Helper.ClearChilds(contentGrid);
-        skillCollecteds = playerSkillManager.skillCollected;
+        skillCollecteds = playerSkillManager.skillTypeCollected;
+        if (skillCollecteds == null || skillCollecteds.Count == 0) Debug.Log("null");
         if (skillCollecteds == null || skillCollecteds.Count == 0) return;
         foreach(var skill in skillCollecteds)
         {
@@ -27,6 +29,7 @@ public class SkillButtonDrawer : Singleton<SkillButtonDrawer>
             var skillButtonClone = Instantiate(skillBtnPrefab);
             Helper.AssignToRoot(contentGrid, skillButtonClone.transform, Vector3.zero, Vector3.one);
             skillButtonClone.Initialize(skill);
+            Debug.Log(skill);
         }
     }
 }

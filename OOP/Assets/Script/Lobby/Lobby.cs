@@ -4,7 +4,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using static AccountManager;
 using CharacterInfo = AccountManager.CharacterInfo;
@@ -57,7 +56,7 @@ public class Lobby : Singleton<Lobby>
         }
         playingGameData = playingGameDataList.Single(s => s.username == currentUsername);
 
-        userInfo = AccountManager.userInfoList.Single(s=>s.username == currentUsername);
+        userInfo = userInfoList.Single(s=>s.username == currentUsername);
         if (userInfo == null) return;
 
 
@@ -79,14 +78,49 @@ public class Lobby : Singleton<Lobby>
 
     public void UpdateUI()
     {
-        userInfo = AccountManager.userInfoList.Single(s => s.username == currentUsername);
+        userInfo = userInfoList.Single(s => s.username == currentUsername);
         if (avatarImg.sprite != null) avatarImg.sprite = RuntimeData.Ins.avtSprites[userInfo.avtSpriteId];
         userNameTxt.text = userInfo.name;
         gemAmountTxt.text = accountGameData.gemAmount.ToString();
     }
+    public void Continue()
+    {
+        SceneManager.LoadScene(RuntimeData.Ins.sceneNameList[playingGameData.sceneIndex]);
+    }
     public void NewGame()
     {
+        CreateNewGameData();
         SceneManager.LoadScene(startScene);
+    }
+    public void CreateNewGameData()
+    {
+        if (currentUsername == null) return;
+        List<PlayingGameData> playingList = playingGameDataList;
+        PlayingGameData tmpPlayingGameData = playingList.Single(s => s.username == currentUsername);
+        AccountGameData tmpGameData = accountGameDataList.Single(s => s.username == currentUsername);
+
+        int id = playingList.GetIndex(tmpPlayingGameData);
+
+        tmpPlayingGameData.characterID = tmpGameData.selectingCharacterInfoID;
+        tmpPlayingGameData.currentHPRate = 1;
+        tmpPlayingGameData.maxHP = RuntimeData.Ins.characterInfoList[tmpGameData.selectingCharacterInfoID].characterPrefab.GetComponent<HealthManager>().GetMaxHP();
+        tmpPlayingGameData.sceneIndex = 0;
+
+        List<int> intList = new List<int>();
+        tmpPlayingGameData.skillCollectedList = intList;
+        SkillManager tmpSkillManager = RuntimeData.Ins.characterInfoList[tmpGameData.selectingCharacterInfoID].characterPrefab.GetComponent<SkillManager>();
+        foreach (SkillType skillType in tmpSkillManager.skillTypeCollected)
+        {
+            intList.Add(RuntimeData.Ins.skillControllerList.IndexOf(tmpSkillManager.GetSkillControllerPrefabByType(skillType)));
+        }
+
+        // TODO
+        tmpPlayingGameData.gemCollectedAmount = 0;
+        tmpPlayingGameData.coinAmount = 0;
+
+        playingList[id] = tmpPlayingGameData;
+
+        FileHandler.SaveToJSON(playingList, fileName_playingGameData);
     }
 
     public void SignOut()

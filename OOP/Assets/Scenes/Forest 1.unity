@@ -948,6 +948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad47a79a46254f43a97f82c6b1599dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  observes:
+  - {fileID: 1161127417}
+  - {fileID: 96244226}
   portal: {fileID: 278849114}
   treasure: {fileID: 993248690}
 --- !u!4 &268204409
@@ -9816,10 +9819,6 @@ MonoBehaviour:
   hurtPart: 0.2
   bodyPrefab: {fileID: 4993248977093093853, guid: 97feef28b38beee4e84d6e25edfc6014, type: 3}
   afterImagePrefab: {fileID: 2455118252580969545, guid: 1ba7ca1879a40184da3f02a1e1a82e12, type: 3}
-  skillControllerList:
-  - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
 --- !u!1 &1182899849
 GameObject:
   m_ObjectHideFlags: 0
@@ -21133,6 +21132,10 @@ PrefabInstance:
     - target: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
       propertyPath: m_Name
       value: Tunes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

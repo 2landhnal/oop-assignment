@@ -1,16 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using CharacterInfo = AccountManager.CharacterInfo;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class RuntimeData : Singleton<RuntimeData>
 {
     protected override void Awake()
     {
-        base.Awake();
+        MakeSingleton(true);
     }
     public List<Sprite> avtSprites;
     public List<SkillController> skillControllerList;

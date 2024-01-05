@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : Singleton<GameController>
 {
+    public List<GameObject> observes;
     private int enemyCounter, enemyDefeatCounter;
     [SerializeField]GameObject portal, treasure;
     public void AddEnemyCounter()
@@ -29,6 +30,15 @@ public class GameController : Singleton<GameController>
         enemyDefeatCounter = 0;
         if(portal != null) portal.SetActive(false) ;
         if(treasure != null) treasure.SetActive(false);
+        if(Player.instance == null) LoadPlayingGameData();
+        foreach (GameObject observe in observes)
+        {
+            foreach(IObserve sub in observe.GetComponents<IObserve>())
+            {
+                sub.SubjectCalled();
+            }
+        }
+
         Invoke("SavePlayingGameData", 1f);
     }
 
@@ -40,7 +50,28 @@ public class GameController : Singleton<GameController>
         treasure.SetActive(true);
         List<AccountManager.AccountGameData> tmpList = AccountManager.accountGameDataList;
         tmpList.Single(s => s.username == AccountManager.currentUsername).enemyKilledAmount += enemyDefeatCounter;
-        FileHandler.SaveToJSON<AccountManager.AccountGameData>(tmpList, AccountManager.fileName_accountGameData);
+        FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
+    }
+
+    public void LoadPlayingGameData()
+    {
+        if (AccountManager.currentUsername == null)
+        {
+            Instantiate(RuntimeData.Ins.characterInfoList[0].characterPrefab);
+            return;
+        }
+        AccountManager.PlayingGameData tmpPlayingGameData = AccountManager.playingGameDataList.Single(s => s.username == AccountManager.currentUsername);
+
+        GameObject player = Instantiate(RuntimeData.Ins.characterInfoList[tmpPlayingGameData.characterID].characterPrefab);
+
+        player.GetComponent<HealthManager>().LoadHP(tmpPlayingGameData.maxHP, tmpPlayingGameData.currentHPRate);
+        foreach(int id in tmpPlayingGameData.skillCollectedList)
+        {
+            player.GetComponent<SkillManager>().AddSkill(RuntimeData.Ins.skillControllerList[id].type);
+        }
+
+        player.GetComponent<Player>().gemCollected = tmpPlayingGameData.gemCollectedAmount;
+        player.GetComponent<Player>().coinCollected = tmpPlayingGameData.coinAmount;
     }
 
     public void SavePlayingGameData()
@@ -53,8 +84,8 @@ public class GameController : Singleton<GameController>
 
         int id = playingList.GetIndex(tmpPlayingGameData);
 
-        tmpPlayingGameData.characterID = RuntimeData.Ins.characterInfoList.IndexOf(RuntimeData.Ins.characterInfoList.Single(s => s.characterPrefab.name == Player.instance.name));
         tmpPlayingGameData.currentHPRate = Player.instance.GetComponent<HealthManager>().currentHPRate;
+        tmpPlayingGameData.maxHP = Player.instance.GetComponent<HealthManager>().GetMaxHP();
         tmpPlayingGameData.sceneIndex = RuntimeData.Ins.sceneNameList.GetIndex(SceneManager.GetActiveScene().name);
         List<int> intList = new List<int>();
         foreach(SkillController tmp in Player.instance.GetComponent<SkillManager>().skillControllersCollected)
