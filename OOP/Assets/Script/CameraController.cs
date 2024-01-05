@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
+    protected override void Awake()
+    {
+        MakeSingleton(false);
+    }
     private Transform player;
     [SerializeField]float speed;
     Vector3 tmpv3;

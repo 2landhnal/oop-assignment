@@ -45,6 +45,7 @@ public class GameController : Singleton<GameController>
 
     public void SavePlayingGameData()
     {
+        if (AccountManager.currentUsername == null) return;
         List<AccountManager.PlayingGameData> playingList = AccountManager.playingGameDataList;
         List<AccountManager.AccountGameData> gameDataList = AccountManager.accountGameDataList;
         AccountManager.PlayingGameData tmpPlayingGameData = playingList.Single(s=>s.username == AccountManager.currentUsername);

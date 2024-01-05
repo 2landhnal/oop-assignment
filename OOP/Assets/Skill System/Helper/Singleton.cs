@@ -25,12 +25,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         MakeSingleton(true);
     }
 
-    protected void MakeSingleton(bool destroyOnload)
+    protected void MakeSingleton(bool dontDestroyOnLoad)
     {
         if (m_ins == null)
         {
             m_ins = this as T;
-            if (destroyOnload)
+            if (dontDestroyOnLoad)
             {
                 var root = transform.root;
 
