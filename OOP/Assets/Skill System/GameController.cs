@@ -26,8 +26,6 @@ public class GameController : Singleton<GameController>
     }
     void Start()
     {
-        enemyCounter = 0;
-        enemyDefeatCounter = 0;
         if(portal != null) portal.SetActive(false) ;
         if(treasure != null) treasure.SetActive(false);
         if(Player.instance == null) LoadPlayingGameData();
@@ -49,6 +47,8 @@ public class GameController : Singleton<GameController>
         if (treasure == null) return;
         treasure.SetActive(true);
         List<AccountManager.AccountGameData> tmpList = AccountManager.accountGameDataList;
+
+        if (AccountManager.currentUsername == null) return;
         tmpList.Single(s => s.username == AccountManager.currentUsername).enemyKilledAmount += enemyDefeatCounter;
         FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
     }

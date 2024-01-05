@@ -17,10 +17,13 @@ public class Enemy_Skeleton : Creature
         points.Insert(1, transform.position.x + walkRaidus);
         index = 0;
         currentTarget = points[0];
-        player = Player.instance.gameObject.transform;
     }
     private void Update()
     {
+        if(player == null)
+        {
+            player = Player.instance.gameObject.transform;
+        }
         if (CanControl())
         {
             tempFloat = Vector2.Distance(player.position, transform.position);

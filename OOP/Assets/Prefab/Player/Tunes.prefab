@@ -430,8 +430,10 @@ MonoBehaviour:
   EnterEvent:
     m_PersistentCalls:
       m_Calls: []
-  bulletPrefab: {fileID: 0}
-  attackPoint: {fileID: 0}
+  bulletPrefab: {fileID: 8902055158538506557, guid: f861ff6e8da8d3b4caaf38efeaf89548, type: 3}
+  attackPoint: {fileID: 5254401918393013827}
+  gemCollected: 0
+  coinCollected: 0
 --- !u!114 &5977167517685211208
 MonoBehaviour:
   m_ObjectHideFlags: 0
