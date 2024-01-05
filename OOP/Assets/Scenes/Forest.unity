@@ -647,6 +647,55 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &142567861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 142567862}
+  - component: {fileID: 142567863}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &142567862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142567861}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4458604, y: 1.7684829, z: 0.035195433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 538103271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142567863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142567861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6eec39ac4c567f64b9dc58cc07955c64, type: 2}
 --- !u!1 &171899748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,7 +7775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerList:
   - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
+  - {fileID: -6123094443538081888, guid: 387d96cb43b95a84fbf995b431a55f21, type: 3}
   - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
   claimed: 0
   triangle: {fileID: 1957339681}
@@ -9391,6 +9440,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 25745518}
+  - {fileID: 142567862}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540656862
@@ -18032,6 +18082,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
+      propertyPath: skillControllerList.Array.data[3]
+      value: 
+      objectReference: {fileID: -6123094443538081888, guid: 387d96cb43b95a84fbf995b431a55f21, type: 3}
     - target: {fileID: 8442531423494301920, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
       propertyPath: m_Name
       value: RuntimeData

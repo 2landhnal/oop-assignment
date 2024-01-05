@@ -51,7 +51,13 @@ public class SkillController : MonoBehaviour
         {
             CheckForKeyCode();
         }
+        else
+        {
+            CheckForCondition();
+        }
     }
+
+    protected virtual void CheckForCondition() { }
 
     private void CoreHandle() 
     { 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackPoint : MonoBehaviour
@@ -13,6 +14,11 @@ public class AttackPoint : MonoBehaviour
         col = GetComponent<Collider2D>();
         if(transform.parent != null) SetLayer(transform.parent.gameObject);
         LateStart();
+    }
+
+    private void OnEnable()
+    {
+
     }
 
     public void SetLayer(GameObject parentObj)
@@ -47,9 +53,9 @@ public class AttackPoint : MonoBehaviour
     {
         if (collision.TryGetComponent(out tempIDamageable))
         {
-            ColWithTarget(tempIDamageable); 
+            ColWithTarget(tempIDamageable);
         }
-        else if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             ColWithWall();
         }
@@ -65,6 +71,6 @@ public class AttackPoint : MonoBehaviour
     }
     protected virtual void ColWithTarget(IDamageable idm)
     {
-        tempIDamageable.TakeDamage(damage, transform.position);
+        idm.TakeDamage(damage, transform.position);
     }
 }

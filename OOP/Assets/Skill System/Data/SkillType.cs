@@ -1,4 +1,4 @@
 public enum SkillType
 {
-    Dash, Blast, Kame
+    Dash, Blast, Kame, Lightning
 }

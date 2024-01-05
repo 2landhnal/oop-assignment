@@ -111,7 +111,7 @@ public class Lobby : Singleton<Lobby>
         SkillManager tmpSkillManager = RuntimeData.Ins.characterInfoList[tmpGameData.selectingCharacterInfoID].characterPrefab.GetComponent<SkillManager>();
         foreach (SkillType skillType in tmpSkillManager.skillTypeCollected)
         {
-            intList.Add(RuntimeData.Ins.skillControllerList.IndexOf(tmpSkillManager.GetSkillControllerPrefabByType(skillType)));
+            intList.Add(RuntimeData.Ins.skillControllerList.IndexOf(RuntimeData.Ins.GetSkillControllerPrefabByType(skillType)));
         }
 
         // TODO

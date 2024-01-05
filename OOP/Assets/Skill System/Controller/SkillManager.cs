@@ -13,7 +13,7 @@ public class SkillManager : MonoBehaviour
         skillControllersCollected = new List<SkillController>();
         foreach (SkillType type in skillTypeCollected)
         {
-            tempSkillController = GetSkillControllerPrefabByType(type);
+            tempSkillController = RuntimeData.Ins.GetSkillControllerPrefabByType(type);
             if (tempSkillController != null)
             {
                 ClonePrefabToAssignRoot(tempSkillController);
@@ -49,13 +49,6 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    public SkillController GetSkillControllerPrefabByType(SkillType type)
-    {
-        var findeds = RuntimeData.Ins.skillControllerList.Where(s=>s.type == type).ToArray();
-        if(findeds == null || findeds.Length == 0 ) return null;
-        return findeds[0];
-    }
-
     public SkillController GetSkillControllerCloneByType(SkillType type)
     {
         var findeds = skillControllersCollected.Where(s => s.type == type).ToArray();
@@ -77,7 +70,7 @@ public class SkillManager : MonoBehaviour
     public void AddSkill(SkillType type)
     {
         if (skillTypeCollected.Contains(type)) return;
-        tempSkillController = GetSkillControllerPrefabByType(type);
+        tempSkillController = RuntimeData.Ins.GetSkillControllerPrefabByType(type);
         if (tempSkillController == null) return;
         tempSkillController = ClonePrefabToAssignRoot(tempSkillController);
         tempSkillController.LoadData();
@@ -93,7 +86,7 @@ public class SkillManager : MonoBehaviour
 
     public void StopSkill(SkillType type)
     {
-        var skillController = GetSkillControllerPrefabByType(type);
+        var skillController = GetSkillControllerCloneByType(type);
         if(skillController == null) return;
         skillController.Stop();
     }

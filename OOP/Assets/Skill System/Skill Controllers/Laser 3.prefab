@@ -70,3 +70,4 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
+  openAtStart: 0
