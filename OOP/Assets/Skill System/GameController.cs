@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : Singleton<GameController>
 {
     public List<GameObject> observes;
-    private int enemyCounter, enemyDefeatCounter;
+    private int enemyCounter, enemyDefeatCounter, coinCollected;
     [SerializeField]GameObject portal, treasure;
     public void AddEnemyCounter()
     {
@@ -26,6 +26,7 @@ public class GameController : Singleton<GameController>
     }
     void Start()
     {
+        coinCollected = 0;
         if(portal != null) portal.SetActive(false) ;
         if(treasure != null) treasure.SetActive(false);
         if(Player.instance == null) LoadPlayingGameData();
@@ -40,6 +41,14 @@ public class GameController : Singleton<GameController>
         Invoke("SavePlayingGameData", 1f);
     }
 
+    public void Lose()
+    {
+        SaveCoinCollected();
+        SaveGemCollected();
+        UIController.Ins.ShowResult();
+        Destroy(Player.instance.gameObject);
+    }
+
     void AllDefeated()
     {
         if (portal == null) return;
@@ -51,6 +60,8 @@ public class GameController : Singleton<GameController>
         if (AccountManager.currentUsername == null) return;
         tmpList.Single(s => s.username == AccountManager.currentUsername).enemyKilledAmount += enemyDefeatCounter;
         FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
+
+        SaveCoinCollected();
     }
 
     public void LoadPlayingGameData()
@@ -79,7 +90,7 @@ public class GameController : Singleton<GameController>
         if (AccountManager.currentUsername == null) return;
         List<AccountManager.PlayingGameData> playingList = AccountManager.playingGameDataList;
         List<AccountManager.AccountGameData> gameDataList = AccountManager.accountGameDataList;
-        AccountManager.PlayingGameData tmpPlayingGameData = playingList.Single(s=>s.username == AccountManager.currentUsername);
+        AccountManager.PlayingGameData tmpPlayingGameData = playingList.Single(s => s.username == AccountManager.currentUsername);
         AccountManager.AccountGameData tmpGameData = gameDataList.Single(s => s.username == AccountManager.currentUsername);
 
         int id = playingList.GetIndex(tmpPlayingGameData);
@@ -88,14 +99,14 @@ public class GameController : Singleton<GameController>
         tmpPlayingGameData.maxHP = Player.instance.GetComponent<HealthManager>().GetMaxHP();
         tmpPlayingGameData.sceneIndex = RuntimeData.Ins.sceneNameList.GetIndex(SceneManager.GetActiveScene().name);
         List<int> intList = new List<int>();
-        foreach(SkillController tmp in Player.instance.GetComponent<SkillManager>().skillControllersCollected)
+        foreach (SkillController tmp in Player.instance.GetComponent<SkillManager>().skillControllersCollected)
         {
-            intList.Add(RuntimeData.Ins.skillControllerList.IndexOf(RuntimeData.Ins.skillControllerList.Single(s=>s.skillData == tmp.skillData)));
+            intList.Add(RuntimeData.Ins.skillControllerList.IndexOf(RuntimeData.Ins.skillControllerList.Single(s => s.skillData == tmp.skillData)));
         }
         tmpPlayingGameData.skillCollectedList = intList;
 
         // TODO
-        tmpPlayingGameData.gemCollectedAmount = Player.instance.GetComponent<ResourceManager>().gemAmount ;
+        tmpPlayingGameData.gemCollectedAmount = Player.instance.GetComponent<ResourceManager>().gemAmount;
         tmpPlayingGameData.coinAmount = Player.instance.GetComponent<ResourceManager>().coinAmount;
 
         playingList[id] = tmpPlayingGameData;
@@ -103,6 +114,41 @@ public class GameController : Singleton<GameController>
         gameDataList.Single(s => s.username == AccountManager.currentUsername).hasPlayingData = true;
 
         FileHandler.SaveToJSON(playingList, AccountManager.fileName_playingGameData);
+        FileHandler.SaveToJSON(gameDataList, AccountManager.fileName_accountGameData);
+    }
+
+    void SaveGemCollected()
+    {
+        if (AccountManager.currentUsername == null) return;
+        List<AccountManager.AccountGameData> gameDataList = AccountManager.accountGameDataList;
+        AccountManager.AccountGameData tmpGameData = gameDataList.Single(s => s.username == AccountManager.currentUsername);
+
+        int id = gameDataList.GetIndex(tmpGameData);
+        tmpGameData.gemAmount += Player.instance.GetComponent<ResourceManager>().gemAmount;
+
+        tmpGameData.hasPlayingData = false;
+
+        gameDataList[id] = tmpGameData;
+
+        FileHandler.SaveToJSON(gameDataList, AccountManager.fileName_accountGameData);
+    }
+
+    public void AddCoinCollected(int amount)
+    {
+        coinCollected += amount;
+    }
+
+    public void SaveCoinCollected()
+    {
+        if (AccountManager.currentUsername == null) return;
+        List<AccountManager.AccountGameData> gameDataList = AccountManager.accountGameDataList;
+        AccountManager.AccountGameData tmpGameData = gameDataList.Single(s => s.username == AccountManager.currentUsername);
+
+        int id = gameDataList.GetIndex(tmpGameData);
+        tmpGameData.coinCollectedAmount += coinCollected;
+
+        gameDataList[id] = tmpGameData;
+
         FileHandler.SaveToJSON(gameDataList, AccountManager.fileName_accountGameData);
     }
 

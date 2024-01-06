@@ -20,7 +20,8 @@ public class Enemy_Skeleton : Creature
     }
     private void Update()
     {
-        if(player == null)
+        if (Player.instance == null) return;
+        if (player == null)
         {
             player = Player.instance.gameObject.transform;
         }

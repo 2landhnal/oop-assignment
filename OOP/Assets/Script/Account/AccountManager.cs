@@ -50,11 +50,11 @@ public static class AccountManager
     public class AccountGameData
     {
         public string username;
-        public int gemAmount, enemyKilledAmount, bossKilledAmount, gameCompletedAmount;
+        public int gemAmount, enemyKilledAmount, bossKilledAmount, gameCompletedAmount, coinCollectedAmount;
         public int selectingCharacterInfoID;
         public List<int> skillGainedIdList;
         public bool hasPlayingData;
-        public AccountGameData(string username, List<int> skillGainedList, int gemAmount = 0, int enemyKilledAmount = 0, int bossKilledAmount = 0, int gameCompletedAmount = 0, int selectingCharacterInfo = 0, bool hasPlayingData = false)
+        public AccountGameData(string username, List<int> skillGainedList, int gemAmount = 0, int enemyKilledAmount = 0, int bossKilledAmount = 0, int gameCompletedAmount = 0, int selectingCharacterInfo = 0, bool hasPlayingData = false, int coinCollectedAmount = 0)
         {
             this.username = username;
             this.gemAmount = gemAmount;
@@ -64,6 +64,7 @@ public static class AccountManager
             this.skillGainedIdList = skillGainedList;
             this.selectingCharacterInfoID = selectingCharacterInfo;
             this.hasPlayingData = hasPlayingData;
+            this.coinCollectedAmount = coinCollectedAmount;
         }
     }
 

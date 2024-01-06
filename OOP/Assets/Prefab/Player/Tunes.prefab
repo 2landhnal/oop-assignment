@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillControllersCollected: []
-  skillTypeCollected: 0000000004000000
+  skillTypeCollected: 00000000
 --- !u!114 &7584065484108958870
 MonoBehaviour:
   m_ObjectHideFlags: 0

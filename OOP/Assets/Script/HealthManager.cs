@@ -46,7 +46,7 @@ public class HealthManager : MonoBehaviour, IDamageable
         if (currentHP <= 0)
         {
             GetComponent<IDropable>()?.DropItems();
-            creature.Animator_SetDead();
+            creature.Animator_SetDeath();
         }
     }
 }

@@ -56,6 +56,10 @@ public class Player : Creature
     {
         Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).Attack(rb.rotation);
     }
+    public override void BeforeDeath()
+    {
+        GameController.Ins.Lose();
+    }
 
     // Update is called once per frame
     void Update()

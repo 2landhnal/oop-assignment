@@ -13308,9 +13308,9 @@ GameObject:
   - component: {fileID: 1162636025}
   - component: {fileID: 1162636024}
   - component: {fileID: 1162636023}
-  - component: {fileID: 1162636022}
   - component: {fileID: 1162636021}
   - component: {fileID: 1162636020}
+  - component: {fileID: 1162636026}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -13390,21 +13390,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 6}
   m_EdgeRadius: 0
---- !u!114 &1162636022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162636019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d61c8d8044aeb042926deef25ac7abd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPanel: {fileID: 0}
-  contentGrid: {fileID: 0}
-  itemCardPrefab: {fileID: 0}
 --- !u!95 &1162636023
 Animator:
   serializedVersion: 5
@@ -13495,6 +13480,23 @@ Transform:
   - {fileID: 1474119544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162636026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162636019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4243b761e43383c478d3c208b49a67f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillControllerList: []
+  shopPanel: {fileID: 0}
+  contentGrid: {fileID: 0}
+  itemCardPrefab: {fileID: 629797908379515158, guid: f1596ee50c6957d4bb103f6670b5f705, type: 3}
+  triangle: {fileID: 1474119543}
 --- !u!1 &1163919344
 GameObject:
   m_ObjectHideFlags: 0

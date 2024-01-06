@@ -20,7 +20,7 @@ public class Creature : MonoBehaviour, IDropable
     // Start is called before the first frame update
     void Start()
     {
-        OnDeath.AddListener(Death);
+        OnDeath.AddListener(BeforeDeath);
         cbProps = CombatProps.Ins;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -66,10 +66,11 @@ public class Creature : MonoBehaviour, IDropable
         CounterFunc();
     }
 
-    public void Animator_SetDead()
+    public void Animator_SetDeath()
     {
         animator.SetBool("dead", true);
     }
+
     public bool Animator_GetDead()
     {
         return animator.GetBool("dead");
@@ -133,7 +134,7 @@ public class Creature : MonoBehaviour, IDropable
     }
 
     protected virtual void LateStart() { }
-    public virtual void Death()
+    public virtual void BeforeDeath()
     {
         SpriteRenderer v = Instantiate(CombatProps.Ins.bodyPrefab, transform.position, Quaternion.identity);
         v.sprite = sr.sprite;

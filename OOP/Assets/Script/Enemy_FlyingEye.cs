@@ -27,6 +27,11 @@ public class Enemy_FlyingEye : Creature
     }
     private void Update()
     {
+        if (Player.instance == null) return;
+        if (player == null)
+        {
+            player = Player.instance.gameObject.transform;
+        }
         if (CanControl())
         {
             tempFloat = Vector2.Distance(player.position, transform.position);

@@ -13,11 +13,14 @@ public class ResourceManager : MonoBehaviour
     {
         currentPlayingGameData = GetCurrentPlayingGameData();
         id = playingGameDataList.IndexOf(currentPlayingGameData);
+        coinAmount = currentPlayingGameData.coinAmount;
+        gemAmount = currentPlayingGameData.gemCollectedAmount;
     }
 
     public void AddCoin(int amount)
     {
         coinAmount += amount;
+        GameController.Ins.AddCoinCollected(amount);
     }
     public void UseCoin(int amount)
     {

@@ -9,5 +9,6 @@ public class DeathState : StateMachineBehaviour
     {
         creature = animator.GetComponent<Creature>();
         creature.OnDeath?.Invoke();
+        animator.enabled = false;
     }
 }

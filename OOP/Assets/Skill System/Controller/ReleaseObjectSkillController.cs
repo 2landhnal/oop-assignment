@@ -8,7 +8,7 @@ public class ReleaseObjectSkillController : SkillController
     [SerializeField] float radius;
     Vector2 tempV2;
     SpriteRenderer tempSR;
-    Collider2D contact;
+    Collider2D[] contact;
 
     public int GetEnemyLayer()
     {
@@ -30,7 +30,7 @@ public class ReleaseObjectSkillController : SkillController
     {
         AttackPoint tmpAtp = Instantiate(skillObj);
         tmpAtp.SetLayer(skillManager.creature.gameObject);
-        tmpAtp.transform.position = contact.transform.GetCenterPos();
+        tmpAtp.transform.position = contact[Random.Range(0, contact.Length)].transform.GetCenterPos();
     }
     public void TriggerStop()
     {
@@ -44,13 +44,11 @@ public class ReleaseObjectSkillController : SkillController
 
     protected override void CheckForCondition()
     {
-        contact = Physics2D.OverlapCircle(skillManager.creature.transform.position, radius, GetEnemyLayer());
-        if (contact != null)
+        contact = Physics2D.OverlapCircleAll(skillManager.creature.transform.position, radius, GetEnemyLayer());
+        if (contact.Length != 0)
         {
             if(!IsCoolDowning)
             {
-                Debug.Log(LayerMask.LayerToName(GetEnemyLayer()));
-                Debug.Log(contact.name + " " + LayerMask.LayerToName(contact.gameObject.layer));
                 Trigger();
             }
         }
