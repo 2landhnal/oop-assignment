@@ -95,8 +95,8 @@ public class GameController : Singleton<GameController>
         tmpPlayingGameData.skillCollectedList = intList;
 
         // TODO
-        tmpPlayingGameData.gemCollectedAmount = 0;
-        tmpPlayingGameData.coinAmount = 0;
+        tmpPlayingGameData.gemCollectedAmount = Player.instance.GetComponent<ResourceManager>().gemAmount ;
+        tmpPlayingGameData.coinAmount = Player.instance.GetComponent<ResourceManager>().coinAmount;
 
         playingList[id] = tmpPlayingGameData;
 

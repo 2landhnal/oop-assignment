@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class Creature : MonoBehaviour
+public class Creature : MonoBehaviour, IDropable
 {
     [SerializeField]protected Transform groundPoint;
     [SerializeField] protected float speed, jumpForce;
@@ -138,5 +138,16 @@ public class Creature : MonoBehaviour
         SpriteRenderer v = Instantiate(CombatProps.Ins.bodyPrefab, transform.position, Quaternion.identity);
         v.sprite = sr.sprite;
         Destroy(gameObject);
+    }
+
+    public void DropItems()
+    {
+        foreach(var v in EnviromentProps.Ins.itemRates)
+        {
+            if(Random.Range(0, 101) < v.rate)
+            {
+                EnviromentProps.Ins.InstantieItem(v.item, transform.position);
+            }
+        }
     }
 }

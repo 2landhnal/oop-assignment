@@ -7,6 +7,7 @@ public class CombatProps : Singleton<CombatProps>, IObserve
     public float hurtForce, hurtTime, hurtPart;
     public SpriteRenderer bodyPrefab, afterImagePrefab;
     private SkillButtonDrawer skillBtnDrawers;
+    public Currency coinPrefab, gemPrefab;
 
     protected override void Awake()
     {

@@ -8,6 +8,7 @@ public class RankingCard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameLabel, dataLabel;
     [SerializeField] protected Image avtIcon, iconImg;
+    public GameObject border;
 
     protected AccountGameData accountGameData;
 
@@ -27,6 +28,7 @@ public class RankingCard : MonoBehaviour
         avtIcon.sprite = RuntimeData.Ins.avtSprites[userInfo.avtSpriteId];
         nameLabel.text = userInfo.name;
         dataLabel.text = accountGameData.enemyKilledAmount.ToString();
+        border.SetActive(userInfo.username == currentUsername);
     }
 
     public void ShowGem()

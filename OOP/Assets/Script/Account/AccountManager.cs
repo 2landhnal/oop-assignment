@@ -33,6 +33,12 @@ public static class AccountManager
         }
     }
 
+    public static PlayingGameData GetCurrentPlayingGameData()
+    {
+        if (currentUsername == null) return null;
+        return playingGameDataList.Single(s => s.username == currentUsername);
+    }
+
     [Serializable]
     public class CharacterInfo
     {

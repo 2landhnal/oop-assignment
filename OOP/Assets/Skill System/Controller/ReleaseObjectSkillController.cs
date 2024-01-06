@@ -30,7 +30,7 @@ public class ReleaseObjectSkillController : SkillController
     {
         AttackPoint tmpAtp = Instantiate(skillObj);
         tmpAtp.SetLayer(skillManager.creature.gameObject);
-        tmpAtp.transform.position = contact.transform.position;
+        tmpAtp.transform.position = contact.transform.GetCenterPos();
     }
     public void TriggerStop()
     {

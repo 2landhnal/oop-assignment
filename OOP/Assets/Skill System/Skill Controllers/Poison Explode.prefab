@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6467849415621824233}
-  - component: {fileID: 8972909939493523882}
+  - component: {fileID: -9110975853492936060}
   m_Layer: 0
-  m_Name: Laser 2
+  m_Name: Poison Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8972909939493523882
+--- !u!114 &-9110975853492936060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985894111344713054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6470cc90ebda8424cab8b9651e407cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 191628db2c92a9e40b6bdb345cc1528f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
-  type: 2
+  type: 4
   skillData: {fileID: 11400000, guid: 68a7b2f8aac4189448d0a9d867b8e672, type: 2}
   animatorParam: 
-  activeKey: 117
+  activeKey: 0
   OnCoolDowning:
     m_PersistentCalls:
       m_Calls: []
@@ -70,4 +70,6 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
-  openAtStart: 1
+  openAtStart: 0
+  skillObj: {fileID: 7141032985292465604, guid: ae45db658a0109147b0fc99408e2b705, type: 3}
+  radius: 10

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 4749595589181131857}
   - component: {fileID: 5977167517685211208}
   - component: {fileID: 5829600061046566359}
+  - component: {fileID: 7584065484108958870}
   m_Layer: 8
   m_Name: Tunes
   m_TagString: Untagged
@@ -448,8 +449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   immortal: 0
-  Items: {fileID: 0}
-  Quantity: 0
 --- !u!114 &5829600061046566359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,4 +462,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillControllersCollected: []
-  skillTypeCollected: 00000000
+  skillTypeCollected: 0000000004000000
+--- !u!114 &7584065484108958870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600397806170360291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4cd3c7b0217d24e839cd6d5cda3fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmount: 0
+  gemAmount: 0
