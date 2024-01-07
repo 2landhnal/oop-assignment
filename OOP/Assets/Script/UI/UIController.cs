@@ -44,6 +44,7 @@ public class UIController : Singleton<UIController>, IObserve
     }
     public void Menu()
     {
+        if (Player.instance != null) Destroy(Player.instance.gameObject);
         SceneManager.LoadSceneAsync("Lobby v2");
         Time.timeScale = 1f;
     }
