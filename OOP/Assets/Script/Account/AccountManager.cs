@@ -45,6 +45,12 @@ public static class AccountManager
         return accountGameDataList.Single(s => s.username == currentUsername);
     }
 
+    public static UserInfo GetCurrentUserInfo()
+    {
+        if (currentUsername == null) return null;
+        return userInfoList.Single(s => s.username == currentUsername);
+    }
+
     [Serializable]
     public class CharacterInfo
     {

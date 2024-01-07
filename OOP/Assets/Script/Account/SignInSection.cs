@@ -34,6 +34,11 @@ public class SignInSection : MonoBehaviour
         SignInSuccess();
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     void Warn(string txt)
     {
         messPanel.gameObject.SetActive(false);

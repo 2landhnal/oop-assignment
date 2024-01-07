@@ -19,10 +19,10 @@ public class ShopItemCard : MonoBehaviour
         UpdateUI();
         btnComponent.onClick.RemoveAllListeners();
         btnComponent.onClick.AddListener(Trigger);
-        btnComponent.onClick.AddListener(delegate { SkillInfoPanel.Ins.OnShowUp(skillControllerPrefab); });
+        btnComponent.onClick.AddListener(delegate { SkillInfoPanel.Ins.OnShowUp(this); });
     }
 
-    protected virtual void UpdateUI()
+    public virtual void UpdateUI()
     {
         if (skillControllerPrefab == null) return;
         if(skillControllerPrefab.openAtStart || AccountManager.accountGameDataList.Single(s=>s.username == AccountManager.currentUsername).skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab)))

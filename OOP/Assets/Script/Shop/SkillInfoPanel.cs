@@ -14,17 +14,19 @@ public class SkillInfoPanel : Singleton<SkillInfoPanel>
     public TextMeshProUGUI nameTxt, desTxt, priceTxt;
     public GameObject buySection;
     public Button buyBtn;
+    ShopItemCard card;
     AccountManager.AccountGameData currentAccountGameData;
     private void Start()
     {
         gameObject.SetActive(false);
     }
 
-    public void OnShowUp(SkillController controller)
+    public void OnShowUp(ShopItemCard card)
     {
+        this.card = card;
         Debug.Log("Show");
-        skillControllerPrefab = controller;
-        currentAccountGameData = AccountManager.accountGameDataList.Single(s => s.username == AccountManager.currentUsername);
+        skillControllerPrefab = card.skillControllerPrefab;
+        currentAccountGameData = AccountManager.GetCurrentAccountGameData();
         buySection.SetActive(! (skillControllerPrefab.openAtStart || currentAccountGameData.skillGainedIdList.Contains(RuntimeData.Ins.skillControllerList.IndexOf(skillControllerPrefab))));
         buyBtn.interactable = currentAccountGameData.gemAmount >= skillControllerPrefab.skillData.price;
         avtImg.sprite = skillControllerPrefab.skillData.skillIcon;
@@ -39,6 +41,9 @@ public class SkillInfoPanel : Singleton<SkillInfoPanel>
         if (AccountManager.PurchaseGem(skillControllerPrefab.skillData.price))
         {
             AccountManager.UnlockSkill(skillControllerPrefab);
+            Lobby.Ins.UpdateUI();
+            card.UpdateUI();
+            gameObject.SetActive(false);
         }
     }
 }

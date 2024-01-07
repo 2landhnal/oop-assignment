@@ -19,4 +19,4 @@ MonoBehaviour:
   triggerTime: 3
   skillName: Laser
   description: Release a laser beam
-  price: 200
+  price: 50

@@ -81,7 +81,7 @@ public class Lobby : Singleton<Lobby>
         userInfo = userInfoList.Single(s => s.username == currentUsername);
         if (avatarImg.sprite != null) avatarImg.sprite = RuntimeData.Ins.avtSprites[userInfo.avtSpriteId];
         userNameTxt.text = userInfo.name;
-        gemAmountTxt.text = accountGameData.gemAmount.ToString();
+        gemAmountTxt.text = GetCurrentAccountGameData().gemAmount.ToString();
     }
     public void Continue()
     {

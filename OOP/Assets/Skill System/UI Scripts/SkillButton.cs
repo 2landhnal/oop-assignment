@@ -36,6 +36,7 @@ public class SkillButton : MonoBehaviour
         btnComponent.onClick.AddListener(TriggerSkill);
         if(skillController.activeKey != KeyCode.None)activeKeyTxt.text = skillController.activeKey.ToString();
         activeKeyTxt.gameObject.SetActive(skillController.activeKey != KeyCode.None);
+        btnComponent.interactable = (skillController.activeKey != KeyCode.None);
         RegisterEvent();
     }
 

@@ -50,10 +50,21 @@ public class GameController : Singleton<GameController>
     }
     public void Win()
     {
+        AddGameCompleted();
+
         SaveCoinCollected();
         SaveGemCollected();
         UIController.Ins.ShowResult();
         Destroy(Player.instance.gameObject);
+    }
+
+    public void AddGameCompleted()
+    {
+        List<AccountManager.AccountGameData> tmpList = AccountManager.accountGameDataList;
+
+        if (AccountManager.currentUsername == null) return;
+        tmpList.Single(s => s.username == AccountManager.currentUsername).gameCompletedAmount += 1;
+        FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
     }
 
     void AllDefeated()

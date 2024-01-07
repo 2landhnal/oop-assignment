@@ -3,16 +3,17 @@ using UnityEngine;
 using static AccountManager;
 using System.Linq;
 using TMPro;
+using System;
+using System.Collections.Generic;
 
 public class RankingCard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameLabel, dataLabel;
     [SerializeField] protected Image avtIcon, iconImg;
     public GameObject border;
-
+    public float maxSize;
     protected AccountGameData accountGameData;
 
-    public Sprite gemIcon, coinIcon, enemyIcon;
 
     public void Initialize(AccountGameData accountGameData)
     {
@@ -31,11 +32,17 @@ public class RankingCard : MonoBehaviour
         border.SetActive(userInfo.username == currentUsername);
     }
 
-    public void ShowGem()
+    public void ShowIcon(Sprite sprite)
     {
-        iconImg.sprite = gemIcon;
+        iconImg.sprite = sprite;
         iconImg.SetNativeSize();
-        dataLabel.text = accountGameData.gemAmount.ToString();
+        float tmp = MathF.Min(maxSize / iconImg.rectTransform.rect.width, maxSize / iconImg.rectTransform.rect.height);
+        iconImg.transform.localScale = new Vector2(tmp, tmp);
+    }
+
+    public void SetAmountTxt(int amount)
+    {
+        dataLabel.text = amount.ToString();
     }
 
     protected virtual void Trigger()
