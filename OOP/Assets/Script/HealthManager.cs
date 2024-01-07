@@ -1,5 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
+
 public class HealthManager : MonoBehaviour, IDamageable
 {
 
@@ -30,6 +32,15 @@ public class HealthManager : MonoBehaviour, IDamageable
         loaded = true;
         this.maxHP = maxHP;
         currentHP = maxHP * rate;
+    }
+
+    public void RecorverHP(float amount)
+    {
+        currentHP += amount;
+        if(currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
     }
 
     // Update is called once per frame

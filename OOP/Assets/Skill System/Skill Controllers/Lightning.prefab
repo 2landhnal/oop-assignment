@@ -70,6 +70,6 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
-  openAtStart: 0
+  openAtStart: 1
   skillObj: {fileID: 1831090755900272591, guid: d376e4d924e86174caaf33b7de010a9f, type: 3}
   radius: 10

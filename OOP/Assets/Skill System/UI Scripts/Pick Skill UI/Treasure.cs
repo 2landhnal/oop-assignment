@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Treasure : MonoBehaviour
 {
-    [SerializeField]private List<SkillController> controllerList;
+    private List<SkillController> controllerList;
     public bool claimed;
     public GameObject triangle;
     public List<SkillController> ControllerList { get => controllerList; }
@@ -12,6 +12,27 @@ public class Treasure : MonoBehaviour
     private void Start()
     {
         claimed = false;
+        List<int> idList = RuntimeData.Ins.GetListSkillControllerIdCanCollectedButNotCollectedYet();
+        if(idList.Count <= 3 )
+        {
+            controllerList = RuntimeData.Ins.GetSkillControllerPrefabById(idList);
+        }
+        else
+        {
+            controllerList = RuntimeData.Ins.GetSkillControllerPrefabById(GetRandomNSkillIdInList(3, idList));
+        }
+    }
+
+    List<int> GetRandomNSkillIdInList(int n, List<int> list)
+    {
+        List<int> result = new List<int>();
+        for(int i=0; i<n; i++)
+        {
+            int tmp = Random.Range(0, list.Count);
+            result.Add(list[tmp]);
+            list.RemoveAt(tmp);
+        }
+        return result;
     }
 
     public void OnClick()

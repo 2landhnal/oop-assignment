@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
 using static AccountManager;
 
 public class ResourceManager : MonoBehaviour
@@ -11,6 +9,7 @@ public class ResourceManager : MonoBehaviour
     int id;
     private void Start()
     {
+        if (currentUsername == null) return;
         currentPlayingGameData = GetCurrentPlayingGameData();
         id = playingGameDataList.IndexOf(currentPlayingGameData);
         coinAmount = currentPlayingGameData.coinAmount;

@@ -48,6 +48,13 @@ public class GameController : Singleton<GameController>
         UIController.Ins.ShowResult();
         Destroy(Player.instance.gameObject);
     }
+    public void Win()
+    {
+        SaveCoinCollected();
+        SaveGemCollected();
+        UIController.Ins.ShowResult();
+        Destroy(Player.instance.gameObject);
+    }
 
     void AllDefeated()
     {
@@ -62,6 +69,12 @@ public class GameController : Singleton<GameController>
         FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
 
         SaveCoinCollected();
+        Debug.Log(RuntimeData.Ins.sceneNameList[^1]);
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (RuntimeData.Ins.sceneNameList[^1] == SceneManager.GetActiveScene().name)
+        {
+            Win();
+        }
     }
 
     public void LoadPlayingGameData()

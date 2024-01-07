@@ -12,7 +12,7 @@ public class EnviromentProps : Singleton<EnviromentProps>, IObserve
     [Serializable]
     public enum Item
     {
-        Coin, Gem, HP
+        Coin, Gem, HP, Skill
     }
     [Serializable]
     public struct ItemRate
@@ -32,6 +32,8 @@ public class EnviromentProps : Singleton<EnviromentProps>, IObserve
                 Instantiate(CombatProps.Ins.gemPrefab, pos, Quaternion.identity);
                 break;
             case Item.HP:
+                break;
+            case Item.Skill:
                 break;
         }
     }

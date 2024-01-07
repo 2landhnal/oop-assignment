@@ -102,8 +102,12 @@ MonoBehaviour:
     characterPrefab: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}
     name: Tunes
   - animatorController: {fileID: 22100000, guid: f0091cd4559c5444db9dbc99cfedae3e, type: 2}
-    characterPrefab: {fileID: 8600397806170360291, guid: f71c5998b7504cd42b37b0853f93f1c8, type: 3}
+    characterPrefab: {fileID: 8600397806170360291, guid: 2c7fadb880b6f8549968a1d53e34541e, type: 3}
     name: Knight
   sceneNameList:
   - Forest
   - Forest 1
+  traderItemList:
+  - {fileID: 11400000, guid: 37ef521af045e4b4d966435fe1ed31fd, type: 2}
+  - {fileID: 11400000, guid: 633348da768d2054d895e8616c7002a2, type: 2}
+  - {fileID: 11400000, guid: a02d64cce9a7ffa44a5c13ae7bf27f30, type: 2}
