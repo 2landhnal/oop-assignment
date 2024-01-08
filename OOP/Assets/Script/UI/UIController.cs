@@ -9,6 +9,7 @@ public class UIController : Singleton<UIController>, IObserve
     ResourceManager resourceManager;
     public GameObject resultSection;
     public TextMeshProUGUI gemLabelResult, coinLabelResult, playerName;
+    public Text resultTxt;
     public Image avt;
     public GameObject pauseSection;
     public HealthBar bossHB;
@@ -63,6 +64,14 @@ public class UIController : Singleton<UIController>, IObserve
 
     public void ShowResult()
     {
+        if(Player.instance.GetComponent<HealthManager>().currentHP > 0)
+        {
+            resultTxt.text = "Win";
+        }
+        else
+        {
+            resultTxt.text = "Lose";
+        }
         gemLabelResult.text = resourceManager.gemAmount.ToString();
         coinLabelResult.text = resourceManager.coinAmount.ToString();
         resultSection.SetActive(true);
