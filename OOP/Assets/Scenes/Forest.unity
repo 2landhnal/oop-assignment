@@ -10116,6 +10116,7 @@ MonoBehaviour:
   afterImagePrefab: {fileID: 2455118252580969545, guid: 1ba7ca1879a40184da3f02a1e1a82e12, type: 3}
   coinPrefab: {fileID: 4914093395959695867, guid: deda42a5a2e7369418dfc8fe3112ca63, type: 3}
   gemPrefab: {fileID: 4914093395959695867, guid: 5132b142973b1f74eb5f5a2e6be9fc47, type: 3}
+  bloodEffect: {fileID: 4273994833482151679, guid: 2850bc36fe656b44693ab87b799ac9bb, type: 3}
 --- !u!114 &538103270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23803,16 +23804,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1161176214}
-  m_Horizontal: 0
-  m_Vertical: 1
+  m_Horizontal: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 535097149}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 355528717}
+  m_HorizontalScrollbar: {fileID: 355528717}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 2
   m_VerticalScrollbarVisibility: 2
   m_HorizontalScrollbarSpacing: -3

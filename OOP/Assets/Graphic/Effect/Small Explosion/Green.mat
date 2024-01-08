@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Green
+  m_Shader: {fileID: -6465566751694194690, guid: a1bb96a3bb4fc0743a0b588a71b91bd3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DarkSpark:
+        m_Texture: {fileID: 2800000, guid: 6ecc4f950714ccc4980bdc7ba26d9497, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Inside:
+        m_Texture: {fileID: 2800000, guid: ea8cc46db78d2f34993aebc05c344cf7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightSpark:
+        m_Texture: {fileID: 2800000, guid: 98bd7af7711022342b065eeaf9c9ace8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5087cefcc8f7acd45abdf10c4f01b5ac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Midside:
+        m_Texture: {fileID: 2800000, guid: f972c3f6d09392c47a3ffcb77f07ef79, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Outside:
+        m_Texture: {fileID: 2800000, guid: 2290bbe1aa2590c479fbf43b8fa4cfcb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _DarkSpark_Color: {r: 0.3534267, g: 0.99215686, b: 0.011764687, a: 0}
+    - _Inside_Color: {r: 0.012881062, g: 0.72156864, b: 0, a: 1}
+    - _LightSpark_Color: {r: 0.9911022, g: 0.98225087, b: 0.77582246, a: 0}
+    - _Midside_Color: {r: 0.59177476, g: 11.984314, b: 0, a: 0}
+    - _Outside_Color: {r: 14.494118, g: 14.494118, b: 14.054902, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &8172137287705546032
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

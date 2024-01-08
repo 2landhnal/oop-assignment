@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : AttackPoint
 {
     [SerializeField]private float speed, accurate;
+    public GameObject fx;
 
     protected override void ColWithWall()
     {
@@ -18,6 +19,7 @@ public class Bullet : AttackPoint
     }
     void DestroyFunc()
     {
+        if(fx != null)Instantiate(fx, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

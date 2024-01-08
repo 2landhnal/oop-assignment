@@ -53,6 +53,7 @@ public class HealthManager : MonoBehaviour, IDamageable
     {
         if (immortal) return;
         if (currentHP > 0) creature.SetHurtMove(pos);
+        Instantiate(CombatProps.Ins.bloodEffect, transform.GetCenterPos(), Quaternion.identity);
         currentHP -= damage;
         if (currentHP <= 0)
         {

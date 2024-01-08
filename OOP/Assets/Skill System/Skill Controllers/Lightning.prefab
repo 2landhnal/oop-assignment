@@ -71,5 +71,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   openAtStart: 1
-  skillObj: {fileID: 1831090755900272591, guid: d376e4d924e86174caaf33b7de010a9f, type: 3}
+  skillObj: {fileID: 5351140652632804218, guid: d376e4d924e86174caaf33b7de010a9f, type: 3}
   radius: 10
+  fromSelf: 0

@@ -87,16 +87,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2937747ef53e37c4495bea0460da44ff, type: 3}
   skillControllerList:
   - {fileID: -3832140069507066388, guid: fe16a9510eec15a4da05c8f575ac66a3, type: 3}
-  - {fileID: 8972909939493523882, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
-  - {fileID: 8972909939493523882, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
+  - {fileID: -3514622305815155788, guid: db151afd69674f94eac8843f9bb7ad0b, type: 3}
+  - {fileID: -9124500235579405338, guid: fa35465b9edce65489c12c47642b5408, type: 3}
   - {fileID: -6123094443538081888, guid: 387d96cb43b95a84fbf995b431a55f21, type: 3}
   - {fileID: -9110975853492936060, guid: 298e1a7dc00a0dc4cbe74e59d8299ae9, type: 3}
-  - {fileID: 8972909939493523882, guid: b2e0556862baa634b8cdf5ea52d14134, type: 3}
-  - {fileID: 8972909939493523882, guid: fa35465b9edce65489c12c47642b5408, type: 3}
-  - {fileID: 8972909939493523882, guid: 0adf7d11590f5434d9e110795c7f4e07, type: 3}
+  - {fileID: 6007317253158763786, guid: b2e0556862baa634b8cdf5ea52d14134, type: 3}
+  - {fileID: 8596222713001658915, guid: e6e7c85d893160846a3007b1fb7114f5, type: 3}
+  - {fileID: 7340002452503764518, guid: 0adf7d11590f5434d9e110795c7f4e07, type: 3}
   - {fileID: 8972909939493523882, guid: a71e1909a8a941b4785cf4f124552733, type: 3}
   - {fileID: 8972909939493523882, guid: bd3af95b33b72fa4da33257606a55adf, type: 3}
   - {fileID: 8972909939493523882, guid: 6dbf256b925ebee41be445ebe5c48451, type: 3}
+  - {fileID: 6007317253158763786, guid: f9fd65a1bc18ff94dab75ce3f37bed32, type: 3}
   characterInfoList:
   - animatorController: {fileID: 9100000, guid: 7d74ce86b90eea744b1055ef1c2f15b5, type: 2}
     characterPrefab: {fileID: 8600397806170360291, guid: 36c8133f4a1f5114cb2a658595afc284, type: 3}

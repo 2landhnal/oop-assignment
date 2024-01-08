@@ -10116,6 +10116,7 @@ MonoBehaviour:
   afterImagePrefab: {fileID: 2455118252580969545, guid: 1ba7ca1879a40184da3f02a1e1a82e12, type: 3}
   coinPrefab: {fileID: 4914093395959695867, guid: deda42a5a2e7369418dfc8fe3112ca63, type: 3}
   gemPrefab: {fileID: 4914093395959695867, guid: 5132b142973b1f74eb5f5a2e6be9fc47, type: 3}
+  bloodEffect: {fileID: 1908655681346134875, guid: 2691e56655f54074ea229dbc92aa6cad, type: 3}
 --- !u!114 &538103270
 MonoBehaviour:
   m_ObjectHideFlags: 0

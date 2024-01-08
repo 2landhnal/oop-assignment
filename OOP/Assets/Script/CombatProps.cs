@@ -8,6 +8,7 @@ public class CombatProps : Singleton<CombatProps>, IObserve
     public SpriteRenderer bodyPrefab, afterImagePrefab;
     private SkillButtonDrawer skillBtnDrawers;
     public Currency coinPrefab, gemPrefab;
+    public GameObject bloodEffect;
 
     protected override void Awake()
     {
