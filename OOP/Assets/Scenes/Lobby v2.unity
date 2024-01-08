@@ -23074,14 +23074,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
-      propertyPath: skillControllerList.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
-      propertyPath: skillControllerList.Array.data[12]
-      value: 
-      objectReference: {fileID: 6007317253158763786, guid: b2e0556862baa634b8cdf5ea52d14134, type: 3}
     - target: {fileID: 8442531423494301920, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
       propertyPath: m_Name
       value: RuntimeData

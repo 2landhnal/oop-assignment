@@ -7,10 +7,11 @@ public class Player : Creature
     protected float horizontalInput;
     public UnityEvent EnterEvent;
     protected SkillManager skillManager;
-    [SerializeField] protected Bullet bulletPrefab;
+    [HideInInspector]public Bullet bulletPrefab;
     [SerializeField] private Transform attackPoint;
     [HideInInspector]public float gemCollected = 0;
     [HideInInspector] public float coinCollected = 0;
+    [HideInInspector] public GameObject target;
 
     private void Awake()
     {
@@ -54,7 +55,8 @@ public class Player : Creature
     // Archery
     public void ReleaseBullet()
     {
-        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).Attack(rb.rotation);
+        if (bulletPrefab == null) return;
+        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).SetTarget(null, gameObject);
     }
     public override void BeforeDeath()
     {
@@ -103,11 +105,6 @@ public class Player : Creature
             if (Input.GetKeyDown(KeyCode.J))
             {
                 animator.SetBool("attack", true);
-                rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
-            }
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                animator.SetBool("arche", true);
                 rb.velocity = Vector2Extension.CreateVector2(rb.velocity, xToSet: 0);
             }
         }

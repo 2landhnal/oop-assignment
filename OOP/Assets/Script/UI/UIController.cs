@@ -11,6 +11,7 @@ public class UIController : Singleton<UIController>, IObserve
     public TextMeshProUGUI gemLabelResult, coinLabelResult, playerName;
     public Image avt;
     public GameObject pauseSection;
+    public HealthBar bossHB;
     protected override void Awake()
     {
         MakeSingleton(false);

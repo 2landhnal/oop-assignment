@@ -15,6 +15,7 @@ public class EnemyArea : MonoBehaviour
             childs.Add(t);
             GameController.Ins.AddEnemyCounter();
             t.GetComponent<Creature>().OnDeath.AddListener(GameController.Ins.AddEnemyDefeatCounter);
+            t.GetComponent<Creature>().Active();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

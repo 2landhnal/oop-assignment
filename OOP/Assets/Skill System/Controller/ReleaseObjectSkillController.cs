@@ -28,13 +28,14 @@ public class ReleaseObjectSkillController : SkillController
         OnTriggeringStop.AddListener(TriggerStop);
     }
 
-    public void TriggerEnter()
+    protected override void TriggerEnter()
     {
+        base.TriggerEnter();
         if (fromSelf)
         {
             Bullet tmpBullet = Instantiate(skillObj, skillManager.transform.root.transform.GetCenterPos(), Quaternion.identity).GetComponent<Bullet>();
             tmpBullet.SetLayer(skillManager.creature.gameObject);
-            tmpBullet.SetTarget(contact[Random.Range(0, contact.Length)].gameObject);
+            tmpBullet.SetTarget(contact[Random.Range(0, contact.Length)].gameObject, skillManager.creature.gameObject);
             return;
             //tmpBullet.transform.position = contact[Random.Range(0, contact.Length)].transform.GetCenterPos();
         }
@@ -42,14 +43,14 @@ public class ReleaseObjectSkillController : SkillController
         tmpAtp.SetLayer(skillManager.creature.gameObject);
         tmpAtp.transform.position = contact[Random.Range(0, contact.Length)].transform.GetCenterPos();
     }
-    public void TriggerStop()
+    protected override void TriggerStop()
     {
-
+        base.TriggerStop();
     }
 
-    public void SkillUpdate()
+    protected override void SkillUpdate()
     {
-
+        base.SkillUpdate();
     }
 
     protected override void CheckForCondition()

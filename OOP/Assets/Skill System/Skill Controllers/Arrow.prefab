@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6467849415621824233}
-  - component: {fileID: 7340002452503764518}
+  - component: {fileID: 4713372561973384634}
   m_Layer: 0
-  m_Name: Forst Cube
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7340002452503764518
+--- !u!114 &4713372561973384634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5985894111344713054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191628db2c92a9e40b6bdb345cc1528f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91ce36499c7e50a4da8949b0f5512730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
-  type: 5
+  type: 10
   skillData: {fileID: 11400000, guid: 2af9ba2abcbc002479ea984c6aaa70d9, type: 2}
-  animatorParam: 
-  activeKey: 0
+  animatorParam: shoot
+  activeKey: 117
   OnCoolDowning:
     m_PersistentCalls:
       m_Calls: []
@@ -70,7 +70,8 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
-  openAtStart: 1
-  skillObj: {fileID: 2413781559517290221, guid: bcf6be34f11c76843a8b121e49731f4d, type: 3}
+  openAtStart: 0
+  isPrivateSkill: 1
+  skillObj: {fileID: 3822530281728500163, guid: f861ff6e8da8d3b4caaf38efeaf89548, type: 3}
   radius: 10
-  fromSelf: 1
+  fromSelf: 0

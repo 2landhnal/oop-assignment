@@ -143,8 +143,8 @@ TextureImporter:
         y: 231
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,8 +164,8 @@ TextureImporter:
         y: 231
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,8 +185,8 @@ TextureImporter:
         y: 231
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,8 +206,8 @@ TextureImporter:
         y: 231
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,8 +227,8 @@ TextureImporter:
         y: 231
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,8 +248,8 @@ TextureImporter:
         y: 154
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,8 +269,8 @@ TextureImporter:
         y: 154
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,8 +290,8 @@ TextureImporter:
         y: 154
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,8 +311,8 @@ TextureImporter:
         y: 154
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,8 +332,8 @@ TextureImporter:
         y: 154
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,8 +353,8 @@ TextureImporter:
         y: 77
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,8 +374,8 @@ TextureImporter:
         y: 77
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,8 +395,8 @@ TextureImporter:
         y: 77
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,8 +416,8 @@ TextureImporter:
         y: 77
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,8 +437,8 @@ TextureImporter:
         y: 77
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -458,8 +458,8 @@ TextureImporter:
         y: 0
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -479,8 +479,8 @@ TextureImporter:
         y: 0
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -500,8 +500,8 @@ TextureImporter:
         y: 0
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -521,8 +521,8 @@ TextureImporter:
         y: 0
         width: 66
         height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -538,10 +538,10 @@ TextureImporter:
       name: Water Splash 01 - Spritesheet_19
       rect:
         serializedVersion: 2
-        x: 287
-        y: 18
-        width: 13
-        height: 17
+        x: 278
+        y: 24
+        width: 17
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,8 +549,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 975764526ef5a0046b787c5c38824115
-      internalID: 1601161758
+      spriteID: d2554e6e9035d044c9f4e2a90b0660a0
+      internalID: 668094236
       vertices: []
       indices: 
       edges: []
@@ -577,7 +577,7 @@ TextureImporter:
       Water Splash 01 - Spritesheet_16: -125887733
       Water Splash 01 - Spritesheet_17: -943965002
       Water Splash 01 - Spritesheet_18: 80510696
-      Water Splash 01 - Spritesheet_19: 1601161758
+      Water Splash 01 - Spritesheet_19: 668094236
       Water Splash 01 - Spritesheet_2: 801912409
       Water Splash 01 - Spritesheet_3: 1688953842
       Water Splash 01 - Spritesheet_4: -320210434

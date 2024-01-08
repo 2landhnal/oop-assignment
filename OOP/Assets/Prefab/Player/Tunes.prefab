@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a489a335a93bb704986e64d76cbceff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 1
 --- !u!1 &8503551970659479150
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   attackPoint: {fileID: 5254401918393013827}
   gemCollected: 0
   coinCollected: 0
+  target: {fileID: 0}
 --- !u!114 &5977167517685211208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130bf48f59afe8f44a3a6dc93dac3116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 8
   immortal: 0
 --- !u!114 &5829600061046566359
 MonoBehaviour:
@@ -462,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillControllersCollected: []
-  skillTypeCollected: 0000000009000000
+  skillTypeCollected: 000000000a000000
 --- !u!114 &7584065484108958870
 MonoBehaviour:
   m_ObjectHideFlags: 0

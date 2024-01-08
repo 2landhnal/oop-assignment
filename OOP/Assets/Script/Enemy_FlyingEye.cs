@@ -12,14 +12,15 @@ public class Enemy_FlyingEye : Creature
     private Transform player;
     bool chase;
     [SerializeField] protected Bullet bulletPrefab;
+    bool shooted;
 
     protected override void LateStart()
     {
         base.LateStart();
         chase = false;
+        shooted = true;
         index = 0;
         currentPoint = points[0];
-        player = Player.instance.gameObject.transform;
         foreach (Transform t in points)
         {
             t.parent = null;
@@ -41,7 +42,7 @@ public class Enemy_FlyingEye : Creature
             {
                 currentPoint = player.transform;
             }
-            if(chase && tempFloat <= attackRadius)
+            if((chase && tempFloat <= attackRadius) || !shooted)
             {
 
             }
@@ -58,7 +59,8 @@ public class Enemy_FlyingEye : Creature
     }
     public void ReleaseBullet()
     {
-        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).SetTarget(player.gameObject);
+        Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity).SetTarget(player.gameObject, gameObject);
+        shooted = true;
     }
     void Attack()
     {
@@ -66,6 +68,7 @@ public class Enemy_FlyingEye : Creature
         rb.velocity = Vector2.zero;
         transform.FlipToObj(player.position.x);
         animator.SetBool("attack", true);
+        shooted = false;
     }
 
     private void CheckNextPoint()

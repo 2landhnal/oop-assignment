@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : Singleton<GameController>
 {
     public List<GameObject> observes;
-    private int enemyCounter, enemyDefeatCounter, coinCollected;
+    private int enemyCounter, enemyDefeatCounter, coinCollected, bossDefeatCounter;
     [SerializeField]GameObject portal, treasure;
     public void AddEnemyCounter()
     {
@@ -19,6 +19,11 @@ public class GameController : Singleton<GameController>
         {
             AllDefeated();
         }
+    }
+
+    public void AddBossDefeatCounter()
+    {
+        bossDefeatCounter++;
     }
     protected override void Awake()
     {
@@ -77,15 +82,10 @@ public class GameController : Singleton<GameController>
 
         if (AccountManager.currentUsername == null) return;
         tmpList.Single(s => s.username == AccountManager.currentUsername).enemyKilledAmount += enemyDefeatCounter;
+        tmpList.Single(s => s.username == AccountManager.currentUsername).bossKilledAmount += bossDefeatCounter;
         FileHandler.SaveToJSON(tmpList, AccountManager.fileName_accountGameData);
 
         SaveCoinCollected();
-        Debug.Log(RuntimeData.Ins.sceneNameList[^1]);
-        Debug.Log(SceneManager.GetActiveScene().name);
-        if (RuntimeData.Ins.sceneNameList[^1] == SceneManager.GetActiveScene().name)
-        {
-            Win();
-        }
     }
 
     public void LoadPlayingGameData()

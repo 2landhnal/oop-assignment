@@ -6,6 +6,7 @@ public class Bullet : AttackPoint
 {
     [SerializeField]private float speed, accurate;
     public GameObject fx;
+    GameObject parent;
 
     protected override void ColWithWall()
     {
@@ -23,8 +24,15 @@ public class Bullet : AttackPoint
         Destroy(gameObject);
     }
 
-    public void SetTarget(GameObject target)
+    public void SetTarget(GameObject target, GameObject parent)
     {
+        if(target == null)
+        {
+            transform.rotation = parent.transform.rotation;
+            GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+            SetLayerToEnemy(target);
+            return;
+        }
         transform.FollowEnemyRotZV2(target.transform.GetCenterPos());
         GetComponent<Rigidbody2D>().velocity = transform.right*speed;
         SetLayerToEnemy(target);

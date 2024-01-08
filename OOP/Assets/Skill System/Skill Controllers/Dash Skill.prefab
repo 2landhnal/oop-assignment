@@ -71,5 +71,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   openAtStart: 1
+  isPrivateSkill: 1
   dashSpeed: 20
   afterImageDeltaTime: 0.05

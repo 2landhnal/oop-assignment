@@ -24,6 +24,7 @@ public class SkillController : MonoBehaviour
     public UnityEvent<SkillType> OnStopWithType;
 
     public bool openAtStart = false;
+    public bool isPrivateSkill = false;
 
     public float coolDownProgress
     {
@@ -42,6 +43,19 @@ public class SkillController : MonoBehaviour
     {
         if (skillData == null) return;
         damage = skillData.damage;
+    }
+    protected virtual void TriggerEnter()
+    {
+        skillManager.creature.animator.SetBool(animatorParam, true);
+    }
+    protected virtual void TriggerStop()
+    {
+        skillManager.creature.animator.SetBool(animatorParam, false);
+    }
+
+    protected virtual void SkillUpdate()
+    {
+
     }
 
     private void Update()
@@ -67,7 +81,7 @@ public class SkillController : MonoBehaviour
 
     private void CheckForKeyCode()
     {
-        if(Input.GetKeyDown(activeKey))
+        if(Input.GetKeyDown(activeKey) && !isCoolDowning)
         {
             Trigger();
         }

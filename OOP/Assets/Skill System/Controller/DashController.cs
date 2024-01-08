@@ -21,22 +21,23 @@ public class DashController : SkillController
         OnTriggeringStop.AddListener(TriggerStop);
     }
 
-    public void TriggerEnter()
+    protected override void TriggerEnter()
     {
+        base.TriggerEnter();
         tempV2.x = dashSpeed * transform.CheckFaceRight();
         tempV2.y = 0;
-        skillManager.creature.animator.SetBool(animatorParam, true);
         skillManager.GetComponent<HealthManager>().immortal = true;
     }
-    public void TriggerStop()
+    protected override void TriggerStop()
     {
-        skillManager.creature.animator.SetBool(animatorParam, false);
+        base.TriggerStop();
         skillManager.creature.rb.velocity = Vector2.zero;
         skillManager.GetComponent<HealthManager>().immortal = false;
     }
 
-    public void SkillUpdate()
+    protected override void SkillUpdate()
     {
+        base.SkillUpdate();
         if(afterImageCounter > 0)
         {
             afterImageCounter -= Time.deltaTime;

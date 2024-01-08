@@ -28,6 +28,8 @@ public class Creature : MonoBehaviour, IDropable
         col = GetComponent<Collider2D>();
         LateStart();
     }
+
+    public virtual void Active() { }
     private void Update()
     {
         
@@ -107,7 +109,7 @@ public class Creature : MonoBehaviour, IDropable
         }
     }
 
-    public void SetHurtMove(Vector2 pos)
+    public virtual void SetHurtMove(Vector2 pos)
     {
         transform.FlipToObj(pos.x);
 
@@ -121,6 +123,7 @@ public class Creature : MonoBehaviour, IDropable
 
     public bool CheckGrounding()
     {
+        if(groundPoint == null) return false;
         if(EnviromentProps.Ins == null)
         {
             grouding = Physics2D.OverlapCircle(groundPoint.position, .2f, LayerMask.NameToLayer("Ground"));

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4555701066919736929}
   - component: {fileID: 6595824903163047762}
   - component: {fileID: 6247702549980124567}
-  - component: {fileID: 169583289871326204}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -101,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a489a335a93bb704986e64d76cbceff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 1
 --- !u!95 &4555701066919736929
 Animator:
   serializedVersion: 5
@@ -195,19 +194,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 5}
   m_EdgeRadius: 0
---- !u!114 &169583289871326204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841078227874173656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e92bee26ae5d37478416c754946b5c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  maxRayLength: 50

@@ -26,7 +26,8 @@ public class RuntimeData : Singleton<RuntimeData>
         List<int> findeds = new List<int>();
         for(int i=0; i<skillControllerList.Count; i++)
         {
-            if (AccountManager.GetCurrentAccountGameData().skillGainedIdList.Contains(i) || skillControllerList[i].openAtStart)
+            if (skillControllerList[i].isPrivateSkill) continue;
+            if (AccountManager.currentUsername == null || AccountManager.GetCurrentAccountGameData().skillGainedIdList.Contains(i) || skillControllerList[i].openAtStart)
             {
                 findeds.Add(i);
             }
@@ -36,6 +37,7 @@ public class RuntimeData : Singleton<RuntimeData>
     }
     public List<int> GetListSkillControllerIdCanCollectedButNotCollectedYet()
     {
+        if (AccountManager.currentUsername == null) return GetSkillControllerIdCanCollected();
         List<int> collectedList = AccountManager.GetCurrentPlayingGameData().skillCollectedList;
         List<int> findeds = new List<int>();
         foreach (int i in GetSkillControllerIdCanCollected())
