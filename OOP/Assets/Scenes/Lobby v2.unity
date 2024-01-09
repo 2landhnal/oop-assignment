@@ -13271,7 +13271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueBtn: {fileID: 1578974343}
-  startScene: Forest
   selectingCharacterAnimator: {fileID: 1234717079}
   avatarImg: {fileID: 1382537804}
   userNameTxt: {fileID: 572370633}
@@ -22879,6 +22878,18 @@ PrefabInstance:
     - target: {fileID: 4899285229668639343, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
+      propertyPath: sceneNameList.Array.data[0]
+      value: Forest 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
+      propertyPath: sceneNameList.Array.data[1]
+      value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550831870360535300, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
+      propertyPath: sceneNameList.Array.data[2]
+      value: Forest 1
       objectReference: {fileID: 0}
     - target: {fileID: 8442531423494301920, guid: 6948c4176e98d35408893d805fa815d0, type: 3}
       propertyPath: m_Name

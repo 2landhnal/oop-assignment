@@ -15,7 +15,6 @@ public class Lobby : Singleton<Lobby>
         MakeSingleton(false);
     }
     public Button continueBtn;
-    public string startScene;
 
     PlayingGameData playingGameData;
     AccountGameData accountGameData;
@@ -90,7 +89,7 @@ public class Lobby : Singleton<Lobby>
     public void NewGame()
     {
         CreateNewGameData();
-        SceneManager.LoadScene(startScene);
+        SceneManager.LoadScene(RuntimeData.Ins.sceneNameList[GetCurrentPlayingGameData().sceneIndex]);
     }
     public void CreateNewGameData()
     {
