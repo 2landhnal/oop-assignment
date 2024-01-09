@@ -43,7 +43,7 @@ public class ShootSkill : SkillController
     }
     protected override void TriggerStop()
     {
-        Player.instance.bulletPrefab = null;
+        //Player.instance.bulletPrefab = null;
         base.TriggerStop();
     }
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   skillIcon: {fileID: 21300000, guid: 3d9d0c4b113b8e04cbe3efafed9db86e, type: 3}
   backGroundCard: {fileID: 21300000, guid: aeb13b0c85e7f5e4d9209ffcdaed9089, type: 3}
   damage: 0
-  coolDownTime: 0
-  triggerTime: 1
+  coolDownTime: 1.5
+  triggerTime: 0
   skillName: Archer
   description: Shoot an arrow
   price: 50

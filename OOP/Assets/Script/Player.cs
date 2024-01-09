@@ -12,6 +12,7 @@ public class Player : Creature
     [HideInInspector]public float gemCollected = 0;
     [HideInInspector] public float coinCollected = 0;
     [HideInInspector] public GameObject target;
+    [HideInInspector] public UnityEvent skillEvent;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class Player : Creature
         {
             Destroy(gameObject);
         }
+    }
+
+    public void InvokeSkill()
+    {
+        skillEvent?.Invoke();
     }
     protected override void LateStart()
     {

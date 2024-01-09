@@ -35,9 +35,10 @@ public class Boss : Creature
 
     private void OnEnable()
     {
+        if (UIController.Ins == null) return;
+        UIController.Ins.bossHB.SetObject(gameObject);
         healthBar = UIController.Ins.bossHB;
         healthBar.gameObject.SetActive(true);
-        UIController.Ins.bossHB.SetObject(gameObject);
     }
 
     public void SetHealthBarOff()
