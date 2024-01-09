@@ -31,6 +31,7 @@ public class GameController : Singleton<GameController>
     }
     void Start()
     {
+        AudioManager.Ins.StageMusicButton(true);
         coinCollected = 0;
         if(portal != null) portal.SetActive(false) ;
         if(treasure != null) treasure.SetActive(false);

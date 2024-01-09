@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 6615007464290210907}
   - component: {fileID: 8046795863176258277}
   - component: {fileID: 7869452539586248934}
+  - component: {fileID: 1714284360308132229}
   m_Layer: 5
   m_Name: 'Avatar To Pick '
   m_TagString: Untagged
@@ -322,7 +323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5350111019101307354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714284360308132229}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: PlaySfx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7869452539586248934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,3 +349,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatar: {fileID: 5350111019101307354}
+--- !u!114 &1714284360308132229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504731042848017825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13031ce3c332044780bfc9e20cf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter: 0
+  onEnable: 0
+  sfxToPlay: 0
+  playRandom: 0
+  fromIndex: 0
+  toIndex: 0

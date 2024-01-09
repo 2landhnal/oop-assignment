@@ -15,6 +15,7 @@ public class SignInSection : MonoBehaviour
     private void OnEnable()
     {
         warningTxt.gameObject.SetActive(false);
+        AudioManager.Ins.MenuMusicButton(true);
     }
     public void SignIn()
     {

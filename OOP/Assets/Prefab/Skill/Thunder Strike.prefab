@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2010710897579544164}
   - component: {fileID: 3327117057120786545}
   - component: {fileID: 5459435705645332395}
+  - component: {fileID: -5928464461377613002}
   m_Layer: 0
   m_Name: Thunder Strike
   m_TagString: Untagged
@@ -211,3 +212,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   maxRayLength: 50
+--- !u!114 &-5928464461377613002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163720398640944348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13031ce3c332044780bfc9e20cf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter: 1
+  onEnable: 0
+  sfxToPlay: 4
+  playRandom: 0
+  fromIndex: 0
+  toIndex: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4555701066919736929}
   - component: {fileID: 6595824903163047762}
   - component: {fileID: 6247702549980124567}
+  - component: {fileID: -3573632669250388271}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -194,3 +195,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &-3573632669250388271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841078227874173656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13031ce3c332044780bfc9e20cf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter: 1
+  onEnable: 0
+  sfxToPlay: 4
+  playRandom: 0
+  fromIndex: 0
+  toIndex: 0

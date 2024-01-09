@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1110277831543028837}
   - component: {fileID: 6183453083692240301}
   - component: {fileID: 3900006454096082502}
+  - component: {fileID: 5028558350786597342}
   m_Layer: 0
   m_Name: Water Spell 2
   m_TagString: Untagged
@@ -230,3 +231,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   maxRayLength: 50
+--- !u!114 &5028558350786597342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145420427633141877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13031ce3c332044780bfc9e20cf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter: 1
+  onEnable: 0
+  sfxToPlay: 4
+  playRandom: 0
+  fromIndex: 0
+  toIndex: 0

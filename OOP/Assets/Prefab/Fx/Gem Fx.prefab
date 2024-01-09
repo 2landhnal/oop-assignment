@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7030781058082468431}
   - component: {fileID: 2638174715851029703}
   - component: {fileID: 6522999293678962393}
+  - component: {fileID: 1442985235244082914}
   m_Layer: 0
   m_Name: Gem Fx
   m_TagString: Untagged
@@ -4888,3 +4889,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1442985235244082914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650562625983374218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13031ce3c332044780bfc9e20cf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter: 1
+  onEnable: 0
+  sfxToPlay: 2
+  playRandom: 0
+  fromIndex: 0
+  toIndex: 0
