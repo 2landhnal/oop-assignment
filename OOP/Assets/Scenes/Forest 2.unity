@@ -6878,7 +6878,7 @@ Transform:
   m_GameObject: {fileID: 318422074}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.1576, y: 5.1439, z: 0}
+  m_LocalPosition: {x: 2.93, y: 4.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6896,7 +6896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892f95e49873b2f4d8f9b9840442a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallex_effect: 1
+  parallex_effect: 0.25
 --- !u!212 &318422077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7790,7 +7790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892f95e49873b2f4d8f9b9840442a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallex_effect: 0.5
+  parallex_effect: 1
 --- !u!1 &578267414
 GameObject:
   m_ObjectHideFlags: 0
@@ -8071,7 +8071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892f95e49873b2f4d8f9b9840442a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallex_effect: 1
+  parallex_effect: 0.5
 --- !u!212 &587729384
 SpriteRenderer:
   m_ObjectHideFlags: 0
