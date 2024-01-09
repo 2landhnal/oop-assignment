@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4336972607184719440
 Transform:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130bf48f59afe8f44a3a6dc93dac3116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 8
   immortal: 0
 --- !u!114 &9005162420275003296
 MonoBehaviour:
@@ -211,6 +211,7 @@ MonoBehaviour:
       m_Calls: []
   walkRaidus: 10
   attackRadius: 2.1
+  minPeriodDis: 3
 --- !u!1 &864255480079233010
 GameObject:
   m_ObjectHideFlags: 0

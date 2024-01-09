@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130bf48f59afe8f44a3a6dc93dac3116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 5
   immortal: 0
 --- !u!114 &3373119660310185866
 MonoBehaviour:
@@ -474,3 +474,4 @@ MonoBehaviour:
       m_Calls: []
   walkRaidus: 10
   attackRadius: 2.1
+  minPeriodDis: 3

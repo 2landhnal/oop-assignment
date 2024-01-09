@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6467849415621824233}
   - component: {fileID: 6007317253158763786}
   m_Layer: 0
-  m_Name: Water Pillar 2
+  m_Name: Arrow Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 0}
-  type: 9
-  skillData: {fileID: 11400000, guid: 06a7ab36819082c418cfa3e6e7c2af5f, type: 2}
+  type: 2
+  skillData: {fileID: 11400000, guid: f55c852829d34ca4588997ee07104a01, type: 2}
   animatorParam: 
   activeKey: 0
   OnCoolDowning:
@@ -72,6 +72,6 @@ MonoBehaviour:
       m_Calls: []
   openAtStart: 0
   isPrivateSkill: 0
-  skillObj: {fileID: 1145420427633141877, guid: daa82c7760154b64f88e8b1c7e8b096d, type: 3}
+  skillObj: {fileID: 1967902330645582008, guid: f8d2fb9085a01cd4380ca3cdfacde574, type: 3}
   radius: 10
   fromSelf: 0

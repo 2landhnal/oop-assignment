@@ -64,7 +64,7 @@ public class Boss : Creature
         }
 
         base.InsideLateUpdate();
-        transform.FlipToEnemy(Player.instance.transform);
+        if(Player.instance != null)  transform.FlipToEnemy(Player.instance.transform);
     }
 
     private void OnDisable()

@@ -70,7 +70,8 @@ MonoBehaviour:
   OnStopWithType:
     m_PersistentCalls:
       m_Calls: []
-  openAtStart: 1
+  openAtStart: 0
+  isPrivateSkill: 0
   skillObj: {fileID: 3163720398640944348, guid: a9930b96637ce2c4893d68d06ddb2f10, type: 3}
   radius: 10
   fromSelf: 0

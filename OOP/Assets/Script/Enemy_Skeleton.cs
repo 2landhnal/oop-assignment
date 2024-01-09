@@ -9,6 +9,9 @@ public class Enemy_Skeleton : Creature
     int index;
     private Transform player;
     bool attacked;
+    public float minPeriodDis;
+    float walkedDis, lasPos;
+    float checkTime = 3, checkCounter;
 
     protected override void LateStart()
     {
@@ -17,6 +20,8 @@ public class Enemy_Skeleton : Creature
         points.Insert(1, transform.position.x + walkRaidus);
         index = 0;
         currentTarget = points[0];
+        checkCounter = checkTime;
+        lasPos = transform.position.x;
     }
     private void Update()
     {
@@ -27,6 +32,30 @@ public class Enemy_Skeleton : Creature
         }
         if (CanControl())
         {
+            if (checkCounter > 0)
+            {
+                checkCounter -= Time.deltaTime;
+                if(checkCounter < 0)
+                {
+                    if(Mathf.Abs(lasPos - transform.position.x) < minPeriodDis)
+                    {
+                        if(Random.Range(0, 100) < 50)
+                        {
+                            Jump();
+                        }
+                        else
+                        {
+                            NextPoint();
+                        }
+                    }
+                    lasPos = transform.position.x;
+                    checkCounter = checkTime;
+                }
+            }
+            else
+            {
+
+            }
             tempFloat = Vector2.Distance(player.position, transform.position);
             if (tempFloat <= attackRadius) Attack();
             if(!attacked)
@@ -64,6 +93,21 @@ public class Enemy_Skeleton : Creature
         }
     }
 
+    void Jump()
+    {
+        //jump
+        if (grouding || canDoubleJump)
+        {
+            if (canDoubleJump && !grouding)
+            {
+                canDoubleJump = false;
+            }
+            tmpV2.x = rb.velocity.x;
+            tmpV2.y = canDoubleJump ? jumpForce : jumpForce;
+            rb.velocity = tmpV2;
+        }
+    }
+
     void Attack()
     {
         attacked = true;
@@ -75,12 +119,17 @@ public class Enemy_Skeleton : Creature
     {
         if (Mathf.Abs(transform.position.x - currentTarget) < .1f)
         {
-            index++;
-            if (index == points.Count)
-            {
-                index = 0;
-            }
-            currentTarget = points[index];
+            NextPoint();
         }
+    }
+
+    void NextPoint()
+    {
+        index++;
+        if (index == points.Count)
+        {
+            index = 0;
+        }
+        currentTarget = points[index];
     }
 }

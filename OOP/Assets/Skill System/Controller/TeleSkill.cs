@@ -31,6 +31,7 @@ public class TeleSkill : SkillController
     {
         base.TriggerEnter();
         Player player = Player.instance;
+        contact = new Collider2D[0];
         contact = Physics2D.OverlapCircleAll(skillManager.creature.transform.position, radius, GetEnemyLayer());
         if (contact.Length != 0)
         {

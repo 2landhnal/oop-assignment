@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 4713372561973384634, guid: 0adf7d11590f5434d9e110795c7f4e07, type: 3}
   - {fileID: -3005395550069057681, guid: a71e1909a8a941b4785cf4f124552733, type: 3}
   - {fileID: -9015863230497054116, guid: bd3af95b33b72fa4da33257606a55adf, type: 3}
-  - {fileID: 8972909939493523882, guid: 6dbf256b925ebee41be445ebe5c48451, type: 3}
+  - {fileID: 6007317253158763786, guid: 1b549b44e75c26547be5ba5d5b9534af, type: 3}
   - {fileID: 6007317253158763786, guid: f9fd65a1bc18ff94dab75ce3f37bed32, type: 3}
   characterInfoList:
   - animatorController: {fileID: 22100000, guid: 9651c2c8554a33648967e4b2abc546ae, type: 2}
