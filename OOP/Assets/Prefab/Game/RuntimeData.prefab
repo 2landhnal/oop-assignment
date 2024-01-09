@@ -109,8 +109,9 @@ MonoBehaviour:
     characterPrefab: {fileID: 8600397806170360291, guid: 2c7fadb880b6f8549968a1d53e34541e, type: 3}
     name: Knight
   sceneNameList:
-  - Forest
   - Forest 1
+  - Forest
+  - Forest 2
   traderItemList:
   - {fileID: 11400000, guid: 37ef521af045e4b4d966435fe1ed31fd, type: 2}
   - {fileID: 11400000, guid: 633348da768d2054d895e8616c7002a2, type: 2}
