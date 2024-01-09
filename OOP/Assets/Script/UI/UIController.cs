@@ -13,6 +13,8 @@ public class UIController : Singleton<UIController>, IObserve
     public Image avt;
     public GameObject pauseSection;
     public HealthBar bossHB;
+    public Transform shopPanel;
+    public Transform contentGrid;
     protected override void Awake()
     {
         MakeSingleton(false);

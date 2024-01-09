@@ -5,8 +5,6 @@ using static EnviromentProps;
 
 public class Trader : MonoBehaviour
 {
-    public Transform shopPanel;
-    public Transform contentGrid;
     public TraderItemCard itemCardPrefab;
     public GameObject triangle;
     public int itemAmount;
@@ -32,12 +30,12 @@ public class Trader : MonoBehaviour
     }
     public void DrawShop()
     {
-        shopPanel.gameObject.SetActive(true);
-        Helper.ClearChilds(contentGrid);
+        UIController.Ins.shopPanel.gameObject.SetActive(true);
+        Helper.ClearChilds(UIController.Ins.contentGrid);
         foreach (Trader.Item_Price itemData in itemDataList)
         {
             var skillCardClone = Instantiate(itemCardPrefab);
-            Helper.AssignToRoot(contentGrid, skillCardClone.transform, Vector3.zero, Vector3.one);
+            Helper.AssignToRoot(UIController.Ins.contentGrid, skillCardClone.transform, Vector3.zero, Vector3.one);
             skillCardClone.Initialize(itemData, this);
         }
     }
@@ -45,15 +43,15 @@ public class Trader : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("clicked");
-        if (shopPanel.gameObject.activeSelf)
+        if (UIController.Ins.shopPanel.gameObject.activeSelf)
         {
             Player.instance.EnableControl();
-            shopPanel.gameObject.SetActive(false);
+            UIController.Ins.shopPanel.gameObject.SetActive(false);
         }
         else
         {
             Player.instance.DisableControlAndIdle();
-            shopPanel.gameObject.SetActive(true);
+            UIController.Ins.shopPanel.gameObject.SetActive(true);
             DrawShop();
         }
     }
