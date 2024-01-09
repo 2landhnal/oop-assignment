@@ -22,14 +22,12 @@ public static class AccountManager
         public string username;
         public string password;
         public string email;
-        public int age;
 
         public AccountInfor(string username, string password, string email)
         {
             this.username = username;
             this.password = password;
             this.email = email;
-            this.age = 0;
         }
     }
 

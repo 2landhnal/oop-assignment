@@ -9,7 +9,6 @@ public class Boss : Creature
     public Transform[] points;
     public float hideTime;
     float hideCounter;
-    public Light2D lightBud;
     public string[] paraSkillStateList;
     HealthBar healthBar;
     private void Awake()
