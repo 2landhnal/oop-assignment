@@ -197,7 +197,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8d481d0d3528df44c8f72d1d2e1597b6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -281,7 +281,6 @@ MonoBehaviour:
   - {fileID: 3132129340738539617}
   - {fileID: 3529234886541446536}
   hideTime: 1
-  lightBud: {fileID: 8574248141381926593}
   paraSkillStateList:
   - skill 1
   - skill 2
