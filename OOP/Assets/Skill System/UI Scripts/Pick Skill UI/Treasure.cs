@@ -38,7 +38,7 @@ public class Treasure : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("clicked");
-        Player.instance.DisableControlAndIdle();
+        Time.timeScale = 0;
         SkillCardDrawer.Ins.DrawCard(this);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,8 +49,8 @@ public class Treasure : MonoBehaviour
             {
                 Debug.Log("add");
                 triangle.SetActive(true);
-                Player.instance.EnterEvent.RemoveAllListeners();
-                Player.instance.EnterEvent.AddListener(OnClick);
+                Player.instance.SpaceEvent.RemoveAllListeners();
+                Player.instance.SpaceEvent.AddListener(OnClick);
             }
         }
     }
@@ -63,7 +63,7 @@ public class Treasure : MonoBehaviour
             {
                 Debug.Log("remove");
                 triangle.SetActive(false);
-                Player.instance.EnterEvent.RemoveListener(OnClick);
+                Player.instance.SpaceEvent.RemoveListener(OnClick);
             }
         }
     }
@@ -71,8 +71,9 @@ public class Treasure : MonoBehaviour
     public void Picked()
     {
         Player.instance.EnableControl();
-        Player.instance.EnterEvent.RemoveAllListeners();
+        Player.instance.SpaceEvent.RemoveAllListeners();
         claimed = true;
         triangle.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

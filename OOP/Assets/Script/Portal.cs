@@ -9,8 +9,8 @@ public class Portal : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("add");
-            Player.instance.EnterEvent.RemoveAllListeners();
-            Player.instance.EnterEvent.AddListener(OnClick);
+            Player.instance.SpaceEvent.RemoveAllListeners();
+            Player.instance.SpaceEvent.AddListener(OnClick);
             triangle.SetActive(true);
         }
     }
@@ -21,7 +21,7 @@ public class Portal : MonoBehaviour
         {
             Debug.Log("remove");
             triangle.SetActive(false);
-            Player.instance.EnterEvent.RemoveListener(OnClick);
+            Player.instance.SpaceEvent.RemoveListener(OnClick);
         }
     }
 

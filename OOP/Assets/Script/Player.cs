@@ -5,7 +5,7 @@ public class Player : Creature
 {
     public static Player instance;
     protected float horizontalInput;
-    public UnityEvent EnterEvent;
+    public UnityEvent SpaceEvent;
     protected SkillManager skillManager;
     [HideInInspector]public Bullet bulletPrefab;
     [SerializeField] private Transform attackPoint;
@@ -42,12 +42,12 @@ public class Player : Creature
 
     }
 
-    public void DisableControlAndIdle()
+/*    public void DisableControlAndIdle()
     {
         DisableControl();
         skillManager.StopAllSkill();
         rb.velocity = Vector3.zero;
-    }
+    }*/
 
     public void DisableControl()
     {
@@ -74,10 +74,10 @@ public class Player : Creature
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         //enter
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("enter");
-            EnterEvent?.Invoke();
+            SpaceEvent?.Invoke();
         }
         if (CanControl())
         {

@@ -365,7 +365,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: 5ad3a4a0bf098864c9aa1855d5263c7e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  EnterEvent:
+  SpaceEvent:
     m_PersistentCalls:
       m_Calls: []
   bulletPrefab: {fileID: 8902055158538506557, guid: f861ff6e8da8d3b4caaf38efeaf89548, type: 3}

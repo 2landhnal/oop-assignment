@@ -19,20 +19,4 @@ public class Shop : MonoBehaviour
             skillCardClone.Initialize(skill);
         }
     }
-
-    public void OnClick()
-    {
-        Debug.Log("clicked");
-        if(shopPanel.gameObject.activeSelf)
-        {
-            Player.instance.EnableControl();
-            shopPanel.gameObject.SetActive(false);
-        }
-        else
-        {
-            Player.instance.DisableControlAndIdle();
-            shopPanel.gameObject.SetActive(true);
-            DrawShop();
-        }
-    }
 }

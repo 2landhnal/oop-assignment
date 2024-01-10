@@ -45,12 +45,12 @@ public class Trader : MonoBehaviour
         Debug.Log("clicked");
         if (UIController.Ins.shopPanel.gameObject.activeSelf)
         {
-            Player.instance.EnableControl();
+            Time.timeScale = 1f;
             UIController.Ins.shopPanel.gameObject.SetActive(false);
         }
         else
         {
-            Player.instance.DisableControlAndIdle();
+            Time.timeScale = 0f;
             UIController.Ins.shopPanel.gameObject.SetActive(true);
             DrawShop();
         }
@@ -61,8 +61,8 @@ public class Trader : MonoBehaviour
         {
             Debug.Log("add");
             triangle.SetActive(true);
-            Player.instance.EnterEvent.RemoveAllListeners();
-            Player.instance.EnterEvent.AddListener(OnClick);
+            Player.instance.SpaceEvent.RemoveAllListeners();
+            Player.instance.SpaceEvent.AddListener(OnClick);
         }
     }
 
@@ -72,7 +72,7 @@ public class Trader : MonoBehaviour
         {
             Debug.Log("remove");
             triangle.SetActive(false);
-            Player.instance.EnterEvent.RemoveListener(OnClick);
+            Player.instance.SpaceEvent.RemoveListener(OnClick);
         }
     }
 }
