@@ -1,3 +1,2 @@
 # oop-assignment
-Hello anh em
-lô con cặc
+Bài tập lớn OOP
